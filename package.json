@@ -1,0 +1,24 @@
+{
+  "name": "driver1234",
+  "version": "1.0.0",
+  "description": "仿车管云1233微信小程序 框架使用uni-app  ui组件使用uView",
+  "main": "main.js",
+  "dependencies": {
+    "uview-ui": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicolerobinn/driver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicolerobinn/driver/issues"
+  },
+  "homepage": "https://github.com/Nicolerobinn/driver#readme"
+}

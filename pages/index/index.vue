@@ -1,9 +1,8 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+		<u-button size="default">江湖</u-button>
+		<u-button size="medium">夜雨</u-button>
+		<u-button size="mini">十年灯</u-button>
 	</view>
 </template>
 

@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "uni-app",
-  "usingComponents": {
-    "u-button": "/node-modules/uview-ui/components/u-button/u-button"
-  }
+  "navigationBarTitleText": "首页",
+  "usingComponents": {}
 }

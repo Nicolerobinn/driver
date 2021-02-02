@@ -1,1 +1,1 @@
-<view class="content"><u-button vue-id="8dd740cc-1" size="default" bind:__l="__l" vue-slots="{{['default']}}">江湖</u-button><u-button vue-id="8dd740cc-2" size="medium" bind:__l="__l" vue-slots="{{['default']}}">夜雨</u-button><u-button vue-id="8dd740cc-3" size="mini" bind:__l="__l" vue-slots="{{['default']}}">十年灯</u-button></view>
+<view class="content"></view>

@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/my/index",
+    "pages/search/index",
+    "pages/practice/index"
   ],
   "subPackages": [],
   "window": {
@@ -8,6 +11,38 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "balck",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/img/home.png",
+        "selectedIconPath": "static/img/selectHome.png"
+      },
+      {
+        "pagePath": "pages/search/index",
+        "text": "搜索题目",
+        "iconPath": "static/img/search.png",
+        "selectedIconPath": "static/img/selectSearch.png"
+      },
+      {
+        "pagePath": "pages/practice/index",
+        "text": "练习",
+        "iconPath": "static/img/practice.png",
+        "selectedIconPath": "static/img/selectPractice.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "static/img/my.png",
+        "selectedIconPath": "static/img/selectMy.png"
+      }
+    ]
   },
   "usingComponents": {}
 }

@@ -4,17 +4,36 @@
 </template>
 
 <script>
+	import { mapState, mapMutations } from 'vuex'
+	import { PHOTOGRAPH,PICTURE } from '../../utils/constant.js'
 	export default {
 		data() {
 			return {
 				title: 'Hello'
 			}
 		},
-		onLoad() {
-
+        computed: {
+            ...mapState([
+                'searchInteraction'
+            ])
+        },
+		onShow () {
+			if(this.searchInteraction){
+				this.searchInteraction === PHOTOGRAPH?this.getPhotograph():this.getPicture()
+				this.setSearchInteraction('')
+			}
 		},
 		methods: {
 
+            ...mapMutations([
+                'setSearchInteraction'
+            ]),
+			getPhotograph(){
+				console.log('调取相机')
+			},
+			getPicture(){
+				console.log('调取图片')
+			},
 		}
 	}
 </script>

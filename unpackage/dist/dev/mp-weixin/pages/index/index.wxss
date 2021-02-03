@@ -1,5 +1,5 @@
 
-.content {
+.content.data-v-57280228 {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -14,7 +14,16 @@
 	-webkit-justify-content: center;
 	        justify-content: center;
 }
-.logo {
+.top_view.data-v-57280228{
+	padding-left: 12rpx;
+}
+.location.data-v-57280228{
+	font-size: 24rpx;
+}
+.top_view>.iconfont.data-v-57280228{
+	color: #1296db;
+}
+.logo.data-v-57280228 {
 	height: 200rpx;
 	width: 200rpx;
 	margin-top: 200rpx;
@@ -22,7 +31,7 @@
 	margin-right: auto;
 	margin-bottom: 50rpx;
 }
-.text-area {
+.text-area.data-v-57280228 {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -30,8 +39,73 @@
 	-webkit-justify-content: center;
 	        justify-content: center;
 }
-.title {
+.title.data-v-57280228 {
 	font-size: 36rpx;
 	color: #8f8f94;
+}
+.interaction.data-v-57280228{
+	height: 350rpx;
+	width: 100%;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	background-color:#1296db ;
+}
+.interaction>view.data-v-57280228{
+	height: 100rpx;
+	width: 100rpx;
+	border-radius: 50%;
+	background-color: #fff;
+	position: relative;
+}
+.interaction>view.data-v-57280228::before{
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	        transform: translate(-50%,-50%);
+	height: 135rpx;
+	width: 135rpx;
+	border-radius: 50%;
+	background-color:rgba(255, 255, 255, 0.4);
+}
+.interaction>view.data-v-57280228::after{
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	        transform: translate(-50%,-50%);
+	height: 175rpx;
+	width: 175rpx;
+	border-radius: 50%;
+	border:1px solid rgba(255, 255, 255, 0.4);
+}
+.interaction .box.data-v-57280228{
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}
+.interaction .box>text.data-v-57280228{
+	font-size: 16rpx;
+	color:#1296db ;
 }
 

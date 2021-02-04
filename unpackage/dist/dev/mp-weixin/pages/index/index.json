@@ -2,7 +2,9 @@
   "navigationStyle": "custom",
   "navigationBarTitleText": "首页",
   "usingComponents": {
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
     "u-navbar": "/node-modules/uview-ui/components/u-navbar/u-navbar",
-    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon"
+    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
+    "u-swiper": "/node-modules/uview-ui/components/u-swiper/u-swiper"
   }
 }

@@ -1,7 +1,9 @@
 const state= {
     searchInteraction:'',
     userInfo:{},
-    token:''
+    token:'',
+	location:'',
+	locationModel:false
     
 }
 export default state

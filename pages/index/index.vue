@@ -1,34 +1,37 @@
 <template>
 	<view class="content">
-		       <!-- 自定义顶部导航 -->
-		        <u-navbar class="self-nav" :is-back="false" title-color="black"  title="首页">
-		            <view class="top_view"><u-icon name="map-fill"  color="#1296db"></u-icon>   <text class="location" >上海市</text></view> 
-		        </u-navbar>
-				<view class="interaction">
-					<view @click="goTo(PHOTOGRAPH)" class="left_photograph">
-						<view class="box">
-								<u-icon name="camera"  size="40" color="#1296db"></u-icon>   
-								<text class="photograph" >拍照答题</text>
-						</view>
-					</view>
-					<view @click="goTo(PICTURE)" class="right_picture">
-						<view class="box">
-								<u-icon name="photo"  size="40" color="#1296db"></u-icon>   
-								<text class="photograph" >拍照答题</text>
-						</view>
-					</view>
+	   <!-- 自定义顶部导航 -->
+		<u-modal v-model="show" :title="title"  @confirm="confirm" :content="content"></u-modal>
+		<u-navbar class="self-nav" :is-back="false" title-color="black"  title="首页">
+			<view class="top_view"><u-icon name="map-fill"  color="#1296db"></u-icon>   <text class="location" >{{location}}</text></view> 
+		</u-navbar>
+		<view class="interaction">
+			<view @click="goTo(PHOTOGRAPH)"  class="left_photograph">
+				<view class="box">
+						<u-icon name="camera"  size="40" color="#1296db"></u-icon>   
+						<text class="photograph" >拍照答题</text>
 				</view>
-				<u-swiper :list="list"></u-swiper>
+			</view>
+			<view @click="goTo(PICTURE)" class="right_picture">
+				<view class="box">
+						<u-icon name="photo"  size="40" color="#1296db"></u-icon>   
+						<text class="photograph" >拍照答题</text>
+				</view>
+			</view>
+		</view>
+		<u-swiper :list="list"></u-swiper>
 	</view>
 </template>
 
-<script
-	const wx = require('jweixin-module');
-	import { mapMutations } from 'vuex'
+<script>
+	import { mapMutations,mapState } from 'vuex'
 	import { PHOTOGRAPH,PICTURE,TENCENT_KEY } from '../../utils/constant.js'
 	export default {
 		data() {
 			return {
+				show:false,
+				title:'提示',
+				content: '请允许小程序获取您的定位，点击确定获取授权',
 				PHOTOGRAPH:PHOTOGRAPH,
 				PICTURE:PICTURE,
 				list: [{
@@ -43,32 +46,33 @@
 			}
 		},
 		onLoad() {
-			const map  = new wx({
-			  key: TENCENT_KEY // 必填
-			});
-			uni.getLocation({
-			      type: 'wgs84',
-			      success({latitude,longitude}) {
-			        map.reverseGeocoder({
-			          location: {
-			            latitude,
-			            longitude
-			          },
-			          success (res) {
-			            console.log(res.result);
-			          },
-			          fail (res) {
-			            console.log(res);
-			          },
-			          
-			        })
-			      }
+		},
+		onShow(){
+			uni.getSetting({
+			   success:(res)=> {
+			      this.setSearchInteraction(!res.authSetting['scope.userLocation'])
+			   }
 			})
+		},
+		computed:{
+		...mapState(['location','locationModel']),
+		},
+		watch:{
+		  locationModel: {
+			handler(boole) {
+			  this.show = boole
+			},
+			immediate: true
+		  }
 		},
 		methods: {
             ...mapMutations([
                 'setSearchInteraction'
             ]),
+			confirm(){
+			    this.setSearchInteraction(false)
+				uni.openSetting();
+			},
 			goPromote(){
 				this.$u.route({
 					url: 'pages/promote/index',

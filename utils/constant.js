@@ -1,3 +1,3 @@
 export const PHOTOGRAPH  = 'photograph'
 export const PICTURE  = 'picture'
-export const TENCENT_KEY = 'T74BZ-G2634-BN4UB-XVO3D-V25VF-PDFT2'
+export const MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7'

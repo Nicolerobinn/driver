@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/my/index",
     "pages/search/index",
-    "pages/practice/index"
+    "pages/practice/index",
+    "pages/promote/index"
   ],
   "subPackages": [],
   "window": {
@@ -44,6 +45,10 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap81.json"
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请授权位置信息，以便为您提供更好的服"
+    }
+  },
+  "usingComponents": {}
 }

@@ -25,6 +25,11 @@
 			"style": {
 				"navigationBarTitleText": "练习"
 			}
+		},		{
+			"path": "pages/promote/index",
+			"style": {
+				"navigationBarTitleText": "推广二维码"
+			}
 		}
 	],
 	"tabBar": {

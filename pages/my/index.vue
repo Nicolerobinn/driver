@@ -14,7 +14,11 @@
 
 		},
 		methods: {
-
+			goPromote(){
+				this.$u.route({
+					url: 'pages/promote/index',
+				})
+			},
 		}
 	}
 </script>

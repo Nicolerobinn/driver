@@ -69,6 +69,11 @@
             ...mapMutations([
                 'setSearchInteraction'
             ]),
+			goPromote(){
+				this.$u.route({
+					url: 'pages/promote/index',
+				})
+			},
 			goTo(string){
 				this.$u.route({
 					url: 'pages/search/index',

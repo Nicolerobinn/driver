@@ -16,10 +16,9 @@
                 'searchInteraction'
             ])
         },
-		onShow () {
-			if(this.searchInteraction){
-				this.searchInteraction === PHOTOGRAPH?this.takePhoto():this.getPicture()
-				this.setSearchInteraction('')
+		onShow ({type=''}) {
+			if(type){
+				type === PHOTOGRAPH?this.takePhoto():this.getPicture()
 			}
 		},
 		methods: {

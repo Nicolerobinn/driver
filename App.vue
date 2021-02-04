@@ -1,13 +1,38 @@
 <script>
+	import { mapMutations,mapState } from 'vuex'
 	export default {
-		onLaunch: function() {
-			console.log('App Launch')
+		onLaunch() {
+			uni.login({
+    			provider:'weixin',
+				success: res => {
+					this.getUserInfo(res)
+				}
+			})
 		},
-		onShow: function() {
+		onShow() {
 			console.log('App Show')
 		},
-		onHide: function() {
+		onHide() {
 			console.log('App Hide')
+		},
+		computed:{
+			...mapState(['token'])
+		},
+		methods: {
+            ...mapMutations([
+				'setUserInfo',
+				'setToken'
+			]),
+			getUserInfo(obj){
+				uni.getUserInfo({
+					success: async (res) => {
+						const res = await this.$u.api.getSearch({code: obj.code})	
+						const {openid,session_key,token} = res.data || {}
+						this.setUserInfo(obj)
+						this.setToken(token)
+					}
+				})
+			}
 		}
 	}
 </script>

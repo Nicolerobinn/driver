@@ -70,10 +70,13 @@
                 'setSearchInteraction'
             ]),
 			goTo(string){
-				this.setSearchInteraction(string)
-				uni.switchTab({
-					url: '/pages/search/index'
-				});
+				this.$u.route({
+					url: 'pages/search/index',
+					params: {
+						type: string
+					},
+					type:'tab'
+				})
 			}
 		}
 	}

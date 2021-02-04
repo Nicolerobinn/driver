@@ -9,7 +9,6 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
 			}
 		},
         computed: {
@@ -19,49 +18,49 @@
         },
 		onShow () {
 			if(this.searchInteraction){
-				this.searchInteraction === PHOTOGRAPH?this.getPhotograph():this.getPicture()
+				this.searchInteraction === PHOTOGRAPH?this.takePhoto():this.getPicture()
 				this.setSearchInteraction('')
 			}
 		},
 		methods: {
-
             ...mapMutations([
                 'setSearchInteraction'
             ]),
-			getPhotograph(){
-				console.log('调取相机')
+			filterChooseImage(obj){
+				const {count=6,sizeType=['original', 'compressed'],sourceType=['album', 'camera'],callback} = obj
+				uni.chooseImage({
+					count: count, //默认9
+					sizeType: sizeType, //可以指定是原图还是压缩图，默认二者都有
+					sourceType: sourceType, //从相册选择、摄像头
+					success: function(res) {
+						callback(JSON.stringify(res.tempFilePaths))
+					}
+				});
 			},
 			getPicture(){
-				console.log('调取图片')
+				const picture = (string)=>{
+					console.log(string)
+				}
+				this.filterChooseImage({sourceType: ['album'],callback:picture})
 			},
+			takePhoto() {
+				const picture = (string)=>{
+					console.log(string)
+				}
+				this.filterChooseImage({sourceType: ['camera'],callback:picture})
+			},
+			error(e) {
+				console.log(e.detail);
+			},
+			chooseImage() {
+				const picture = (string)=>{
+					console.log(string)
+				}
+				this.filterChooseImage({sourceType: ['album', 'camera'],callback:picture})
+			}
 		}
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style lang="scss" scoped>
 </style>

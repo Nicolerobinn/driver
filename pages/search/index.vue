@@ -16,16 +16,14 @@
                 'searchInteraction'
             ])
         },
-		onShow (option) {
-			const {type=''} = option || {}
-			if(type){
-				type === PHOTOGRAPH?this.takePhoto():this.getPicture()
+		onShow () {
+			if(this.searchInteraction){
+				this.searchInteraction === PHOTOGRAPH?this.takePhoto():this.getPicture()
+				this.setSearchInteraction('')
 			}
 		},
 		methods: {
-            ...mapMutations([
-                'setSearchInteraction'
-            ]),
+            ...mapMutations(['setSearchInteraction']),
 			filterChooseImage(obj){
 				const {count=6,sizeType=['original', 'compressed'],sourceType=['album', 'camera'],callback} = obj
 				uni.chooseImage({

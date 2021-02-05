@@ -30,6 +30,12 @@
 			"style": {
 				"navigationBarTitleText": "推广二维码"
 			}
+		},{
+			"path": "pages/announcementList/index",
+			"style": {
+				"navigationBarTitleText": "平台公告"
+			}
+			
 		}
 	],
 	"tabBar": {

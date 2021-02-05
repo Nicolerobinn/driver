@@ -19,7 +19,10 @@
 				</view>
 			</view>
 		</view>
-		<u-swiper :list="list"></u-swiper>
+		<u-gap height="30" bg-color="#ccc"></u-gap>
+		<u-notice-bar @click="noticeClick" :volumeIcon="true" :moreIcon="true" mode="vertical" :list="barList"></u-notice-bar>
+		<u-gap height="30" bg-color="#ccc"></u-gap>
+		<u-swiper height="300" :list="list"></u-swiper>
 	</view>
 </template>
 
@@ -33,6 +36,12 @@
 				content: '请允许小程序获取您的定位，点击确定获取授权',
 				PHOTOGRAPH:PHOTOGRAPH,
 				PICTURE:PICTURE,
+				barList: [
+					'寒雨连江夜入吴',
+					'平明送客楚山孤',
+					'洛阳亲友如相问',
+					'一片冰心在玉壶'
+				],
 				list: [{
 						image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
 						title: '昨夜星辰昨夜风，画楼西畔桂堂东'
@@ -60,6 +69,7 @@
 			},
 		},
 		methods: {
+            ...mapMutations(['setSearchInteraction']),
 			...mapActions(['getAccurate']),
 		    confirm(){
 				this.$refs.uModal.clearLoading()
@@ -72,31 +82,27 @@
 				  }
 				});
 			},
+			noticeClick(e){	
+				this.$u.route({
+					url: 'pages/announcementList/index',
+				})
+			},
 			goPromote(){
 				this.$u.route({
 					url: 'pages/promote/index',
 				})
 			},
 			goTo(string){
-				this.$u.route({
-					url: 'pages/search/index',
-					params: {
-						type: string
-					},
-					type:'tab'
-				})
+				uni.switchTab({
+					url: '/pages/search/index'
+				});
+				this.setSearchInteraction(string)
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
 	.top_view{
 		padding-left: 12rpx;
 		.iconfont{

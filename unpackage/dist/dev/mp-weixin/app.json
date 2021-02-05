@@ -4,7 +4,8 @@
     "pages/my/index",
     "pages/search/index",
     "pages/practice/index",
-    "pages/promote/index"
+    "pages/promote/index",
+    "pages/announcementList/index"
   ],
   "subPackages": [],
   "window": {

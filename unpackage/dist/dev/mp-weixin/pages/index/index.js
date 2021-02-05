@@ -104,6 +104,12 @@ try {
     uIcon: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 101))
     },
+    uGap: function() {
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-gap/u-gap */ "node-modules/uview-ui/components/u-gap/u-gap").then(__webpack_require__.bind(null, /*! uview-ui/components/u-gap/u-gap.vue */ 177))
+    },
+    uNoticeBar: function() {
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-notice-bar/u-notice-bar */ "node-modules/uview-ui/components/u-notice-bar/u-notice-bar").then(__webpack_require__.bind(null, /*! uview-ui/components/u-notice-bar/u-notice-bar.vue */ 147))
+    },
     uSwiper: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-swiper/u-swiper */ "node-modules/uview-ui/components/u-swiper/u-swiper").then(__webpack_require__.bind(null, /*! uview-ui/components/u-swiper/u-swiper.vue */ 108))
     }
@@ -188,6 +194,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _vuex = __webpack_require__(/*! vuex */ 12);
 var _constant = __webpack_require__(/*! ../../utils/constant.js */ 11);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
@@ -197,6 +206,12 @@ var _constant = __webpack_require__(/*! ../../utils/constant.js */ 11);function 
       content: '请允许小程序获取您的定位，点击确定获取授权',
       PHOTOGRAPH: _constant.PHOTOGRAPH,
       PICTURE: _constant.PICTURE,
+      barList: [
+      '寒雨连江夜入吴',
+      '平明送客楚山孤',
+      '洛阳亲友如相问',
+      '一片冰心在玉壶'],
+
       list: [{
         image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
         title: '昨夜星辰昨夜风，画楼西畔桂堂东' },
@@ -223,7 +238,8 @@ var _constant = __webpack_require__(/*! ../../utils/constant.js */ 11);function 
 
 
 
-  methods: _objectSpread(_objectSpread({},
+  methods: _objectSpread(_objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['setSearchInteraction'])),
   (0, _vuex.mapActions)(['getAccurate'])), {}, {
     confirm: function confirm() {var _this = this;
       this.$refs.uModal.clearLoading();
@@ -236,19 +252,21 @@ var _constant = __webpack_require__(/*! ../../utils/constant.js */ 11);function 
         } });
 
     },
+    noticeClick: function noticeClick(e) {
+      this.$u.route({
+        url: 'pages/announcementList/index' });
+
+    },
     goPromote: function goPromote() {
       this.$u.route({
         url: 'pages/promote/index' });
 
     },
     goTo: function goTo(string) {
-      this.$u.route({
-        url: 'pages/search/index',
-        params: {
-          type: string },
+      uni.switchTab({
+        url: '/pages/search/index' });
 
-        type: 'tab' });
-
+      this.setSearchInteraction(string);
     } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

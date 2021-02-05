@@ -19,3 +19,4 @@ const app = new Vue({
 Vue.use(httpApi, app)
 Vue.use(httpInterceptor, app)
 app.$mount()
+export default app

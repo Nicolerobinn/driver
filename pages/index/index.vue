@@ -1,18 +1,17 @@
 <template>
 	<view class="content">
-	   <!-- 自定义顶部导航 -->
-		<u-modal v-model="show"  ref="uModal" :title="title"  @confirm="confirm" :async-close="true" :content="content"></u-modal>
+		<authModal ref="authModal" />
 		<u-navbar class="self-nav" :is-back="false" title-color="black"  title="首页">
 			<view class="top_view"><u-icon name="map-fill"  color="#1296db"></u-icon>   <text class="location" >{{location}}</text></view> 
 		</u-navbar>
 		<view class="interaction">
-			<view @click="goTo(PHOTOGRAPH)"  class="left_photograph">
+			<view @click="auth(PHOTOGRAPH)"  class="left_photograph">
 				<view class="box">
 						<u-icon name="camera"  size="40" color="#1296db"></u-icon>   
 						<text class="photograph" >拍照答题</text>
 				</view>
 			</view>
-			<view @click="goTo(PICTURE)" class="right_picture">
+			<view @click="auth(PICTURE)" class="right_picture">
 				<view class="box">
 						<u-icon name="photo"  size="40" color="#1296db"></u-icon>   
 						<text class="photograph" >拍照答题</text>
@@ -29,11 +28,10 @@
 <script>
 	import { mapMutations,mapState,mapActions } from 'vuex'
 	import { PHOTOGRAPH,PICTURE } from '../../utils/constant.js'
+	import authModal from '../../components/authModal'
 	export default {
 		data() {
 			return {
-				title:'提示',
-				content: '请允许小程序获取您的定位，点击确定获取授权',
 				PHOTOGRAPH:PHOTOGRAPH,
 				PICTURE:PICTURE,
 				barList: [
@@ -53,33 +51,59 @@
 				],
 			}
 		},
+		components:{
+			authModal
+		},
 		onLoad() {
+			this.getLocation()
 		},
 		computed:{
-			...mapState(['location','locationModel']),
-			show: {
-
-				get(){
-					return this.locationModel;
-				},
-				set(v) {
-					// TODO UI组件库问题，更改了locationModel的值，导致报错，暂不解决
-				}
-
-			},
+			...mapState(['location','token']),
 		},
 		methods: {
-            ...mapMutations(['setSearchInteraction']),
-			...mapActions(['getAccurate']),
-		    confirm(){
-				this.$refs.uModal.clearLoading()
-				uni.openSetting({
-				  success:(res)=> {
-					const boole = res.authSetting['scope.userLocation']
-					if(boole){
-						this.getAccurate()
+			...mapMutations(['setSearchInteraction']),
+			...mapActions(['getAccurate','login']),
+			localtionModal(){
+				uni.showModal({
+					title: '授权提醒',
+					content: '请允许小程序获取您的定位，点击确定获取授权',
+					confirmText:'允许',
+					showCancel:false,
+					success:()=>{
+						this.confirm()
 					}
-				  }
+				})
+			},
+			getLocation(){
+				uni.getSetting({
+					success:(res)=> {                    
+						if (!res.authSetting['scope.userLocation']) {
+							// 未授权
+							uni.authorize({
+								scope: 'scope.userLocation',
+								success:()=> { //1.1 允许授权
+									this.getAccurate()
+								},
+								fail:()=>{    //1.2 拒绝授权
+										this.localtionModal()
+								}
+							})
+						}else{
+							this.getAccurate()
+						}
+					}
+				})
+			},
+			confirm(){
+				uni.openSetting({
+					success:(res)=> {
+						const boole = res.authSetting['scope.userLocation']
+						if(boole){
+							this.getAccurate()
+						}else{
+							this.localtionModal()
+						}
+					}
 				});
 			},
 			noticeClick(e){	
@@ -92,7 +116,25 @@
 					url: 'pages/promote/index',
 				})
 			},
+			async	auth(string){
+				if(!this.token){
+					uni.getSetting({
+						success:(res)=> {               
+							if (res.authSetting['scope.userInfo']) {
+								this.login()
+								this.goTo(string)
+							}else{
+								this.$refs.authModal.show() 
+							
+							}
+						}
+					})
+					return
+				}
+				this.goTo(string)
+			},
 			goTo(string){
+
 				uni.switchTab({
 					url: '/pages/search/index'
 				});

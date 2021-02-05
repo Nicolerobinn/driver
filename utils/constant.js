@@ -1,3 +1,5 @@
 export const PHOTOGRAPH  = 'photograph'
 export const PICTURE  = 'picture'
 export const MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7'
+export const APPID = 'wxe6d3258896d7c705'
+export const SECRET = '3bab34b832d5decd3483ff4cbc5b1095'

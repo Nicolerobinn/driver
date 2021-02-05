@@ -51,5 +51,6 @@
       "desc": "请授权位置信息，以便为您提供更好的服"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap55.json"
 }

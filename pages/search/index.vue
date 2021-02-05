@@ -1,11 +1,13 @@
 <template>
 	<view class="content">
+		<authModal ref="authModal" />
 	</view>
 </template>
 
 <script>
-	import { mapState, mapMutations } from 'vuex'
-	import { PHOTOGRAPH,PICTURE } from '../../utils/constant.js'
+	import { mapState, mapMutations,mapActions } from 'vuex'
+	import authModal from '../../components/authModal'
+	import { PHOTOGRAPH } from '../../utils/constant.js'
 	export default {
 		data() {
 			return {
@@ -13,10 +15,22 @@
 		},
         computed: {
             ...mapState([
-                'searchInteraction'
+                'searchInteraction','token'
             ])
         },
+		components:{
+			authModal
+		},
 		onShow () {
+			if(!this.token){
+				uni.getSetting({
+					success:(res)=> {   
+						if(!res.authSetting['scope.userInfo']){
+							this.$refs.authModal.show() 
+						}
+					}
+				})
+			}
 			if(this.searchInteraction){
 				this.searchInteraction === PHOTOGRAPH?this.takePhoto():this.getPicture()
 				this.setSearchInteraction('')
@@ -30,9 +44,13 @@
 					count: count, //默认9
 					sizeType: sizeType, //可以指定是原图还是压缩图，默认二者都有
 					sourceType: sourceType, //从相册选择、摄像头
-					success: function(res) {
+					success: (res)=> {
 						callback(JSON.stringify(res.tempFilePaths))
+					},
+					fail:(err)=>{
+						console.log(err)
 					}
+					
 				});
 			},
 			getPicture(){
@@ -46,9 +64,6 @@
 					console.log(string)
 				}
 				this.filterChooseImage({sourceType: ['camera'],callback:picture})
-			},
-			error(e) {
-				console.log(e.detail);
 			},
 			chooseImage() {
 				const picture = (string)=>{

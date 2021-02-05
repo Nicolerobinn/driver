@@ -2,3 +2,4 @@ export const BASE_URL='XXX'
 export const hotSearchUrl = '/ebapi/store_api/hot_search';
 export const indexUrl = '/ebapi/public_api/index';
 export const location = 'https://restapi.amap.com/v3/geocode/regeo'
+export const jscode2session = 'https://api.weixin.qq.com/sns/jscode2session'

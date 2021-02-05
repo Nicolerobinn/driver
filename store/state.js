@@ -4,6 +4,5 @@ const state= {
     token:'',
 	location:'',
 	locationModel:false
-    
 }
 export default state

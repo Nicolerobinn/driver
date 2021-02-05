@@ -8605,6 +8605,19 @@ if (hadRuntime) {
 
 /***/ }),
 /* 11 */
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/constant.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.MAP_KEY = exports.PICTURE = exports.PHOTOGRAPH = void 0;var PHOTOGRAPH = 'photograph';exports.PHOTOGRAPH = PHOTOGRAPH;
+var PICTURE = 'picture';exports.PICTURE = PICTURE;
+var MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7';exports.MAP_KEY = MAP_KEY;
+
+/***/ }),
+/* 12 */
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -9716,9 +9729,9 @@ var index = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -9846,7 +9859,7 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/index.js ***!
   \*****************************************************************/
@@ -9855,15 +9868,11 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 16));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 17));
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 17));
-
-
-
-
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 18));
 
 
 
@@ -9880,56 +9889,60 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 
 
 
 
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 21));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 22));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 23));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 24));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 25));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 26));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 27));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 28));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 29));
-
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 19));
-
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 18));
-
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 30));
-
-
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 20));
-
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 31));
-
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 32));
-
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 33));
-
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 34));
-
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 35));
 
 
 
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 36);
 
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 37));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 22));
 
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 38));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 23));
+
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 24));
+
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 25));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 26));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 27));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 28));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 29));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 30));
+
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 20));
+
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 19));
+
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 31));
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 21));
+
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 32));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 33));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 34));
+
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 35));
+
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 36));
 
 
 
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 39));
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 37);
 
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 38));
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 39));
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 40));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 41));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
 // 引入关于是否mixin集成小程序分享的配置
 // import wxshare from './libs/mixin/mpShare.js'
 // 全局挂载引入http相关请求拦截插件
@@ -9997,7 +10010,7 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /*!****************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/mixin/mixin.js ***!
   \****************************************************************************/
@@ -10070,7 +10083,7 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /*!******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/request/index.js ***!
   \******************************************************************************/
@@ -10078,8 +10091,8 @@ var install = function install(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 18));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 19));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 21));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
     // 设置全局默认配置
     value: function setConfig(customConfig) {
@@ -10250,7 +10263,7 @@ new Request();exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /*!***********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/deepMerge.js ***!
   \***********************************************************************************/
@@ -10258,7 +10271,7 @@ new Request();exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // JS对象深度合并
 function deepMerge() {var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -10290,7 +10303,7 @@ function deepMerge() {var target = arguments.length > 0 && arguments[0] !== unde
 deepMerge;exports.default = _default;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /*!***********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/deepClone.js ***!
   \***********************************************************************************/
@@ -10323,7 +10336,7 @@ function deepClone(obj) {
 deepClone;exports.default = _default;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /*!******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/test.js ***!
   \******************************************************************************/
@@ -10564,7 +10577,7 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
   code: code };exports.default = _default;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /*!*************************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/queryParams.js ***!
   \*************************************************************************************/
@@ -10632,7 +10645,7 @@ function queryParams() {var data = arguments.length > 0 && arguments[0] !== unde
 queryParams;exports.default = _default;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /*!*******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/route.js ***!
   \*******************************************************************************/
@@ -10765,7 +10778,7 @@ new Router().route;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /*!************************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/timeFormat.js ***!
   \************************************************************************************/
@@ -10826,7 +10839,7 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 timeFormat;exports.default = _default;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /*!**********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/timeFrom.js ***!
   \**********************************************************************************/
@@ -10834,7 +10847,7 @@ timeFormat;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /**
                                                                                                                                                                                                                                                                                           * 时间戳转为多久之前
@@ -10883,7 +10896,7 @@ function timeFrom() {var dateTime = arguments.length > 0 && arguments[0] !== und
 timeFrom;exports.default = _default;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /*!***************************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/colorGradient.js ***!
   \***************************************************************************************/
@@ -11026,7 +11039,7 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
   colorToRgba: colorToRgba };exports.default = _default;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /*!******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/guid.js ***!
   \******************************************************************************/
@@ -11077,7 +11090,7 @@ function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? 
 guid;exports.default = _default;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /*!*******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/color.js ***!
   \*******************************************************************************/
@@ -11124,7 +11137,7 @@ var color = {
 color;exports.default = _default;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /*!***********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/type2icon.js ***!
   \***********************************************************************************/
@@ -11169,7 +11182,7 @@ function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefi
 type2icon;exports.default = _default;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /*!*************************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/randomArray.js ***!
   \*************************************************************************************/
@@ -11186,7 +11199,7 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 randomArray;exports.default = _default;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /*!*********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/addUnit.js ***!
   \*********************************************************************************/
@@ -11194,7 +11207,7 @@ randomArray;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 21));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
 function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
@@ -11204,7 +11217,7 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 }
 
 /***/ }),
-/* 31 */
+/* 32 */
 /*!********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/random.js ***!
   \********************************************************************************/
@@ -11224,7 +11237,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 random;exports.default = _default;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /*!******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/trim.js ***!
   \******************************************************************************/
@@ -11249,7 +11262,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 trim;exports.default = _default;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /*!*******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/toast.js ***!
   \*******************************************************************************/
@@ -11269,7 +11282,7 @@ toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 34 */
+/* 35 */
 /*!***********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/getParent.js ***!
   \***********************************************************************************/
@@ -11326,7 +11339,7 @@ function getParent(name, keys) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /*!*********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/$parent.js ***!
   \*********************************************************************************/
@@ -11354,7 +11367,7 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 }
 
 /***/ }),
-/* 36 */
+/* 37 */
 /*!*****************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/sys.js ***!
   \*****************************************************************************/
@@ -11372,7 +11385,7 @@ function sys() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /*!**********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/debounce.js ***!
   \**********************************************************************************/
@@ -11411,7 +11424,7 @@ function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== und
 debounce;exports.default = _default;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /*!**********************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/function/throttle.js ***!
   \**********************************************************************************/
@@ -11453,7 +11466,7 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 throttle;exports.default = _default;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /*!******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/config/config.js ***!
   \******************************************************************************/
@@ -11476,7 +11489,7 @@ var version = '1.8.3';var _default =
   'warning'] };exports.default = _default;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /*!******************************************************************************!*\
   !*** /Users/mac/code/driver1234/node_modules/uview-ui/libs/config/zIndex.js ***!
   \******************************************************************************/
@@ -11505,7 +11518,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   indexListSticky: 965 };exports.default = _default;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /*!*************************************************!*\
   !*** /Users/mac/code/driver1234/store/index.js ***!
   \*************************************************/
@@ -11514,11 +11527,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 11));
-var _state = _interopRequireDefault(__webpack_require__(/*! ./state.js */ 42));
-var _mutations = _interopRequireDefault(__webpack_require__(/*! ./mutations.js */ 43));
-var _getters = _interopRequireDefault(__webpack_require__(/*! ./getters.js */ 44));
-var _actions = _interopRequireDefault(__webpack_require__(/*! ./actions.js */ 45));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));
+var _state = _interopRequireDefault(__webpack_require__(/*! ./state.js */ 43));
+var _mutations = _interopRequireDefault(__webpack_require__(/*! ./mutations.js */ 44));
+var _getters = _interopRequireDefault(__webpack_require__(/*! ./getters.js */ 45));
+var _actions = _interopRequireDefault(__webpack_require__(/*! ./actions.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.use(_vuex.default);
 var store = new _vuex.default.Store({
   state: _state.default,
@@ -11529,7 +11542,7 @@ var store = new _vuex.default.Store({
 store;exports.default = _default;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /*!*************************************************!*\
   !*** /Users/mac/code/driver1234/store/state.js ***!
   \*************************************************/
@@ -11544,11 +11557,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   location: '',
   locationModel: false };var _default =
 
-
 state;exports.default = _default;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /*!*****************************************************!*\
   !*** /Users/mac/code/driver1234/store/mutations.js ***!
   \*****************************************************/
@@ -11577,7 +11589,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 mutations;exports.default = _default;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /*!***************************************************!*\
   !*** /Users/mac/code/driver1234/store/getters.js ***!
   \***************************************************/
@@ -11591,7 +11603,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 getters;exports.default = _default;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /*!***************************************************!*\
   !*** /Users/mac/code/driver1234/store/actions.js ***!
   \***************************************************/
@@ -11599,175 +11611,37 @@ getters;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var actions = {};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _constant = __webpack_require__(/*! ../utils/constant.js */ 11);
+var _amapWx = _interopRequireDefault(__webpack_require__(/*! ../static/amap-wx.130.js */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入
 
+var actions = {
+  getAccurate: function getAccurate(_ref) {var commit = _ref.commit;
+    var myAmapFun = new _amapWx.default.AMapWX({ key: _constant.MAP_KEY });
+    uni.getLocation({
+      type: 'wgs84',
+      success: function success(_ref2) {var latitude = _ref2.latitude,longitude = _ref2.longitude;
+        myAmapFun.getRegeo({
+          location: "".concat(longitude, ",").concat(latitude), //经纬度
+          success: function success(res) {var
+            province = res[0].regeocodeData.addressComponent.province;
+            // 设置城市 关闭请求模态框
+            commit('setLocation', province);
+            commit('setLocationModel', false);
+          },
+          fail: function fail(err) {
+            console.log('err', err);
+          } });
+
+      } });
+
+  } };var _default =
 
 actions;exports.default = _default;
-
-/***/ }),
-/* 46 */
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.api.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 47);
-var _constant = __webpack_require__(/*! ./constant.js */ 71);
-var install = function install(Vue, vm) {
-  var getSearch = function getSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.get(_http.hotSearchUrl, {
-      id: 2 });};
-
-  var getInfo = function getInfo() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.indexUrl, params);};
-  vm.$u.api = { getSearch: getSearch, getInfo: getInfo };
-};var _default =
-
-{
-  install: install };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 47 */
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.BASE_URL = void 0;var BASE_URL = 'XXX';exports.BASE_URL = BASE_URL;
-var hotSearchUrl = '/ebapi/store_api/hot_search';exports.hotSearchUrl = hotSearchUrl;
-var indexUrl = '/ebapi/public_api/index';exports.indexUrl = indexUrl;
-var location = 'https://restapi.amap.com/v3/geocode/regeo';exports.location = location;
-
-/***/ }),
-/* 48 */
-/*!************************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.interceptor.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 47);
-// common/http.interceptor.js
-
-// 这里的Vue为Vue对象(非创建出来的实例)，vm为main.js中“Vue.use(httpInterceptor, app)”这一句的第二个参数，
-// 为一个Vue的实例，也即每个页面的"this"
-// 如果需要了解这个install方法是什么，请移步：https://uviewui.com/components/vueUse.html
-var install = function install(Vue, vm) {
-  // 此为自定义配置参数，具体参数见上方说明
-  Vue.prototype.$u.http.setConfig({
-    baseUrl: _http.BASE_URL,
-    loadingText: '努力加载中~',
-    loadingTime: 800
-    // 设置自定义头部content-type
-    // header: {
-    // 	'content-type': 'xxx'
-    // }
-    // ......
-  });
-  // 请求拦截部分，如配置，每次请求前都会执行
-  Vue.prototype.$u.http.interceptor.request = function (config) {
-    // 引用token
-    config.header.token = vm.$store.state.token;
-
-    // 可以对某个url进行特别处理，此url参数为this.$u.get(url)中的url值
-    // if(config.url == '/user/login') config.header.noToken = true; //例子
-    // 最后需要将config进行return
-    return config;
-    // 如果return一个false值，则会取消本次请求
-    // if(config.url == '/user/rest') return false; // 取消某次请求 //例子
-  };
-  // 响应拦截，如配置，每次请求结束都会执行本方法
-  // Vue.prototype.$u.http.interceptor.response = (res) => {
-  // 	return res.result;
-  // }
-};var _default =
-
-{
-  install: install };exports.default = _default;
-
-/***/ }),
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/constant.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.MAP_KEY = exports.PICTURE = exports.PHOTOGRAPH = void 0;var PHOTOGRAPH = 'photograph';exports.PHOTOGRAPH = PHOTOGRAPH;
-var PICTURE = 'picture';exports.PICTURE = PICTURE;
-var MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7';exports.MAP_KEY = MAP_KEY;
-
-/***/ }),
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */
 /*!********************************************************!*\
   !*** /Users/mac/code/driver1234/static/amap-wx.130.js ***!
   \********************************************************/
@@ -11805,6 +11679,90 @@ AMapWX.prototype.getWalkingRoute = function (a) {var b = Object.assign({}, this.
 AMapWX.prototype.getTransitRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);a.strategy && (b.strategy = a.strategy);a.city && (b.city = a.city);a.cityd && (b.cityd = a.cityd);wx.request({ url: "https://restapi.amap.com/v3/direction/transit/integrated", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && (c = c.data.route, a.success({ distance: c.distance || "", taxi_cost: c.taxi_cost ||
         "", transits: c.transits }));}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
 AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);wx.request({ url: "https://restapi.amap.com/v3/direction/riding", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};module.exports.AMapWX = AMapWX;
+
+/***/ }),
+/* 48 */
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.api.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 49);
+var _constant = __webpack_require__(/*! ./constant.js */ 11);
+var install = function install(Vue, vm) {
+  var getSearch = function getSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.get(_http.hotSearchUrl, {
+      id: 2 });};
+
+  var getInfo = function getInfo() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.indexUrl, params);};
+  vm.$u.api = { getSearch: getSearch, getInfo: getInfo };
+};var _default =
+
+{
+  install: install };exports.default = _default;
+
+/***/ }),
+/* 49 */
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.BASE_URL = void 0;var BASE_URL = 'XXX';exports.BASE_URL = BASE_URL;
+var hotSearchUrl = '/ebapi/store_api/hot_search';exports.hotSearchUrl = hotSearchUrl;
+var indexUrl = '/ebapi/public_api/index';exports.indexUrl = indexUrl;
+var location = 'https://restapi.amap.com/v3/geocode/regeo';exports.location = location;
+
+/***/ }),
+/* 50 */
+/*!************************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.interceptor.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 49);
+// common/http.interceptor.js
+
+// 这里的Vue为Vue对象(非创建出来的实例)，vm为main.js中“Vue.use(httpInterceptor, app)”这一句的第二个参数，
+// 为一个Vue的实例，也即每个页面的"this"
+// 如果需要了解这个install方法是什么，请移步：https://uviewui.com/components/vueUse.html
+var install = function install(Vue, vm) {
+  // 此为自定义配置参数，具体参数见上方说明
+  Vue.prototype.$u.http.setConfig({
+    baseUrl: _http.BASE_URL,
+    loadingText: '努力加载中~',
+    loadingTime: 800
+    // 设置自定义头部content-type
+    // header: {
+    // 	'content-type': 'xxx'
+    // }
+    // ......
+  });
+  // 请求拦截部分，如配置，每次请求前都会执行
+  Vue.prototype.$u.http.interceptor.request = function (config) {
+    // 引用token
+    config.header.token = vm.$store.state.token;
+
+    // 可以对某个url进行特别处理，此url参数为this.$u.get(url)中的url值
+    // if(config.url == '/user/login') config.header.noToken = true; //例子
+    // 最后需要将config进行return
+    return config;
+    // 如果return一个false值，则会取消本次请求
+    // if(config.url == '/user/rest') return false; // 取消某次请求 //例子
+  };
+  // 响应拦截，如配置，每次请求结束都会执行本方法
+  // Vue.prototype.$u.http.interceptor.response = (res) => {
+  // 	return res.result;
+  // }
+};var _default =
+
+{
+  install: install };exports.default = _default;
 
 /***/ })
 ]]);

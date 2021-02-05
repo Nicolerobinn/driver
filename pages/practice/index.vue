@@ -4,6 +4,7 @@
 </template>
 
 <script>
+	import { mapState, mapMutations } from 'vuex'
 	export default {
 		data() {
 			return {
@@ -13,6 +14,11 @@
 		onLoad() {
 
 		},
+        computed: {
+            ...mapState([
+                'searchInteraction'
+            ])
+        },
 		methods: {
 
 		}

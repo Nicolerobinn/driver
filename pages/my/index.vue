@@ -4,6 +4,7 @@
 </template>
 
 <script>
+	import { mapMutations,mapState,mapActions } from 'vuex'
 	export default {
 		data() {
 			return {
@@ -13,6 +14,8 @@
 		onLoad() {
 
 		},
+		computed:{
+			...mapState([]),},
 		methods: {
 			goPromote(){
 				this.$u.route({

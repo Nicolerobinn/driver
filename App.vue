@@ -1,7 +1,7 @@
 <script>
 	import {MAP_KEY} from './utils/constant.js'
-	import { mapMutations,mapState } from 'vuex'
-	import amapFile from './static/amap-wx.130.js'  // 引入
+	import { mapMutations,mapState,mapActions } from 'vuex'
+	
 	export default {
 		onLaunch() {
 			this.getLocation()
@@ -29,6 +29,7 @@
 				'setLocation',
 				'setLocationModel'
 			]),
+			...mapActions(['getAccurate']),
 			getLocation(){
 				uni.getSetting({
 					  success:(res)=> {                    
@@ -47,24 +48,6 @@
 							  this.getAccurate()
 						  }
 					  }
-				})
-			},
-			getAccurate(){
-				const myAmapFun = new amapFile.AMapWX({ key: MAP_KEY });
-				uni.getLocation({
-				    type: 'wgs84',
-				    success:({latitude,longitude})=> {	     
-						myAmapFun.getRegeo({
-							location:`${longitude},${latitude}`, //经纬度
-							success: (res) => {
-							const  {province} =   res[0].regeocodeData.addressComponent 
-							this.setLocation(province)
-							}, 
-							fail: (err)=>{ //就是这个  
-								console.log('err',err)  
-							}  
-						})
-					}
 				})
 			},
 			getUserInfo(obj){
@@ -86,4 +69,8 @@
 <style lang="scss">
 	/* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
 	@import "uview-ui/index.scss";
+	/deep/.u-tabbar__content__item__text>text{
+		font-size: 20rpx;
+	}
+
 </style>

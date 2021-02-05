@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 	   <!-- 自定义顶部导航 -->
-		<u-modal v-model="show" :title="title"  @confirm="confirm" :content="content"></u-modal>
+		<u-modal v-model="show"  ref="uModal" :title="title"  @confirm="confirm" :async-close="true" :content="content"></u-modal>
 		<u-navbar class="self-nav" :is-back="false" title-color="black"  title="首页">
 			<view class="top_view"><u-icon name="map-fill"  color="#1296db"></u-icon>   <text class="location" >{{location}}</text></view> 
 		</u-navbar>
@@ -24,12 +24,11 @@
 </template>
 
 <script>
-	import { mapMutations,mapState } from 'vuex'
-	import { PHOTOGRAPH,PICTURE,TENCENT_KEY } from '../../utils/constant.js'
+	import { mapMutations,mapState,mapActions } from 'vuex'
+	import { PHOTOGRAPH,PICTURE } from '../../utils/constant.js'
 	export default {
 		data() {
 			return {
-				show:false,
 				title:'提示',
 				content: '请允许小程序获取您的定位，点击确定获取授权',
 				PHOTOGRAPH:PHOTOGRAPH,
@@ -47,31 +46,31 @@
 		},
 		onLoad() {
 		},
-		onShow(){
-			uni.getSetting({
-			   success:(res)=> {
-			      this.setSearchInteraction(!res.authSetting['scope.userLocation'])
-			   }
-			})
-		},
 		computed:{
-		...mapState(['location','locationModel']),
-		},
-		watch:{
-		  locationModel: {
-			handler(boole) {
-			  this.show = boole
+			...mapState(['location','locationModel']),
+			show: {
+
+				get(){
+					return this.locationModel;
+				},
+				set(v) {
+					// TODO UI组件库问题，更改了locationModel的值，导致报错，暂不解决
+				}
+
 			},
-			immediate: true
-		  }
 		},
 		methods: {
-            ...mapMutations([
-                'setSearchInteraction'
-            ]),
-			confirm(){
-			    this.setSearchInteraction(false)
-				uni.openSetting();
+			...mapActions(['getAccurate']),
+		    confirm(){
+				this.$refs.uModal.clearLoading()
+				uni.openSetting({
+				  success:(res)=> {
+					const boole = res.authSetting['scope.userLocation']
+					if(boole){
+						this.getAccurate()
+					}
+				  }
+				});
 			},
 			goPromote(){
 				this.$u.route({
@@ -120,15 +119,15 @@
 		color: #8f8f94;
 	}
 	.interaction{
-		height: 350rpx;
+		height: 400rpx;
 		width: 100%;
 		align-items: center;
 		justify-content: space-around;
 		display: flex;
 		background-color:#1296db ;
 		&>view{
-			height: 100rpx;
-			width: 100rpx;
+			height: 130rpx;
+			width: 130rpx;
 			border-radius: 50%;
 			background-color: #fff;
 			position: relative;
@@ -138,8 +137,8 @@
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%,-50%);
-				height: 135rpx;
-				width: 135rpx;
+				height: 155rpx;
+				width: 155rpx;
 				border-radius: 50%;
 				background-color:rgba(255, 255, 255, 0.4);
 			}
@@ -149,8 +148,8 @@
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%,-50%);
-				height: 175rpx;
-				width: 175rpx;
+				height: 195rpx;
+				width: 195rpx;
 				border-radius: 50%;
 				border:1px solid rgba(255, 255, 255, 0.4);
 			}
@@ -162,7 +161,7 @@
 				justify-content: center;
 				flex-direction: column;
 				text{
-					font-size: 16rpx;
+					font-size: 20rpx;
 					color:#1296db ;
 				}
 			}

@@ -16,7 +16,8 @@
                 'searchInteraction'
             ])
         },
-		onShow ({type=''}) {
+		onShow (option) {
+			const {type=''} = option || {}
 			if(type){
 				type === PHOTOGRAPH?this.takePhoto():this.getPicture()
 			}

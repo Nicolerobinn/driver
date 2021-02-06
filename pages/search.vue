@@ -6,8 +6,8 @@
 
 <script>
 	import { mapState, mapMutations,mapActions } from 'vuex'
-	import authModal from '../../components/authModal'
-	import { PHOTOGRAPH } from '../../utils/constant.js'
+	import authModal from '../components/authModal'
+	import { PHOTOGRAPH } from '../utils/constant.js'
 	export default {
 		data() {
 			return {

@@ -3,6 +3,9 @@ const state= {
     userInfo:{},
     token:'',
 	location:'',
-	locationModel:false
+	locationModel:false,
+	shareCode:'',
+	buffer:''
+	
 }
 export default state

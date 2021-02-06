@@ -17,9 +17,19 @@
 						<text class="photograph" >拍照答题</text>
 				</view>
 			</view>
-		</view>
+		</view>	
+		<u-grid :col="2" :border="false">
+			<u-grid-item @click="goTo('pages/tutorial')">
+				<u-icon name="question-circle-fill"  color="#5aa2e0" :size="46"></u-icon>
+				<view class="grid-text">使用教程</view>
+			</u-grid-item>
+			<u-grid-item  @click="goTo('pages/promotion')">
+				<u-icon name="plus-people-fill"  color="#5aa2e0" :size="46"></u-icon>
+				<view class="grid-text">我要推广</view>
+			</u-grid-item>
+		</u-grid>
 		<u-gap height="30" bg-color="#ccc"></u-gap>
-		<u-notice-bar @click="noticeClick" :volumeIcon="true" :moreIcon="true" mode="vertical" :list="barList"></u-notice-bar>
+		<u-notice-bar @click="noticeClick('pages/announcementList')" :volumeIcon="true" :moreIcon="true" mode="vertical" :list="barList"></u-notice-bar>
 		<u-gap height="30" bg-color="#ccc"></u-gap>
 		<u-swiper height="300" :list="list"></u-swiper>
 	</view>
@@ -27,8 +37,8 @@
 
 <script>
 	import { mapMutations,mapState,mapActions } from 'vuex'
-	import { PHOTOGRAPH,PICTURE } from '../../utils/constant.js'
-	import authModal from '../../components/authModal'
+	import { PHOTOGRAPH,PICTURE } from '../utils/constant.js'
+	import authModal from '../components/authModal'
 	export default {
 		data() {
 			return {
@@ -106,23 +116,18 @@
 					}
 				});
 			},
-			noticeClick(e){	
+			goTo(url){
 				this.$u.route({
-					url: 'pages/announcementList/index',
+					url: url,
 				})
 			},
-			goPromote(){
-				this.$u.route({
-					url: 'pages/promote/index',
-				})
-			},
-			async	auth(string){
+			auth(string){
 				if(!this.token){
 					uni.getSetting({
 						success:(res)=> {               
 							if (res.authSetting['scope.userInfo']) {
 								this.login()
-								this.goTo(string)
+								this.tabGoTo(string)
 							}else{
 								this.$refs.authModal.show() 
 							
@@ -131,12 +136,12 @@
 					})
 					return
 				}
-				this.goTo(string)
+				this.tabGoTo(string)
 			},
-			goTo(string){
+			tabGoTo(string){
 
 				uni.switchTab({
-					url: '/pages/search/index'
+					url: '/pages/search'
 				});
 				this.setSearchInteraction(string)
 			}
@@ -214,5 +219,8 @@
 				}
 			}
 		}
+	}
+	.grid-text{
+		font-size: 20rpx;
 	}
 </style>

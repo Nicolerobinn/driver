@@ -33,7 +33,7 @@ const actions= {
 			}
 		})
 	},
-	login({dispatch,commit},isAuthor){
+	login({dispatch,commit,state},isAuthor){
 		if(isAuthor){
 			uni.showToast({
 				icon: "loading",
@@ -55,6 +55,16 @@ const actions= {
 						position: 'center'
 					})
 				}
+				console.log('shareCode',state.shareCode)
+				// const loginRes = await app.$u.api.login({openid:openid,shareCode:state.shareCode})
+				// const { myShareCode } = loginRes 
+				const myShareCode = '123'
+				const tokenRes = await app.$u.api.getWXToken()
+				const { access_token ='' }   = tokenRes 
+				const codeRes  = await app.$u.api.getGetwxacode({access_token:access_token,path:`pages/my?shareCode=${myShareCode}`})
+				const { buffer,contentType } = codeRes 
+				console.log('buffer',buffer)
+				commit('setWXBuffer',buffer)
 				commit('setToken',openid)
 			}
 		})

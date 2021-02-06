@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/my/index",
-    "pages/search/index",
-    "pages/practice/index",
-    "pages/promote/index",
-    "pages/announcementList/index"
+    "pages/index",
+    "pages/my",
+    "pages/search",
+    "pages/practice",
+    "pages/promote",
+    "pages/announcementList",
+    "pages/tutorial",
+    "pages/promotion"
   ],
   "subPackages": [],
   "window": {
@@ -21,25 +23,25 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/index",
         "text": "首页",
         "iconPath": "static/img/home.png",
         "selectedIconPath": "static/img/selectHome.png"
       },
       {
-        "pagePath": "pages/search/index",
+        "pagePath": "pages/search",
         "text": "搜索题目",
         "iconPath": "static/img/search.png",
         "selectedIconPath": "static/img/selectSearch.png"
       },
       {
-        "pagePath": "pages/practice/index",
+        "pagePath": "pages/practice",
         "text": "练习",
         "iconPath": "static/img/practice.png",
         "selectedIconPath": "static/img/selectPractice.png"
       },
       {
-        "pagePath": "pages/my/index",
+        "pagePath": "pages/my",
         "text": "我的",
         "iconPath": "static/img/my.png",
         "selectedIconPath": "static/img/selectMy.png"
@@ -51,6 +53,5 @@
       "desc": "请授权位置信息，以便为您提供更好的服"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap55.json"
+  "usingComponents": {}
 }

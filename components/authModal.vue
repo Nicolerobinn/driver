@@ -39,6 +39,7 @@
 			token(a){
 				if(a){
 					this.modalShow = false
+					this.$emit('onChange')
 				}
 			}
 		},

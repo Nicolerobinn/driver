@@ -14,6 +14,12 @@ const mutations= {
 	setLocationModel(state,boolea){
         state.locationModel = boolea
     },
+	setShareCode(state,string){
+        state.shareCode = string
+	},
+	setWXBuffer(state,string){
+        state.buffer = string
+	}
     
 }
 export default mutations

@@ -6,5 +6,4 @@ export const location = 'https://restapi.amap.com/v3/geocode/regeo'			 // 高德
 export const jscode2session = 'https://api.weixin.qq.com/sns/jscode2session' //openid
 export const wxToken = 'https://api.weixin.qq.com/cgi-bin/token' //获取微信token
 export const getwxacode = 'https://api.weixin.qq.com/wxa/getwxacode' //获取小程序码
-export const auth = 'https://api.weixin.qq.com/sns/auth' //获取小程序码
 

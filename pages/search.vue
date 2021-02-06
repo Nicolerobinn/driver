@@ -27,6 +27,8 @@
 					success:(res)=> {   
 						if(!res.authSetting['scope.userInfo']){
 							this.$refs.authModal.show() 
+						}else{
+							this.login()
 						}
 					}
 				})

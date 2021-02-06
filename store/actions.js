@@ -1,7 +1,7 @@
 import app from '../main'
 import {  MAP_KEY } from '../utils/constant.js'
 import amapFile from '../static/amap-wx.130.js'  // 引入
-
+import {getwxacode}from '../utils/http.url.js'
 const actions= {
 	// 授权后 获取地理位置
     getAccurate({ commit }) {
@@ -61,11 +61,19 @@ const actions= {
 				const myShareCode = '123'
 				const tokenRes = await app.$u.api.getWXToken()
 				const { access_token ='' }   = tokenRes 
-				const codeRes  = await app.$u.api.getGetwxacode({access_token:access_token,path:`pages/my?shareCode=${myShareCode}`})
-				const { buffer,contentType } = codeRes 
-				console.log('buffer',buffer)
-				commit('setWXBuffer',buffer)
-				commit('setToken',openid)
+				wx.request({
+					url: `${getwxacode}?access_token=${access_token}`,
+					method: 'POST',
+					responseType: "arraybuffer",
+					data: JSON.stringify({path:`pages/my?shareCode=${myShareCode}`}),
+					success(res) {
+						commit('setWXBuffer',res.data)
+						commit('setToken',openid)
+					},
+					fill(){
+						commit('setToken',openid)
+					}
+				})
 			}
 		})
 	},

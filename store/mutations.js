@@ -19,6 +19,9 @@ const mutations= {
 	},
 	setWXBuffer(state,string){
         state.buffer = string
+	},
+	setPhoneNumber(state,string){
+        state.phoneNumber = string
 	}
     
 }

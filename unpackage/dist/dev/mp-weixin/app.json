@@ -4,12 +4,17 @@
     "pages/my",
     "pages/search",
     "pages/practice",
-    "pages/promote",
     "pages/announcementList",
-    "pages/tutorial",
-    "pages/promotion"
+    "pages/personal"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        "promotion"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",

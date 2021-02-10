@@ -5,7 +5,7 @@
 			</view>
 			<view class="butotn_box u-flex">
 				<view class="left">
-					<u-button open-type="getUserInfo" type="primary" @getuserinfo="getUserInfo" :custom-style="leftCustomStyle" >允许</u-button>
+					<u-button open-type="getPhoneNumber" type="primary" @bindgetphonenumber="getPhoneNumber" :custom-style="leftCustomStyle" >允许</u-button>
 				</view>
 				<view class="right" @click="modalShow = false" >
 					拒绝
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-	import { mapState,mapActions,mapMutations } from 'vuex'
+	import { mapState,mapActions } from 'vuex'
 	export default {
 		data() {
 			return {
 				modalShow:false,
 				title:'授权提醒',
-				content:'请授权头像等信息，以便为您提供更好的服务',
+				content:'请绑定手机号，以便为您提供更好的服务',
 				leftCustomStyle:{
 					borderRadius:0,
 					border:0,
@@ -33,10 +33,10 @@
 
 		},
 		computed:{
-			...mapState(['token'])	
+			...mapState(['phoneNumber'])	
 		},
 		watch:{
-			token(a){
+			phoneNumber(a){
 				if(a){
 					this.modalShow = false
 					this.$emit('onChange')
@@ -44,16 +44,15 @@
 			}
 		},
 		methods: {
-			...mapMutations(['setUserInfo']),
-			...mapActions(['login']),
+			...mapActions(['setPhoneNumber']),
 			show(){
 				this.modalShow = true
 			},
 			getUserInfo(e){   //授权个人信息
 			console.log(e)
-				if (e.detail.userInfo){
-					this.setUserInfo(e)
-					this.login(true)
+                const { phoneNumber } = e.detail
+				if (phoneNumber){
+                    setPhoneNumber(phoneNumber)
 				} else {
 					uni.showToast({
 						icon: "none",

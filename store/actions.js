@@ -28,8 +28,7 @@ const actions= {
 	getUserInfo({commit},){
 		uni.getUserInfo({
 			success: res => {
-				console.log(res)
-				commit('setUserInfo',res)
+				commit('setUserInfo',res.userInfo)
 			}
 		})
 	},
@@ -55,7 +54,6 @@ const actions= {
 						position: 'center'
 					})
 				}
-				console.log('shareCode',state.shareCode)
 				// const loginRes = await app.$u.api.login({openid:openid,shareCode:state.shareCode})
 				// const { myShareCode } = loginRes 
 				const myShareCode = '123'
@@ -65,7 +63,7 @@ const actions= {
 					url: `${getwxacode}?access_token=${access_token}`,
 					method: 'POST',
 					responseType: "arraybuffer",
-					data: JSON.stringify({path:`pages/my?shareCode=${myShareCode}`}),
+					data: JSON.stringify({path:`pages/my?shareCode=${myShareCode}`,is_hyaline:false}),
 					success(res) {
 						commit('setWXBuffer',res.data)
 						commit('setToken',openid)

@@ -2,30 +2,6 @@
 # yarn lockfile v1
 
 
-base64-arraybuffer@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npm.taobao.org/base64-arraybuffer/download/base64-arraybuffer-0.2.0.tgz#4b944fac0191aa5907afe2d8c999ccc57ce80f45"
-  integrity sha1-S5RPrAGRqlkHr+LYyZnMxXzoD0U=
-
-css-line-break@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/css-line-break/download/css-line-break-1.1.1.tgz#d5e9bdd297840099eb0503c7310fd34927a026ef"
-  integrity sha1-1em90peEAJnrBQPHMQ/TSSegJu8=
-  dependencies:
-    base64-arraybuffer "^0.2.0"
-
-html2canvas@^1.0.0-rc.7:
-  version "1.0.0-rc.7"
-  resolved "https://registry.npm.taobao.org/html2canvas/download/html2canvas-1.0.0-rc.7.tgz#70c159ce0e63954a91169531894d08ad5627ac98"
-  integrity sha1-cMFZzg5jlUqRFpUxiU0IrVYnrJg=
-  dependencies:
-    css-line-break "1.1.1"
-
-jweixin-module@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.npm.taobao.org/jweixin-module/download/jweixin-module-1.6.0.tgz#4a7ea614083e3c9c3f49e2fdc2bb882cfa58dfcd"
-  integrity sha1-Sn6mFAg+PJw/SeL9wruILPpY380=
-
 uview-ui@^1.8.3:
   version "1.8.3"
   resolved "https://registry.npm.taobao.org/uview-ui/download/uview-ui-1.8.3.tgz#c2602a6bf7b3eef603fd632959eb3450ad4a0b9b"

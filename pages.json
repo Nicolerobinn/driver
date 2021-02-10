@@ -2,6 +2,15 @@
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
+    "subPackages": [{
+        "root": "pagesA",
+        "pages": [{
+			"path": "promotion",
+			"style": {
+				"navigationBarTitleText": "推广二维码"
+			}
+		}]
+    }],
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index",
@@ -13,7 +22,9 @@
 		{
 			"path": "pages/my",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor":"#1296db",
+				"navigationBarTextStyle":"white"  //状态栏字体颜色
 			}
 		},		{
 			"path": "pages/search",
@@ -25,28 +36,22 @@
 			"style": {
 				"navigationBarTitleText": "练习"
 			}
-		},		{
-			"path": "pages/promote",
-			"style": {
-				"navigationBarTitleText": "推广二维码"
-			}
 		},{
 			"path": "pages/announcementList",
 			"style": {
 				"navigationBarTitleText": "平台公告"
 			}
-		},{
-			"path": "pages/tutorial",
-			"style": {
-				"navigationBarTitleText": "使用教程"
-			}
-		},{
-			"path": "pages/promotion",
-			"style": {
-				"navigationBarTitleText": "推广二维码"
-			}
 		}
-	],
+	    ,{
+            "path" : "pages/personal",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 			"color":"#333",
 			"selectedColor":"#1296db",

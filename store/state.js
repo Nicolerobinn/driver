@@ -5,7 +5,8 @@ const state= {
 	location:'',
 	locationModel:false,
 	shareCode:'',
-	buffer:''
+	buffer:'',
+	phoneNumber:''
 	
 }
 export default state

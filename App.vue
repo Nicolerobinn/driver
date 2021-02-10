@@ -35,5 +35,8 @@
 	/deep/.u-tabbar__content__item__text>text{
 		font-size: 20rpx;
 	}
-
+	page{
+		height: 100%;
+		background-color: #e4e3e3;
+	}
 </style>

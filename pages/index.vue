@@ -23,14 +23,14 @@
 				<u-icon name="question-circle-fill"  color="#5aa2e0" :size="46"></u-icon>
 				<view class="grid-text">使用教程</view>
 			</u-grid-item>
-			<u-grid-item  @click="goTo('pages/promotion')">
+			<u-grid-item  @click="goTo('pagesA/promotion')">
 				<u-icon name="plus-people-fill"  color="#5aa2e0" :size="46"></u-icon>
 				<view class="grid-text">我要推广</view>
 			</u-grid-item>
 		</u-grid>
-		<u-gap height="30" bg-color="#ccc"></u-gap>
+		<u-gap height="30" ></u-gap>
 		<u-notice-bar @click="noticeClick('pages/announcementList')" :volumeIcon="true" :moreIcon="true" mode="vertical" :list="barList"></u-notice-bar>
-		<u-gap height="30" bg-color="#ccc"></u-gap>
+		<u-gap height="30" ></u-gap>
 		<u-swiper height="300" :list="list"></u-swiper>
 	</view>
 </template>
@@ -95,7 +95,7 @@
 									this.getAccurate()
 								},
 								fail:()=>{    //1.2 拒绝授权
-										this.localtionModal()
+									this.localtionModal()
 								}
 							})
 						}else{

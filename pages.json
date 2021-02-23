@@ -2,20 +2,20 @@
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
-    "subPackages": [{
-        "root": "pagesA",
-        "pages": [{
+	"subPackages": [{
+		"root": "pagesA",
+		"pages": [{
 			"path": "promotion",
 			"style": {
 				"navigationBarTitleText": "推广二维码"
 			}
 		}]
-    }],
+	}],
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index",
 			"style": {
-				"navigationStyle":"custom",
+				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页"
 			}
 		},
@@ -23,67 +23,66 @@
 			"path": "pages/my",
 			"style": {
 				"navigationBarTitleText": "我的",
-				"navigationBarBackgroundColor":"#1296db",
-				"navigationBarTextStyle":"white"  //状态栏字体颜色
+				"navigationBarBackgroundColor": "#1296db",
+				"navigationBarTextStyle": "white" //状态栏字体颜色
 			}
-		},		{
+		}, {
 			"path": "pages/search",
 			"style": {
-				"navigationBarTitleText": "找答案"
+				"navigationBarTitleText": "搜索题目"
+				// "navigationBarBackgroundColor": "#FFFFFF",
+				// "navigationBarTextStyle": "white"
 			}
-		},		{
+		}, {
 			"path": "pages/practice",
 			"style": {
 				"navigationBarTitleText": "练习"
 			}
-		},{
+		}, {
 			"path": "pages/announcementList",
 			"style": {
 				"navigationBarTitleText": "平台公告"
 			}
+		}, {
+			"path": "pages/personal",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/personal",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "个人资料",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"tabBar": {
-			"color":"#333",
-			"selectedColor":"#1296db",
-			"borderStyle":"black",
-			"backgroundColor":"#ffffff",
-			"list": [
-				{
-					"pagePath":"pages/index",
-					"text":"首页",
-					"iconPath":"static/img/home.png",
-					"selectedIconPath":"static/img/selectHome.png"
-				},
-				{
-					"pagePath":"pages/search",
-					"text":"搜索题目",
-					"iconPath":"static/img/search.png",
-					"selectedIconPath":"static/img/selectSearch.png"
-				},
-				{
-					"pagePath":"pages/practice",
-					"text":"练习",
-					"iconPath":"static/img/practice.png",
-					"selectedIconPath":"static/img/selectPractice.png"
-				},
-				{
-					"pagePath":"pages/my",
-					"text":"我的",
-					"iconPath":"static/img/my.png",
-					"selectedIconPath":"static/img/selectMy.png"
-				}
-			]	
-		},
+		"color": "#333",
+		"selectedColor": "#1296db",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index",
+				"text": "首页",
+				"iconPath": "static/img/home.png",
+				"selectedIconPath": "static/img/selectHome.png"
+			},
+			{
+				"pagePath": "pages/search",
+				"text": "搜索题目",
+				"iconPath": "static/img/search.png",
+				"selectedIconPath": "static/img/selectSearch.png"
+			},
+			{
+				"pagePath": "pages/practice",
+				"text": "练习",
+				"iconPath": "static/img/practice.png",
+				"selectedIconPath": "static/img/selectPractice.png"
+			},
+			{
+				"pagePath": "pages/my",
+				"text": "我的",
+				"iconPath": "static/img/my.png",
+				"selectedIconPath": "static/img/selectMy.png"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -1,12 +1,13 @@
 const state= {
     searchInteraction:'',
-    userInfo:{},
-    token:'',
+    userInfo:'',
+    openId:'',
 	location:'',
 	locationModel:false,
 	shareCode:'',
 	buffer:'',
-	phoneNumber:''
-	
+	phoneNumber:'',
+	questionArr:[],
+	loginCode:''
 }
 export default state

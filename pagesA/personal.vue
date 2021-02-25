@@ -5,7 +5,7 @@
 		</u-cell-item>
 		<u-cell-item :arrow="false" title="名字">{{userInfo.nickName}}</u-cell-item>
 		<u-cell-item :arrow="false" title="手机号码">{{phoneNumber}}</u-cell-item>
-		<u-cell-item :arrow="false" title="ID号">{{token}}</u-cell-item>
+		<u-cell-item :arrow="false" title="ID号">{{openid}}</u-cell-item>
 	</u-cell-group>
 </template>
 
@@ -18,7 +18,7 @@
 			};
 		},
         computed: {
-            ...mapState([ 'phoneNumber','userInfo','token' ])
+            ...mapState([ 'phoneNumber','userInfo','openid' ])
         },
 	}
 </script>

@@ -19,7 +19,7 @@ const install = (Vue, vm) => {
  	// 请求拦截部分，如配置，每次请求前都会执行
      Vue.prototype.$u.http.interceptor.request = (config) => {
 		// 引用token
-		config.header.token = vm.$store.state.token;
+		config.header.openid = vm.$store.state.openId;
 		
 		// 可以对某个url进行特别处理，此url参数为this.$u.get(url)中的url值
 		// if(config.url == '/user/login') config.header.noToken = true; //例子

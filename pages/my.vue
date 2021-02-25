@@ -1,6 +1,6 @@
 <template>
 	<view class="content">  
-		<authModal ref="authModal" />
+		<authModal ref="authModal" @onChange="authModalChange" />
 		<authPhoneModal ref="authPhoneModal" />
 		<view class="top_box">
 			<view class=" u-flex user-box u-p-r-20 " @click="goTo('pages/personal')">
@@ -56,32 +56,41 @@
 
 		},
         computed: {
-            ...mapState([ 'phoneNumber','token','userInfo' ])
+            ...mapState([ 'phoneNumber','openId','userInfo' ])
         },
-		watch:{
-			userInfo:{
-				handler(avc){
-					console.log(avc)
-					
-				}	
-			}
-		},
 		onShow () {
-			if(!this.token){
-				uni.getSetting({
-					success:(res)=> {   
-						if(!res.authSetting['scope.userInfo']){
-							this.$refs.authModal.show() 
-						}else{
-							this.login()
+			if(!this.openId){
+				uni.login({
+						provider: 'weixin',
+						success: async ({
+							code
+						}) => {
+							this.setLoginCode(code)
+							uni.getSetting({
+								success:(res)=> {  
+									// 判断是否获取到用户信息权限
+									if(!res.authSetting['scope.userInfo']){
+										// 弹出权限弹框
+										this.$refs.authModal.show() 
+									}else{
+										// 获取手机号
+										if(!this.userInfo){
+											this.$refs.authModal.show() 
+										}else{
+											this.authModalChange()
+										}
+									}
+								}
+							})
 						}
-					}
 				})
-				return
 			}
 		},
 		methods: {
-			...mapActions(['login']),
+			...mapMutations(['setLoginCode']),
+			authModalChange(){
+				this.$refs.authPhoneModal.show()
+			},
 			goTo(url){
 				this.$u.route({
 					url: url,

@@ -5,8 +5,8 @@ const mutations= {
     setUserInfo(state,obj){
         state.userInfo = obj
     },
-    setToken(state,string){
-        state.token = string
+    setOpenid(state,string){
+        state.openId = string
     },
     setLocation(state,string){
         state.location = string
@@ -22,6 +22,13 @@ const mutations= {
 	},
 	setPhoneNumber(state,string){
         state.phoneNumber = string
+	},
+	setQusetionArr(state,arr){
+		console.log(arr)
+        state.qusetionArr = arr
+	},
+	setLoginCode(state,code){
+        state.loginCode = code
 	}
     
 }

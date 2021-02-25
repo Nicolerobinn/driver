@@ -1,6 +1,7 @@
 <template>
 	<view class="content">
-		<authModal ref="authModal" />
+		<authModal ref="authModal" @onChange="authModalChange" />
+		<authPhoneModal ref="authPhoneModal" />
 		<u-navbar class="self-nav" :is-back="false" title-color="black"  title="首页">
 			<view class="top_view"><u-icon name="map-fill"  color="#1296db"></u-icon>   <text class="location" >{{location}}</text></view> 
 		</u-navbar>
@@ -36,9 +37,10 @@
 </template>
 
 <script>
-	import { mapMutations,mapState,mapActions } from 'vuex'
 	import { PHOTOGRAPH,PICTURE } from '../utils/constant.js'
-	import authModal from '../components/authModal'
+	import { mapMutations,mapState,mapActions } from 'vuex'
+	import {authModal} from '../components/authModal.vue'
+	import {authPhoneModal} from '../components/authPhoneModal.vue'
 	export default {
 		data() {
 			return {
@@ -61,17 +63,28 @@
 				],
 			}
 		},
-		components:{
-			authModal
-		},
 		onLoad() {
+			if(!this.openId){
+				uni.login({
+						provider: 'weixin',
+						success: async ({
+							code
+						}) => {
+							this.setLoginCode(code)
+						}
+				})
+			}
 			this.getLocation()
 		},
-		computed:{
-			...mapState(['location','token']),
+        computed: {
+            ...mapState([ 'phoneNumber','location','openId','userInfo' ])
+        },
+		components:{
+			authPhoneModal,
+			authModal
 		},
 		methods: {
-			...mapMutations(['setSearchInteraction']),
+			...mapMutations(['setSearchInteraction','setLoginCode']),
 			...mapActions(['getAccurate','login']),
 			localtionModal(){
 				uni.showModal({
@@ -122,15 +135,20 @@
 				})
 			},
 			auth(string){
-				if(!this.token){
+				if(!this.openId){
 					uni.getSetting({
-						success:(res)=> {               
-							if (res.authSetting['scope.userInfo']) {
-								this.login()
-								this.tabGoTo(string)
-							}else{
+						success:(res)=> {  
+							// 判断是否获取到用户信息权限
+							if(!res.authSetting['scope.userInfo']){
+								// 弹出权限弹框
 								this.$refs.authModal.show() 
-							
+							}else{
+								// 获取手机号
+								if(!this.userInfo){
+									this.$refs.authModal.show() 
+								}else{
+									this.authModalChange()
+								}
 							}
 						}
 					})
@@ -138,8 +156,10 @@
 				}
 				this.tabGoTo(string)
 			},
+			authModalChange(){
+				this.$refs.authPhoneModal.show()
+			},
 			tabGoTo(string){
-
 				uni.switchTab({
 					url: '/pages/search'
 				});

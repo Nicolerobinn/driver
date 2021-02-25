@@ -33,27 +33,18 @@
 
 		},
 		computed:{
-			...mapState(['token'])	
-		},
-		watch:{
-			token(a){
-				if(a){
-					this.modalShow = false
-					this.$emit('onChange')
-				}
-			}
+			...mapState(['openId'])	
 		},
 		methods: {
 			...mapMutations(['setUserInfo']),
-			...mapActions(['login']),
 			show(){
 				this.modalShow = true
 			},
-			getUserInfo(e){   //授权个人信息
-			console.log(e)
-				if (e.detail.userInfo){
-					this.setUserInfo(e)
-					this.login(true)
+			getUserInfo({detail}){   //授权个人信息
+				if (detail.userInfo){
+					this.setUserInfo(detail.userInfo)
+					this.modalShow = false
+					this.$emit('onChange')
 				} else {
 					uni.showToast({
 						icon: "none",

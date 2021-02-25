@@ -1,6 +1,6 @@
 {
 	"easycom": {
-		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+		 "^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"subPackages": [{
 		"root": "pagesA",
@@ -8,6 +8,18 @@
 			"path": "promotion",
 			"style": {
 				"navigationBarTitleText": "推广二维码"
+			}
+		}, {
+			"path": "personal",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "announcementList",
+			"style": {
+				"navigationBarTitleText": "平台公告"
 			}
 		}]
 	}],
@@ -18,38 +30,23 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页"
 			}
-		},
-		{
+		},		{
 			"path": "pages/my",
 			"style": {
 				"navigationBarTitleText": "我的",
 				"navigationBarBackgroundColor": "#1296db",
 				"navigationBarTextStyle": "white" //状态栏字体颜色
 			}
-		}, {
+		},		{
 			"path": "pages/search",
 			"style": {
 				"navigationBarTitleText": "搜索题目"
-				// "navigationBarBackgroundColor": "#FFFFFF",
-				// "navigationBarTextStyle": "white"
 			}
-		}, {
+		},{
 			"path": "pages/practice",
 			"style": {
 				"navigationBarTitleText": "练习"
 			}
-		}, {
-			"path": "pages/announcementList",
-			"style": {
-				"navigationBarTitleText": "平台公告"
-			}
-		}, {
-			"path": "pages/personal",
-			"style": {
-				"navigationBarTitleText": "个人资料",
-				"enablePullDownRefresh": false
-			}
-
 		}
 	],
 	"tabBar": {

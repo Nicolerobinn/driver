@@ -1,30 +1,15 @@
 <script>
-	import { mapMutations,mapState,mapActions } from 'vuex'
 	export default {
 		onLaunch() {
 		},
 		onLoad(){
-			if(!this.token){
-				uni.getSetting({
-					success:(res)=> {               
-						if (res.authSetting['scope.userInfo']) {
-							this.login()
-						}
-					}
-				})
-			}
+			console.log('onLoad')
 		},
 		onShow() {
 			console.log('App Show')
 		},
 		onHide() {
 			console.log('App Hide')
-		},
-		computed:{
-			...mapState(['token'])
-		},
-		methods:{
-			...mapActions(['login'])
 		}
 	}
 </script>

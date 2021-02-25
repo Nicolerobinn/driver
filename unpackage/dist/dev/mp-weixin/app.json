@@ -3,15 +3,15 @@
     "pages/index",
     "pages/my",
     "pages/search",
-    "pages/practice",
-    "pages/announcementList",
-    "pages/personal"
+    "pages/practice"
   ],
   "subPackages": [
     {
       "root": "pagesA",
       "pages": [
-        "promotion"
+        "promotion",
+        "personal",
+        "announcementList"
       ]
     }
   ],
@@ -58,6 +58,5 @@
       "desc": "请授权位置信息，以便为您提供更好的服"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap36.json"
+  "usingComponents": {}
 }

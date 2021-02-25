@@ -1,14 +1,16 @@
 <template>
 	<view class="content">
+		<authModal ref="authModal" @onChange="authModalChange" />
+		<authPhoneModal ref="authPhoneModal" />
 		<view class="top">
 			<u-row>
 				<u-col span="2">
-					<view class="blueBox">
+					<view class="blueBox" @click="chooseImage()"> 
 						<u-icon name='camera-fill' size="55" class='camera' color='#ffff'></u-icon>
 					</view>
 				</u-col>
 				<u-col span="10">
-					<view class="input">
+					<view class="input"  @click="chooseImage()">
 						<u-icon name='search' size="40" class='search'></u-icon>
 						<view class="searchPractice">搜索题目</view>
 					</view>
@@ -20,46 +22,48 @@
 </template>
 
 <script>
-	import {
-		mapState,
-		mapMutations,
-		mapActions
-	} from 'vuex'
-	import authModal from '../components/authModal'
-	import {
-		PHOTOGRAPH
-	} from '../utils/constant.js'
+	import { mapMutations,mapState,mapActions } from 'vuex'
+	import { PHOTOGRAPH,PICTURE } from '../utils/constant.js'
+	import {authModal} from '../components/authModal'
+	import {authPhoneModal} from '../components/authPhoneModal'
 	export default {
 		data() {
 			return {}
 		},
-		computed: {
-			...mapState([
-				'searchInteraction', 'token'
-			])
-		},
-		components: {
+        computed: {
+            ...mapState([ 'phoneNumber','openId','userInfo','searchInteraction' ])
+        },
+		components:{
+			authPhoneModal,
 			authModal
 		},
-		onShow() {
-			if (!this.token) {
+		onShow () {
+			if(!this.openId){
 				uni.getSetting({
-					success: (res) => {
-						if (!res.authSetting['scope.userInfo']) {
-							this.$refs.authModal.show()
-						} else {
-							this.login()
+					success:(res)=> {  
+						// 判断是否获取到用户信息权限
+						if(!res.authSetting['scope.userInfo']){
+							// 弹出权限弹框
+							this.$refs.authModal.show() 
+						}else{
+							// 获取手机号
+							this.authModalChange()
 						}
 					}
 				})
+				return
 			}
-			if (this.searchInteraction) {
-				this.searchInteraction === PHOTOGRAPH ? this.takePhoto() : this.getPicture()
-				this.setSearchInteraction('')
+			if(this.searchInteraction){
+				this.searchInteraction === PHOTOGRAPH?this.getPicture():this.takePhoto()
+				return
 			}
+			this.setSearchInteraction('')
 		},
 		methods: {
 			...mapMutations(['setSearchInteraction']),
+			authModalChange(){
+				this.$refs.authPhoneModal.show()
+			},
 			filterChooseImage(obj) {
 				const {
 					count = 6, sizeType = ['original', 'compressed'], sourceType = ['album', 'camera'], callback

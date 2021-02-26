@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<authModal ref="authModal" @onChange="authModalChange" />
-		<authPhoneModal ref="authPhoneModal" />
+		<authPhoneModal ref="authPhoneModal" @onChange="authPhoneModalChange" />
 		<view class="top">
 			<u-row>
 				<u-col span="2">
@@ -10,7 +10,7 @@
 					</view>
 				</u-col>
 				<u-col span="10">
-					<view class="input"  @click="chooseImage()">
+					<view class="input"  @click="inputClick()">
 						<u-icon name='search' size="40" class='search'></u-icon>
 						<view class="searchPractice">搜索题目</view>
 					</view>
@@ -55,12 +55,19 @@
 			}
 			if(this.searchInteraction){
 				this.searchInteraction === PHOTOGRAPH?this.getPicture():this.takePhoto()
-				return
+				this.setSearchInteraction('')
 			}
-			this.setSearchInteraction('')
+			this.authPhoneModalChange()
 		},
 		methods: {
 			...mapMutations(['setSearchInteraction']),
+			inputClick(){
+				
+			},
+			async authPhoneModalChange(){
+				const res =	await this.$u.api.getUser()
+				console.log(res)
+			},
 			authModalChange(){
 				this.$refs.authPhoneModal.show()
 			},
@@ -83,7 +90,7 @@
 			},
 			getPicture() {
 				const picture = (string) => {
-					console.log(string)
+					this.search(string)
 				}
 				this.filterChooseImage({
 					sourceType: ['album'],
@@ -92,7 +99,7 @@
 			},
 			takePhoto() {
 				const picture = (string) => {
-					console.log(string)
+					this.search(string)
 				}
 				this.filterChooseImage({
 					sourceType: ['camera'],
@@ -101,12 +108,17 @@
 			},
 			chooseImage() {
 				const picture = (string) => {
-					console.log(string)
+					this.search(string)
 				}
 				this.filterChooseImage({
 					sourceType: ['album', 'camera'],
 					callback: picture
 				})
+			},
+			async  search(str){
+				console.log(str)
+				const res= 	await this.$u.api.imgSearch({file:str})
+				console.log(res)
 			}
 		}
 	}

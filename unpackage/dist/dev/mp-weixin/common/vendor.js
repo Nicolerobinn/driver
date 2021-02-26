@@ -35387,7 +35387,7 @@ var install = function install(Vue, vm) {
 
   var getGetwxacode = function getGetwxacode() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post("".concat(_http.getwxacode, "?access_token=").concat(params.access_token), { path: params.path });};
   var getInfo = function getInfo() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.indexUrl, params);};
-  vm.$u.api = { getAppid: getAppid, login: login, imgSearch: imgSearch, getQuestion: getQuestion, searchQuestion: searchQuestion, getSearch: getSearch, getInfo: getInfo, getOpenId: getOpenId, getWXToken: getWXToken, getGetwxacode: getGetwxacode };
+  vm.$u.api = { getAppid: getAppid, login: login, imgSearch: imgSearch, getQuestion: getQuestion, searchQuestion: searchQuestion, getSearch: getSearch, getUser: getUser, getInfo: getInfo, getOpenId: getOpenId, getWXToken: getWXToken, getGetwxacode: getGetwxacode };
 };var _default =
 
 {

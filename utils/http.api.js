@@ -27,7 +27,7 @@ const install = (Vue, vm) => {
 	
 	const getGetwxacode = (params = {}) => vm.$u.post(`${getwxacode}?access_token=${params.access_token}`,{path:params.path} );
 	const getInfo = (params = {}) => vm.$u.post(indexUrl, params);
-	vm.$u.api = {getAppid,login ,imgSearch, getQuestion,searchQuestion, getSearch, getInfo,getOpenId,getWXToken,getGetwxacode};
+	vm.$u.api = {getAppid,login ,imgSearch, getQuestion,searchQuestion, getSearch,getUser, getInfo,getOpenId,getWXToken,getGetwxacode};
 }
 
 export default {

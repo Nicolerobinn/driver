@@ -1,7 +1,7 @@
 <template>
 	<view class="content">  
 		<authModal ref="authModal" @onChange="authModalChange" />
-		<authPhoneModal ref="authPhoneModal" />
+		<authPhoneModal ref="authPhoneModal" @onChange="authPhoneModalChange()" />
 		<view class="top_box">
 			<view class=" u-flex user-box u-p-r-20 " @click="goTo('pages/personal')">
 				<view class="top u-m-r-10">
@@ -84,10 +84,16 @@
 							})
 						}
 				})
+				return
 			}
+			this.authPhoneModalChange()
 		},
 		methods: {
 			...mapMutations(['setLoginCode']),
+			async	authPhoneModalChange(){
+				const res =	await this.$u.api.getUser()
+				console.log(res)
+			},
 			authModalChange(){
 				this.$refs.authPhoneModal.show()
 			},

@@ -7,7 +7,7 @@
 				<view class="left">
 					<u-button open-type="getUserInfo" type="primary" @getuserinfo="getUserInfo" :custom-style="leftCustomStyle" >允许</u-button>
 				</view>
-				<view class="right" @click="modalShow = false" >
+				<view class="right" @click="cacel()" >
 					拒绝
 				</view>
 			</view>	
@@ -46,14 +46,18 @@
 					this.modalShow = false
 					this.$emit('onChange')
 				} else {
-					uni.showToast({
-						icon: "none",
-						title: '请授权相关功能，否则无法使用',
-						duration: 2000,
-						position: 'center'
-					})
+					this.cacel()
 				}
 			},
+			cacel(){
+				this.modalShow = false
+				uni.showToast({
+					icon: "none",
+					title: '请授权相关功能，否则无法使用',
+					duration: 2000,
+					position: 'center'
+				})
+			}
 		}
 	}
 </script>

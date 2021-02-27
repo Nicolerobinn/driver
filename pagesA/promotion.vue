@@ -1,7 +1,7 @@
 <template>
 	<view class="conetnt u-flex">
 		<view ref="modelasd" class="canvas_box  u-flex">
-			<image show-menu-by-longpress="1" :src="path"></image>
+			<image :show-menu-by-longpress="true" :src="path"></image>
 			<l-painter isRenderImage :board="board" custom-style="position: fixed; z-index:-1;left:1000000px" @success="pathSuccess" @fail="fail"></l-painter>
 		</view>
 		<u-button type="primary" size="medium" shape="circle" @click="auth">保存海报</u-button>

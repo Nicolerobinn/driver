@@ -80,6 +80,7 @@
 		},
 		methods: {
 			...mapMutations(['setLoginCode']),
+			...mapActions(['getUserInfo']),
 			getSetting(){
 				uni.getSetting({
 					success:(res)=> {  
@@ -88,12 +89,7 @@
 							// 弹出权限弹框
 							this.$refs.authModal.show() 
 						}else{
-							// 获取手机号
-							if(!this.userInfo){
-								this.$refs.authModal.show() 
-							}else{
-								this.authModalChange()
-							}
+							this.authModalChange()
 						}
 					}
 				})

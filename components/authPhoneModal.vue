@@ -47,7 +47,7 @@
 			}
 		},
 		methods: {
-			...mapActions(['login']),
+			...mapActions(['getUserInfo']),
 			show() {
 				this.modalShow = true
 			},
@@ -71,7 +71,7 @@
 				let title =''
 				switch (errMsg) {
 					case 'getPhoneNumber:ok':
-						this.login({
+						this.getUserInfo({
 							isAurth: true,
 							encryptedData,
 							iv

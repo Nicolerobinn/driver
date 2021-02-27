@@ -35,6 +35,15 @@
 		</view>
 		<u-gap height="20" bg-color="#f5f5f5"></u-gap>
 		<view  class="scroll-Y">
+		<view class="question" v-if="Object.keys(questionObj).length>0">
+			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{questionObj.multipleChoice}}</span> <span style="color:#5192ff">{{questionObj.questionStem}}</span></view>
+			<view class='radioChoose'>
+				<view v-for="(text,i) in questionObj.options" :key="i" class="number">{{text}}</view>
+			</view>
+			<view>答案 : {{questionObj.answer}}</view>
+			<view v-if="questionObj.analysis">解析 : {{questionObj.analysis}}</view>
+		</view>
+
 		</view>
 	</view>
 </template>
@@ -45,6 +54,7 @@
 		mapState,
 		mapActions
 	} from 'vuex'
+	import {BASE_URL,imgSearchUrl} from '../utils/http.url'
 	import {
 		PHOTOGRAPH,
 		PICTURE
@@ -60,7 +70,8 @@
 			return {
 				show: false,
 				number: '',
-				value:''
+				value:'',
+				questionObj:{}
 			}
 		},
 		computed: {
@@ -108,12 +119,7 @@
 							// 弹出权限弹框
 							this.$refs.authModal.show()
 						} else {
-							// 获取手机号
-							if (!this.userInfo) {
-								this.$refs.authModal.show()
-							} else {
-								this.authModalChange()
-							}
+							this.authModalChange()
 						}
 					}
 				})
@@ -135,67 +141,121 @@
 				this.$refs.authPhoneModal.show()
 			},
 			filterChooseImage(obj) {
+				if(this.number == 0){
+					uni.showToast({
+						icon: "none",
+						title: '搜索次数已经用光',
+						duration: 1000,
+						position: 'center'
+					})
+					return
+				}
 				const {
-					count = 6, sizeType = ['original', 'compressed'], sourceType = ['album', 'camera'], callback
+					count = 6, sizeType = ['original'], sourceType = ['album', 'camera'], callback
 				} = obj
 				uni.chooseImage({
 					count: count, //默认9
 					sizeType: sizeType, //可以指定是原图还是压缩图，默认二者都有
 					sourceType: sourceType, //从相册选择、摄像头
 					success: (res) => {
-						callback(JSON.stringify(res.tempFilePaths))
+						const tempFilePaths = res.tempFilePaths
+						wx.uploadFile({
+							url:`${BASE_URL}/${imgSearchUrl}`, //仅为示例，非真实的接口地址
+							filePath: tempFilePaths[0],
+							name: 'file',
+							header: {
+								openid: this.openId
+							},
+							success (res){
+								const data = res?.data || {}
+								console.log(321,data)
+								console.log(123,JSON.stringify(data))
+							}
+						})
 					},
 					fail: (err) => {
-						console.log(err)
 					}
 
 				});
 			},
 			getPicture() {
-				const picture = (string) => {
-					this.search(string)
-				}
 				this.filterChooseImage({
 					sourceType: ['album'],
-					callback: picture
 				})
 			},
 			takePhoto() {
-				const picture = (string) => {
-					this.search(string)
-				}
 				this.filterChooseImage({
 					sourceType: ['camera'],
-					callback: picture
 				})
 			},
 			chooseImage() {
 				if(this.auth()){
 					return
 				}
-				const picture = (string) => {
-					this.search(string)
-				}
 				this.filterChooseImage({
-					sourceType: ['album', 'camera'],
-					callback: picture
+					sourceType: ['album', 'camera']
 				})
 			},
-			textSearch(){
-				
+			async	textSearch(){
+				if(this.number == 0){
+					uni.showToast({
+						icon: "none",
+						title: '搜索次数已经用光',
+						duration: 1000,
+						position: 'center'
+					})
+					return
+				}
+				if(this.value.trim() ===''){
+					uni.showToast({
+						icon: "none",
+						title: '请输入题干内容',
+						duration: 1000,
+						position: 'center'
+					})
+					return
+				}
+				const res = await this.$u.api.searchQuestion({questionStem:this.value})
+				const { data = {} } = res ||{}
+				switch (data.multipleChoice) {
+					case 0:
+						data.multipleChoice = '单选'
+						break;
+					case 1:
+						data.multipleChoice = '多选'
+						
+						break;
+					case 3:
+						data.multipleChoice = '判断'
+						
+						break;		
+				}
+				data.options    =	data.options.split(';')
+				this.questionObj = data
+				this.show = false
 			},
-			async search(str) {
-				console.log(str)
-				const res = await this.$u.api.imgSearch({
-					file: str
-				})
-				console.log(res)
-			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+		.question {
+			background-color: #ffff;
+			width: 100%;
+			padding: 20rpx;
+			.choose {
+				padding: 4rpx 8rpx;
+				border-radius: 8rpx;
+				font-size: 22rpx;
+				color: #fff;
+				line-height: 28rpx;
+				background-color: #5192ff;
+			}
+			.radioChoose{
+				color:gray;
+				margin: 10rpx;
+			}
+		}
 	.content {
 		width: 100%;
 		height: 100%;

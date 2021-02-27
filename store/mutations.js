@@ -21,6 +21,7 @@ const mutations= {
         state.sureCodeBase64 = string
 	},
 	setPhoneNumber(state,string){
+        wx.setStorage({key:'phoneNumber',data:string})
         state.phoneNumber = string
 	},
 	setQusetionArr(state,arr){

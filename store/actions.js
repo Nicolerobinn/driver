@@ -38,6 +38,17 @@ const actions = {
 			}
 		})
 	},
+	getUserInfo({
+		dispatch,
+		commit
+	}, obj) {
+		uni.getUserInfo({
+			success: async (res) => {
+				commit('setUserInfo',res.userInfo )
+				dispatch('login',{...obj,userInfo:res.userInfo})
+			}
+		})
+	},
 	async getQuestion({
 		commit
 	}, ) {
@@ -48,13 +59,12 @@ const actions = {
 		commit('setQusetionArr', data)
 	},
 	async login({
-		dispatch,
 		commit,
 		state
 	}, {
 		isAuthor,
 		encryptedData,
-		iv
+		iv,callBack,userInfo
 	}) {
 		if (!state.loginCode) {
 			uni.showToast({
@@ -71,9 +81,6 @@ const actions = {
 				position: 'center'
 			})
 		}
-		let userInfo = {
-			...state.userInfo,
-		}
 		if (state.shareCode) {
 			userInfo.referrerId = state.shareCode
 		}
@@ -86,11 +93,14 @@ const actions = {
 		const {
 			userId,
 			openId,
+			phone
 		} = loginRes.data || {}
+		commit('setPhoneNumber',phone)
 		commit('setUserInfo', loginRes.data)
 		commit('setOpenid', openId)
 		const codeRes = await app.$u.api.getQRcode(userId)
 		commit('setWXCode', codeRes)
+		callBack && callBack()
 		if (isAuthor) {
 			uni.showToast({
 				icon: "none",

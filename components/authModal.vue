@@ -36,13 +36,11 @@
 			...mapState(['openId'])	
 		},
 		methods: {
-			...mapMutations(['setUserInfo']),
 			show(){
 				this.modalShow = true
 			},
 			getUserInfo({detail}){   //授权个人信息
 				if (detail.userInfo){
-					this.setUserInfo(detail.userInfo)
 					this.modalShow = false
 					this.$emit('onChange')
 				} else {

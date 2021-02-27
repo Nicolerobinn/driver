@@ -3,7 +3,7 @@
 		<authModal ref="authModal" @onChange="authModalChange" />
 		<authPhoneModal ref="authPhoneModal" @change="authPhoneModalChange" />
 		<view class="question">
-			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">判断题</span> 同方向积分绝地反击非基督教覅记得覅绝地反击地方的积分绝地反击飞机的积分ID就飞机的积分ID积分绝地反击飞机抵积分IDf。</view>
+			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">判断题</span> <span style=" color:#5192ff"> 同方向积分绝地反击非基督教覅记得覅绝地反击地方的积分绝地反击飞机的积分ID就飞机的积分ID积分绝地反击飞机抵积分IDf。</span></view>
 			<view class='radioChoose'>
 				<u-radio-group v-model="value" @change="radioGroupChange" wrap='true'>
 					<u-radio @change="radioChange" v-for="(item, index) in list" :key="index" :name="item.name" :disabled="item.disabled">
@@ -85,7 +85,7 @@
 			}
 		},
         computed: {
-            ...mapState([ 'loginCode','phoneNumber','openId','userInfo' ])
+            ...mapState([ 'loginCode','phoneNumber','openId' ])
         },
 		components:{
 			authPhoneModal,
@@ -121,12 +121,7 @@
 							// 弹出权限弹框
 							this.$refs.authModal.show() 
 						}else{
-							// 获取手机号
-							if(!this.userInfo){
-								this.$refs.authModal.show() 
-							}else{
-								this.authModalChange()
-							}
+							this.authModalChange()
 						}
 					}
 				})
@@ -215,7 +210,7 @@
 			justify-content: space-between;
 			align-items: center;
 			.reset{
-				font-size: 20rpx;
+				font-size: 26rpx;
 			}
 			.right_button{
 				display: flex;
@@ -229,13 +224,6 @@
 	.radioChoose {
 		margin-top: 10px;
 	}
-	.question_content {
-	/* 	display: inline;
-		padding: 0 0 0 3px;
-		font-family: sans-serif; */
-		/* letter-spacing: 1px; */
-	}
-
 	.choose {
 		padding: 4rpx 8rpx;
 		border-radius: 8rpx;

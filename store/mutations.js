@@ -17,8 +17,8 @@ const mutations= {
 	setShareCode(state,string){
         state.shareCode = string
 	},
-	setWXBuffer(state,string){
-        state.buffer = string
+	setWXCode(state,string){
+        state.sureCodeBase64 = string
 	},
 	setPhoneNumber(state,string){
         state.phoneNumber = string

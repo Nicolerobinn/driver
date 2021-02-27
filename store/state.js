@@ -5,7 +5,7 @@ const state= {
 	location:'',
 	locationModel:false,
 	shareCode:'',
-	buffer:'',
+	sureCodeBase64:'',
 	phoneNumber:'',
 	questionArr:[],
 	loginCode:''

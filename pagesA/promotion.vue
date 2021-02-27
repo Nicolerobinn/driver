@@ -1,9 +1,7 @@
 <template>
 	<view class="conetnt u-flex">
-		<authModal ref="authModal" @onChange="authModalChange" />
-		<authPhoneModal ref="authPhoneModal" />
 		<view ref="modelasd" class="canvas_box  u-flex" >
-			
+			<image :src="src" mode=""></image>
 			<image v-show="path"  show-menu-by-longpress="1"  :src="path"></image>
 			<l-painter
 				custom-style="position: fixed; z-index:-1;left:1000000px"
@@ -22,12 +20,12 @@
 	
 	const scope = 'scope.writePhotosAlbum';
 	import lPainter from './components/painter'
-	import authModal from '@/components/authModal'
 	import { mapState,mapGetters,mapActions } from 'vuex'
 	export default {
 		data() {
 			return {
 				path:'',
+				src:'',
 				base: {
 					width: '550rpx',
 					height: '1000rpx',
@@ -54,40 +52,19 @@
 			sureCode:{
 				handler(base64){
 						if(base64){
-							setTimeout(()=>this.onRender(base64))
+							this.src = base64
+							// setTimeout(()=>this.onRender(base64))
 						}
 				},
 				immediate:true
 			}
 		},
 		components:{
-			authModal,
 			lPainter
 		},
 		onShow () {
-			if(!this.openId){
-				uni.getSetting({
-					success:(res)=> {  
-						// 判断是否获取到用户信息权限
-						if(!res.authSetting['scope.userInfo']){
-							// 弹出权限弹框
-							this.$refs.authModal.show() 
-						}else{
-							// 获取手机号
-							if(!this.userInfo){
-								this.$refs.authModal.show() 
-							}else{
-								this.authModalChange()
-							}
-						}
-					}
-				})
-			}
 		},
 		methods:{
-			authModalChange(){
-				this.$refs.authPhoneModal.show()
-			},
 			fail(err){
 				console.log('fail',fail)
 			},

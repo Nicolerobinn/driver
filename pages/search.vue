@@ -39,18 +39,19 @@
 		},
 		onShow () {
 			if(!this.openId){
-				uni.getSetting({
-					success:(res)=> {  
-						// 判断是否获取到用户信息权限
-						if(!res.authSetting['scope.userInfo']){
-							// 弹出权限弹框
-							this.$refs.authModal.show() 
-						}else{
-							// 获取手机号
-							this.authModalChange()
-						}
-					}
-				})
+				if(this.loginCode){
+					this.getSetting()
+				}else{
+					uni.login({
+							provider: 'weixin',
+							success: async ({
+								code
+							}) => {
+								this.setLoginCode(code)
+								this.getSetting()
+							}
+					})
+				}
 				return
 			}
 			if(this.searchInteraction){
@@ -60,7 +61,25 @@
 			this.authPhoneModalChange()
 		},
 		methods: {
-			...mapMutations(['setSearchInteraction']),
+			...mapMutations(['setSearchInteraction','setLoginCode']),
+			getSetting(){
+				uni.getSetting({
+					success:(res)=> {  
+						// 判断是否获取到用户信息权限
+						if(!res.authSetting['scope.userInfo']){
+							// 弹出权限弹框
+							this.$refs.authModal.show() 
+						}else{
+							// 获取手机号
+							if(!this.userInfo){
+								this.$refs.authModal.show() 
+							}else{
+								this.authModalChange()
+							}
+						}
+					}
+				})
+			},
 			inputClick(){
 				
 			},

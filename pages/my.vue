@@ -3,7 +3,7 @@
 		<authModal ref="authModal" @onChange="authModalChange" />
 		<authPhoneModal ref="authPhoneModal" @onChange="authPhoneModalChange()" />
 		<view class="top_box">
-			<view class=" u-flex user-box u-p-r-20 " @click="goTo('pages/personal')">
+			<view class=" u-flex user-box u-p-r-20 " @click="goTo('pagesA/personal')">
 				<view class="top u-m-r-10">
 					<u-avatar :src="userInfo.avatarUrl" size="100"></u-avatar>
 				</view>
@@ -18,7 +18,7 @@
 			<view class="residue">
 				<u-line color="#e4e7ed" />
 				<text class="title">剩余次数 </text> &nbsp;
-				<text class="number">{{123}}</text>
+				<text class="number">{{number}}</text>
 			</view>
 		</view>
 		<u-gap height="30" ></u-gap>
@@ -26,11 +26,11 @@
 		<u-gap height="30" ></u-gap>
 		<view class="bottom_box ">
 			<u-cell-group>
-				<u-cell-item @click="goTo('pages/personal')" icon="file-text" title="答题记录"></u-cell-item>
-				<u-cell-item @click="goTo('pages/personal')" icon="rmb" title="佣金"></u-cell-item>
-				<u-cell-item @click="goTo('pages/personal')" icon="account-fill" title="我的团队"></u-cell-item>
-				<u-cell-item @click="goTo('pages/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
-				<u-cell-item @click="goTo('pages/personal')" icon="server-man" title="客服"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/personal')" icon="file-text" title="答题记录"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/personal')" icon="rmb" title="佣金"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/personal')" icon="account-fill" title="我的团队"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/personal')" icon="server-man" title="客服"></u-cell-item>
 			</u-cell-group>
 		</view>
 	</view>
@@ -45,7 +45,8 @@
 			return {
 				src: 'https://cdn.uviewui.com/uview/example/fade.jpg',
 				pic:'https://uviewui.com/common/logo.png',
-				show:true
+				show:true,
+				number:''
 			}
 		},
 		components:{
@@ -56,43 +57,51 @@
 
 		},
         computed: {
-            ...mapState([ 'phoneNumber','openId','userInfo' ])
+            ...mapState(['loginCode','phoneNumber','openId','userInfo' ])
         },
 		onShow () {
 			if(!this.openId){
-				uni.login({
-						provider: 'weixin',
-						success: async ({
-							code
-						}) => {
-							this.setLoginCode(code)
-							uni.getSetting({
-								success:(res)=> {  
-									// 判断是否获取到用户信息权限
-									if(!res.authSetting['scope.userInfo']){
-										// 弹出权限弹框
-										this.$refs.authModal.show() 
-									}else{
-										// 获取手机号
-										if(!this.userInfo){
-											this.$refs.authModal.show() 
-										}else{
-											this.authModalChange()
-										}
-									}
-								}
-							})
-						}
-				})
+				if(this.loginCode){
+					this.getSetting()
+				}else{
+					uni.login({
+							provider: 'weixin',
+							success: async ({
+								code
+							}) => {
+								this.setLoginCode(code)
+								this.getSetting()
+							}
+					})
+				}
 				return
 			}
 			this.authPhoneModalChange()
 		},
 		methods: {
 			...mapMutations(['setLoginCode']),
+			getSetting(){
+				uni.getSetting({
+					success:(res)=> {  
+						// 判断是否获取到用户信息权限
+						if(!res.authSetting['scope.userInfo']){
+							// 弹出权限弹框
+							this.$refs.authModal.show() 
+						}else{
+							// 获取手机号
+							if(!this.userInfo){
+								this.$refs.authModal.show() 
+							}else{
+								this.authModalChange()
+							}
+						}
+					}
+				})
+			},
 			async	authPhoneModalChange(){
-				const res =	await this.$u.api.getUser()
-				console.log(res)
+				const res =	await this.$u.api.getUser(this.openId)
+				const { data } = res
+				this.number = data
 			},
 			authModalChange(){
 				this.$refs.authPhoneModal.show()

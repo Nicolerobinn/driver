@@ -67,8 +67,6 @@
 					iv,
 					errMsg
 				} = e.detail
-				console.log('encryptedData',encryptedData)
-				console.log('iv',iv)
 				//是否授权，授权通过进入下单页面，授权拒绝则手机号登录
 				let title =''
 				switch (errMsg) {

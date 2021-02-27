@@ -6,13 +6,13 @@
 			<view class="top_view"><u-icon name="map-fill"  color="#1296db"></u-icon>   <text class="location" >{{location}}</text></view> 
 		</u-navbar>
 		<view class="interaction">
-			<view @click="auth(PHOTOGRAPH)"  class="left_photograph">
+			<view @click="tabGoTo(PHOTOGRAPH)"  class="left_photograph">
 				<view class="box">
 						<u-icon name="camera"  size="40" color="#1296db"></u-icon>   
 						<text class="photograph" >拍照答题</text>
 				</view>
 			</view>
-			<view @click="auth(PICTURE)" class="right_picture">
+			<view @click="tabGoTo(PICTURE)" class="right_picture">
 				<view class="box">
 						<u-icon name="photo"  size="40" color="#1296db"></u-icon>   
 						<text class="photograph" >拍照答题</text>
@@ -129,41 +129,45 @@
 					}
 				});
 			},
-			goTo(url){
-				this.$u.route({
-					url: url,
-				})
-			},
-			auth(string){
-				if(!this.openId){
-					uni.getSetting({
-						success:(res)=> {  
-							// 判断是否获取到用户信息权限
-							if(!res.authSetting['scope.userInfo']){
-								// 弹出权限弹框
+			auth(){
+				uni.getSetting({
+					success:(res)=> {  
+						// 判断是否获取到用户信息权限
+						if(!res.authSetting['scope.userInfo']){
+							// 弹出权限弹框
+							this.$refs.authModal.show() 
+						}else{
+							// 获取手机号
+							if(!this.userInfo){
 								this.$refs.authModal.show() 
 							}else{
-								// 获取手机号
-								if(!this.userInfo){
-									this.$refs.authModal.show() 
-								}else{
-									this.authModalChange()
-								}
+								this.authModalChange()
 							}
 						}
-					})
-					return
-				}
-				this.tabGoTo(string)
+					}
+				})
 			},
 			authModalChange(){
 				this.$refs.authPhoneModal.show()
 			},
+			goTo(url){
+				if(this.openId){
+					this.$u.route({
+						url: url,
+					})
+				}else{
+				    this.auth()
+				}
+			},
 			tabGoTo(string){
-				uni.switchTab({
-					url: '/pages/search'
-				});
-				this.setSearchInteraction(string)
+				if(this.openId){
+					uni.switchTab({
+						url: '/pages/search'
+					});
+					this.setSearchInteraction(string)
+				}else{
+				    this.auth()
+				}
 			}
 		}
 	}

@@ -85,7 +85,7 @@
 			}
 		},
         computed: {
-            ...mapState([ 'phoneNumber','openId','userInfo' ])
+            ...mapState([ 'loginCode','phoneNumber','openId','userInfo' ])
         },
 		components:{
 			authPhoneModal,
@@ -93,6 +93,27 @@
 		},
 		onShow () {
 			if(!this.openId){
+				if(this.loginCode){
+					this.getSetting()
+				}else{
+					uni.login({
+							provider: 'weixin',
+							success: async ({
+								code
+							}) => {
+								this.setLoginCode(code)
+								this.getSetting()
+							}
+					})
+				}
+				return
+			}
+			this.authPhoneModalChange()
+		},
+		methods: {
+			...mapActions(['getQuestion','questionArr']),
+			...mapMutations(['setLoginCode']),
+			getSetting(){
 				uni.getSetting({
 					success:(res)=> {  
 						// 判断是否获取到用户信息权限
@@ -109,12 +130,7 @@
 						}
 					}
 				})
-				return
-			}
-			this.questionEqual()
-		},
-		methods: {
-			...mapActions(['getQuestion','questionArr']),
+			},
 			questionEqual(){
 				if(this.questionArr.length === 0){
 					this.getQuestion()

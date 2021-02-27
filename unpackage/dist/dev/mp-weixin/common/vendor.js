@@ -1793,7 +1793,7 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 10:
+/***/ 11:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -1922,7 +1922,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 11:
+/***/ 12:
 /*!****************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/index.js ***!
   \****************************************************/
@@ -1931,15 +1931,11 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 12));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 13));
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 13));
-
-
-
-
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 14));
 
 
 
@@ -1956,56 +1952,60 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 
 
 
 
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 17));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 18));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 22));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 23));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 24));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 25));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 26));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 27));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 28));
-
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 15));
-
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 14));
-
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 29));
-
-
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 16));
-
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 30));
-
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 31));
-
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 32));
-
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 33));
-
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 34));
 
 
 
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 35);
 
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 36));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 18));
 
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 37));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 19));
+
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 23));
+
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 24));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 25));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 26));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 27));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 28));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 29));
+
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 16));
+
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 15));
+
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 30));
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 17));
+
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 31));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 32));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 33));
+
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 34));
+
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 35));
 
 
 
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 38));
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 36);
 
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 39));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 37));
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 38));
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 39));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
 // 引入关于是否mixin集成小程序分享的配置
 // import wxshare from './libs/mixin/mpShare.js'
 // 全局挂载引入http相关请求拦截插件
@@ -2074,7 +2074,7 @@ var install = function install(Vue) {
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /*!***************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/mixin/mixin.js ***!
   \***************************************************************/
@@ -2148,7 +2148,7 @@ var install = function install(Vue) {
 
 /***/ }),
 
-/***/ 13:
+/***/ 14:
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/request/index.js ***!
   \*****************************************************************/
@@ -2156,8 +2156,8 @@ var install = function install(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 14));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 15));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
     // 设置全局默认配置
     value: function setConfig(customConfig) {
@@ -2329,7 +2329,7 @@ new Request();exports.default = _default;
 
 /***/ }),
 
-/***/ 14:
+/***/ 15:
 /*!**********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/deepMerge.js ***!
   \**********************************************************************/
@@ -2337,7 +2337,7 @@ new Request();exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // JS对象深度合并
 function deepMerge() {var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -2370,7 +2370,7 @@ deepMerge;exports.default = _default;
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /*!**********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/deepClone.js ***!
   \**********************************************************************/
@@ -2404,7 +2404,7 @@ deepClone;exports.default = _default;
 
 /***/ }),
 
-/***/ 16:
+/***/ 17:
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/test.js ***!
   \*****************************************************************/
@@ -2646,7 +2646,7 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
 
 /***/ }),
 
-/***/ 17:
+/***/ 18:
 /*!************************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/queryParams.js ***!
   \************************************************************************/
@@ -2715,7 +2715,7 @@ queryParams;exports.default = _default;
 
 /***/ }),
 
-/***/ 18:
+/***/ 19:
 /*!******************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/route.js ***!
   \******************************************************************/
@@ -2723,7 +2723,7 @@ queryParams;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   * 并且带有路由拦截功能
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   */var
@@ -2846,17 +2846,6 @@ Router = /*#__PURE__*/function () {
 
 new Router().route;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 19:
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 20);
 
 /***/ }),
 
@@ -8909,6 +8898,17 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 20:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ 21);
+
+/***/ }),
+
+/***/ 21:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -8939,7 +8939,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 21);
+module.exports = __webpack_require__(/*! ./runtime */ 22);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -8956,7 +8956,67 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 21:
+/***/ 219:
+/*!****************************************************************!*\
+  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
+
+/***/ }),
+
+/***/ 22:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -9688,67 +9748,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 213:
-/*!****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 递归使用 call 方式this指向
-                                                                                                      * @param componentName // 需要找的组件的名称
-                                                                                                      * @param eventName // 事件名称
-                                                                                                      * @param params // 需要传递的参数
-                                                                                                      */
-function _broadcast(componentName, eventName, params) {
-  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
-  this.$children.map(function (child) {
-    if (componentName === child.$options.name) {
-      child.$emit.apply(child, [eventName].concat(params));
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat(params));
-    }
-  });
-}var _default =
-{
-  methods: {
-    /**
-              * 派发 (向上查找) (一个)
-              * @param componentName // 需要找的组件的名称
-              * @param eventName // 事件名称
-              * @param params // 需要传递的参数
-              */
-    dispatch: function dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
-      var name = parent.$options.name; // 获取当前组件实例的name
-      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
-      // 循环出当前名称的一样的组件实例
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-        if (parent) {
-          name = parent.$options.name;
-        }
-      }
-      // 有节点表示当前找到了name一样的实例
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
-      }
-    },
-    /**
-        * 广播 (向下查找) (广播多个)
-        * @param componentName // 需要找的组件的名称
-        * @param eventName // 事件名称
-        * @param params // 需要传递的参数
-        */
-    broadcast: function broadcast(componentName, eventName, params) {
-      _broadcast.call(this, componentName, eventName, params);
-    } } };exports.default = _default;
-
-/***/ }),
-
-/***/ 22:
+/***/ 23:
 /*!***********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/timeFormat.js ***!
   \***********************************************************************/
@@ -9810,7 +9810,7 @@ timeFormat;exports.default = _default;
 
 /***/ }),
 
-/***/ 23:
+/***/ 24:
 /*!*********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/timeFrom.js ***!
   \*********************************************************************/
@@ -9818,7 +9818,7 @@ timeFormat;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /**
                                                                                                                                                                                                                                                                                           * 时间戳转为多久之前
@@ -9868,7 +9868,7 @@ timeFrom;exports.default = _default;
 
 /***/ }),
 
-/***/ 24:
+/***/ 25:
 /*!**************************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/colorGradient.js ***!
   \**************************************************************************/
@@ -10012,7 +10012,7 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 
 /***/ }),
 
-/***/ 25:
+/***/ 26:
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/guid.js ***!
   \*****************************************************************/
@@ -10064,7 +10064,7 @@ guid;exports.default = _default;
 
 /***/ }),
 
-/***/ 256:
+/***/ 262:
 /*!**************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/utils.js ***!
   \**************************************************************************/
@@ -10072,7 +10072,7 @@ guid;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.sleep = sleep;exports.isNumber = isNumber;exports.toPx = toPx;exports.compareVersion = compareVersion;exports.base64ToPath = base64ToPath;exports.pathToBase64 = pathToBase64;exports.getImageInfo = getImageInfo;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}var networkReg = /^(http|\/\/)/;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.sleep = sleep;exports.isNumber = isNumber;exports.toPx = toPx;exports.compareVersion = compareVersion;exports.base64ToPath = base64ToPath;exports.pathToBase64 = pathToBase64;exports.getImageInfo = getImageInfo;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}var networkReg = /^(http|\/\/)/;
 function sleep(delay) {
   return new Promise(function (resolve) {return setTimeout(resolve, delay);});
 }
@@ -10479,7 +10479,7 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 
 /***/ }),
 
-/***/ 257:
+/***/ 263:
 /*!*************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/draw.js ***!
   \*************************************************************************/
@@ -10487,8 +10487,8 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));var _utils = __webpack_require__(/*! ./utils */ 256);
-var _gradient = __webpack_require__(/*! ./gradient */ 258);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 262);
+var _gradient = __webpack_require__(/*! ./gradient */ 264);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Draw = /*#__PURE__*/function () {
   function Draw(context, canvas) {var use2dCanvas = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;var isH5PathToBase64 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;var sleep = arguments.length > 4 ? arguments[4] : undefined;_classCallCheck(this, Draw);
@@ -11164,7 +11164,7 @@ Draw = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 258:
+/***/ 264:
 /*!*****************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/gradient.js ***!
   \*****************************************************************************/
@@ -11282,7 +11282,7 @@ function linearEffect(width, height, bg, ctx) {
 
 /***/ }),
 
-/***/ 259:
+/***/ 265:
 /*!***************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/layout.js ***!
   \***************************************************************************/
@@ -11290,7 +11290,7 @@ function linearEffect(width, height, bg, ctx) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));var _utils = __webpack_require__(/*! ./utils */ 256);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 262);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Layout = /*#__PURE__*/function () {
   function Layout() {_classCallCheck(this, Layout);
@@ -11661,55 +11661,7 @@ Layout = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 26:
-/*!******************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/color.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 为了让用户能够自定义主题，会逐步弃用此文件，各颜色通过css提供
-// 为了给某些特殊场景使用和向后兼容，无需删除此文件(2020-06-20)
-var color = {
-  primary: "#2979ff",
-  primaryDark: "#2b85e4",
-  primaryDisabled: "#a0cfff",
-  primaryLight: "#ecf5ff",
-  bgColor: "#f3f4f6",
-
-  info: "#909399",
-  infoDark: "#82848a",
-  infoDisabled: "#c8c9cc",
-  infoLight: "#f4f4f5",
-
-  warning: "#ff9900",
-  warningDark: "#f29100",
-  warningDisabled: "#fcbd71",
-  warningLight: "#fdf6ec",
-
-  error: "#fa3534",
-  errorDark: "#dd6161",
-  errorDisabled: "#fab6b6",
-  errorLight: "#fef0f0",
-
-  success: "#19be6b",
-  successDark: "#18b566",
-  successDisabled: "#71d5a1",
-  successLight: "#dbf1e1",
-
-  mainColor: "#303133",
-  contentColor: "#606266",
-  tipsColor: "#909399",
-  lightColor: "#c0c4cc",
-  borderColor: "#e4e7ed" };var _default =
-
-
-color;exports.default = _default;
-
-/***/ }),
-
-/***/ 260:
+/***/ 266:
 /*!***************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/canvas.js ***!
   \***************************************************************************/
@@ -11778,6 +11730,54 @@ function adaptor(ctx) {
 /***/ }),
 
 /***/ 27:
+/*!******************************************************************!*\
+  !*** /Users/mac/code/driver1234/uview-ui/libs/function/color.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 为了让用户能够自定义主题，会逐步弃用此文件，各颜色通过css提供
+// 为了给某些特殊场景使用和向后兼容，无需删除此文件(2020-06-20)
+var color = {
+  primary: "#2979ff",
+  primaryDark: "#2b85e4",
+  primaryDisabled: "#a0cfff",
+  primaryLight: "#ecf5ff",
+  bgColor: "#f3f4f6",
+
+  info: "#909399",
+  infoDark: "#82848a",
+  infoDisabled: "#c8c9cc",
+  infoLight: "#f4f4f5",
+
+  warning: "#ff9900",
+  warningDark: "#f29100",
+  warningDisabled: "#fcbd71",
+  warningLight: "#fdf6ec",
+
+  error: "#fa3534",
+  errorDark: "#dd6161",
+  errorDisabled: "#fab6b6",
+  errorLight: "#fef0f0",
+
+  success: "#19be6b",
+  successDark: "#18b566",
+  successDisabled: "#71d5a1",
+  successLight: "#dbf1e1",
+
+  mainColor: "#303133",
+  contentColor: "#606266",
+  tipsColor: "#909399",
+  lightColor: "#c0c4cc",
+  borderColor: "#e4e7ed" };var _default =
+
+
+color;exports.default = _default;
+
+/***/ }),
+
+/***/ 28:
 /*!**********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/type2icon.js ***!
   \**********************************************************************/
@@ -11823,7 +11823,7 @@ type2icon;exports.default = _default;
 
 /***/ }),
 
-/***/ 28:
+/***/ 29:
 /*!************************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/randomArray.js ***!
   \************************************************************************/
@@ -11838,25 +11838,6 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 }var _default =
 
 randomArray;exports.default = _default;
-
-/***/ }),
-
-/***/ 29:
-/*!********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/addUnit.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
-function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
-  value = String(value);
-  // 用uView内置验证规则中的number判断是否为数值
-  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
-}
 
 /***/ }),
 
@@ -11892,6 +11873,25 @@ module.exports = g;
 /***/ }),
 
 /***/ 30:
+/*!********************************************************************!*\
+  !*** /Users/mac/code/driver1234/uview-ui/libs/function/addUnit.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
+function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
+  value = String(value);
+  // 用uView内置验证规则中的number判断是否为数值
+  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
+}
+
+/***/ }),
+
+/***/ 31:
 /*!*******************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/random.js ***!
   \*******************************************************************/
@@ -11912,7 +11912,7 @@ random;exports.default = _default;
 
 /***/ }),
 
-/***/ 31:
+/***/ 32:
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/trim.js ***!
   \*****************************************************************/
@@ -11938,7 +11938,7 @@ trim;exports.default = _default;
 
 /***/ }),
 
-/***/ 32:
+/***/ 33:
 /*!******************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/toast.js ***!
   \******************************************************************/
@@ -11959,7 +11959,7 @@ toast;exports.default = _default;
 
 /***/ }),
 
-/***/ 33:
+/***/ 34:
 /*!**********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/getParent.js ***!
   \**********************************************************************/
@@ -12017,7 +12017,7 @@ function getParent(name, keys) {
 
 /***/ }),
 
-/***/ 34:
+/***/ 35:
 /*!********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/$parent.js ***!
   \********************************************************************/
@@ -12046,7 +12046,7 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 
 /***/ }),
 
-/***/ 35:
+/***/ 36:
 /*!****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/sys.js ***!
   \****************************************************************/
@@ -12065,7 +12065,7 @@ function sys() {
 
 /***/ }),
 
-/***/ 36:
+/***/ 37:
 /*!*********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/debounce.js ***!
   \*********************************************************************/
@@ -12105,7 +12105,7 @@ debounce;exports.default = _default;
 
 /***/ }),
 
-/***/ 37:
+/***/ 38:
 /*!*********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/throttle.js ***!
   \*********************************************************************/
@@ -12148,7 +12148,7 @@ throttle;exports.default = _default;
 
 /***/ }),
 
-/***/ 38:
+/***/ 39:
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/config/config.js ***!
   \*****************************************************************/
@@ -12172,7 +12172,18 @@ var version = '1.8.3';var _default =
 
 /***/ }),
 
-/***/ 39:
+/***/ 4:
+/*!*********************************************!*\
+  !*** /Users/mac/code/driver1234/pages.json ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 40:
 /*!*****************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/config/zIndex.js ***!
   \*****************************************************************/
@@ -12202,18 +12213,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 4:
-/*!*********************************************!*\
-  !*** /Users/mac/code/driver1234/pages.json ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 40:
+/***/ 41:
 /*!*************************************************!*\
   !*** /Users/mac/code/driver1234/store/index.js ***!
   \*************************************************/
@@ -12222,7 +12222,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 41));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 8));
 var _state = _interopRequireDefault(__webpack_require__(/*! ./state.js */ 42));
 var _mutations = _interopRequireDefault(__webpack_require__(/*! ./mutations.js */ 43));
 var _getters = _interopRequireDefault(__webpack_require__(/*! ./getters.js */ 44));
@@ -12238,7 +12238,389 @@ store;exports.default = _default;
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
+/*!*************************************************!*\
+  !*** /Users/mac/code/driver1234/store/state.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
+  searchInteraction: '',
+  userInfo: '',
+  openId: '',
+  location: '',
+  locationModel: false,
+  shareCode: '',
+  sureCodeBase64: '',
+  phoneNumber: '',
+  questionArr: [],
+  loginCode: '' };var _default =
+
+state;exports.default = _default;
+
+/***/ }),
+
+/***/ 43:
+/*!*****************************************************!*\
+  !*** /Users/mac/code/driver1234/store/mutations.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var mutations = {
+  setSearchInteraction: function setSearchInteraction(state, string) {
+    state.searchInteraction = string;
+  },
+  setUserInfo: function setUserInfo(state, obj) {
+    state.userInfo = obj;
+  },
+  setOpenid: function setOpenid(state, string) {
+    state.openId = string;
+  },
+  setLocation: function setLocation(state, string) {
+    state.location = string;
+  },
+  setLocationModel: function setLocationModel(state, boolea) {
+    state.locationModel = boolea;
+  },
+  setShareCode: function setShareCode(state, string) {
+    state.shareCode = string;
+  },
+  setWXCode: function setWXCode(state, string) {
+    state.sureCodeBase64 = string;
+  },
+  setPhoneNumber: function setPhoneNumber(state, string) {
+    wx.setStorage({ key: 'phoneNumber', data: string });
+    state.phoneNumber = string;
+  },
+  setQusetionArr: function setQusetionArr(state, arr) {
+    console.log(arr);
+    state.qusetionArr = arr;
+  },
+  setLoginCode: function setLoginCode(state, code) {
+    state.loginCode = code;
+  } };var _default =
+
+
+mutations;exports.default = _default;
+
+/***/ }),
+
+/***/ 44:
+/*!***************************************************!*\
+  !*** /Users/mac/code/driver1234/store/getters.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var getters = {
+  sureCode: function sureCode(_ref) {var sureCodeBase64 = _ref.sureCodeBase64;
+    var str = sureCodeBase64.replace(/\. +/g, '');
+    str = str.replace(/[\r\n]/g, '');
+    return "data:image/png;base64,".concat(str);
+  } };var _default =
+
+getters;exports.default = _default;
+
+/***/ }),
+
+/***/ 45:
+/*!***************************************************!*\
+  !*** /Users/mac/code/driver1234/store/actions.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _main = _interopRequireDefault(__webpack_require__(/*! ../main */ 0));
+var _constant = __webpack_require__(/*! ../utils/constant.js */ 46);
+
+
+var _amapWx = _interopRequireDefault(__webpack_require__(/*! ../static/amap-wx.130.js */ 47));
+var _httpUrl = __webpack_require__(/*! ../utils/http.url.js */ 48);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+var actions = {
+  // 授权后 获取地理位置
+  getAccurate: function getAccurate(_ref)
+
+  {var commit = _ref.commit;
+    var myAmapFun = new _amapWx.default.AMapWX({
+      key: _constant.MAP_KEY });
+
+    uni.getLocation({
+      type: 'wgs84',
+      success: function success(_ref2)
+
+
+      {var latitude = _ref2.latitude,longitude = _ref2.longitude;
+        myAmapFun.getRegeo({
+          location: "".concat(longitude, ",").concat(latitude), //经纬度
+          success: function success(res) {var
+
+            province =
+            res[0].regeocodeData.addressComponent.province;
+            // 设置城市 关闭请求模态框
+            commit('setLocation', province);
+            commit('setLocationModel', false);
+          },
+          fail: function fail(err) {
+            // 暂未处理失败，后续添加
+            console.log('err', err);
+          } });
+
+      } });
+
+  },
+  getUserInfo: function getUserInfo(_ref3,
+
+
+  obj) {var dispatch = _ref3.dispatch,commit = _ref3.commit;
+    uni.getUserInfo({
+      success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                  commit('setUserInfo', res.userInfo);
+                  dispatch('login', _objectSpread(_objectSpread({}, obj), {}, { userInfo: res.userInfo }));case 2:case "end":return _context.stop();}}}, _callee);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+
+
+  },
+  getQuestion: function getQuestion(_ref4)
+
+  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var commit, res, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:commit = _ref4.commit;_context2.next = 3;return (
+                _main.default.$u.api.getQuestion());case 3:res = _context2.sent;
+
+              data =
+              res.data;
+
+              commit('setQusetionArr', data);case 6:case "end":return _context2.stop();}}}, _callee2);}))();
+  },
+  login: function login(_ref5, _ref6)
+
+
+
+
+
+
+  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var commit, state, isAuthor, encryptedData, iv, callBack, userInfo, loginRes, _ref7, userId, openId, phone, codeRes;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:commit = _ref5.commit, state = _ref5.state;isAuthor = _ref6.isAuthor, encryptedData = _ref6.encryptedData, iv = _ref6.iv, callBack = _ref6.callBack, userInfo = _ref6.userInfo;if (
+              state.loginCode) {_context3.next = 5;break;}
+              uni.showToast({
+                icon: "none",
+                title: '网络错误,请重新进入小程序',
+                position: 'center' });return _context3.abrupt("return");case 5:
+
+
+
+              if (isAuthor) {
+                uni.showToast({
+                  icon: "loading",
+                  title: '登陆中',
+                  position: 'center' });
+
+              }
+              if (state.shareCode) {
+                userInfo.referrerId = state.shareCode;
+              }_context3.next = 9;return (
+                _main.default.$u.api.login({
+                  code: state.loginCode,
+                  userInfo: userInfo,
+                  iv: iv,
+                  encryptedData: encryptedData }));case 9:loginRes = _context3.sent;_ref7 =
+
+
+
+
+
+              loginRes.data || {}, userId = _ref7.userId, openId = _ref7.openId, phone = _ref7.phone;
+              commit('setPhoneNumber', phone);
+              commit('setUserInfo', loginRes.data);
+              commit('setOpenid', openId);_context3.next = 16;return (
+                _main.default.$u.api.getQRcode(userId));case 16:codeRes = _context3.sent;
+              commit('setWXCode', codeRes);
+              callBack && callBack();
+              if (isAuthor) {
+                uni.showToast({
+                  icon: "none",
+                  title: '登陆成功',
+                  duration: 1000,
+                  position: 'center' });
+
+              }case 20:case "end":return _context3.stop();}}}, _callee3);}))();
+  } };var _default =
+
+actions;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 46:
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/constant.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.MAP_KEY = exports.PICTURE = exports.PHOTOGRAPH = void 0;var PHOTOGRAPH = 'photograph';exports.PHOTOGRAPH = PHOTOGRAPH;
+var PICTURE = 'picture';exports.PICTURE = PICTURE;
+var MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7';exports.MAP_KEY = MAP_KEY;
+
+/***/ }),
+
+/***/ 47:
+/*!********************************************************!*\
+  !*** /Users/mac/code/driver1234/static/amap-wx.130.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function AMapWX(a) {this.key = a.key;this.requestConfig = { key: a.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };this.MeRequestConfig = { key: a.key, serviceName: "https://restapi.amap.com/rest/me" };}
+AMapWX.prototype.getWxLocation = function (a, b) {wx.getLocation({ type: "gcj02", success: function success(c) {c = c.longitude + "," + c.latitude;wx.setStorage({ key: "userLocation", data: c });b(c);}, fail: function fail(c) {wx.getStorage({ key: "userLocation", success: function success(d) {d.data && b(d.data);} });a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
+AMapWX.prototype.getMEKeywordsSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.keywords && (d.keywords = b.keywords);b.city && (d.city = b.city);b.filter && (d.filter = b.filter);b.sortrule && (d.sortrule = b.sortrule);b.pageNum && (d.pageNum = b.pageNum);b.pageSize && (d.pageSize = b.pageSize);b.sig && (d.sig =
+  b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/local", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
+AMapWX.prototype.getMEIdSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.id && (d.id = b.id);b.sig && (d.sig = b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/id", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status &&
+      0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
+AMapWX.prototype.getMEPolygonSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.keywords && (d.keywords = b.keywords);b.polygon && (d.polygon = b.polygon);b.filter && (d.filter = b.filter);b.sortrule && (d.sortrule = b.sortrule);b.pageNum && (d.pageNum = b.pageNum);b.pageSize && (d.pageSize = b.pageSize);
+  b.sig && (d.sig = b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/polygon", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
+AMapWX.prototype.getMEaroundSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.keywords && (d.keywords = b.keywords);b.center && (d.center = b.center);b.radius && (d.radius = b.radius);b.filter && (d.filter = b.filter);b.sortrule && (d.sortrule = b.sortrule);b.pageNum && (d.pageNum = b.pageNum);b.pageSize && (
+  d.pageSize = b.pageSize);b.sig && (d.sig = b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/around", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
+AMapWX.prototype.getGeo = function (a) {var b = this.requestConfig,c = a.options;b = { key: this.key, extensions: "all", s: b.s, platform: b.platform, appname: this.key, sdkversion: b.sdkversion, logversion: b.logversion };c.address && (b.address = c.address);c.city && (b.city = c.city);c.batch && (b.batch = c.batch);c.sig && (b.sig = c.sig);wx.request({ url: "https://restapi.amap.com/v3/geocode/geo", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(d) {(d = d.data) && d.status && "1" === d.status ? a.success(d) : a.fail({ errCode: "0",
+        errMsg: d });}, fail: function fail(d) {a.fail({ errCode: "0", errMsg: d.errMsg || "" });} });};
+AMapWX.prototype.getRegeo = function (a) {function b(d) {var e = c.requestConfig;wx.request({ url: "https://restapi.amap.com/v3/geocode/regeo", data: { key: c.key, location: d, extensions: "all", s: e.s, platform: e.platform, appname: c.key, sdkversion: e.sdkversion, logversion: e.logversion }, method: "GET", header: { "content-type": "application/json" }, success: function success(g) {if (g.data.status && "1" == g.data.status) {g = g.data.regeocode;var h = g.addressComponent,f = [],k = g.roads[0].name + "\u9644\u8FD1",m = d.split(",")[0],n = d.split(",")[1];if (g.pois &&
+          g.pois[0]) {k = g.pois[0].name + "\u9644\u8FD1";var l = g.pois[0].location;l && (m = parseFloat(l.split(",")[0]), n = parseFloat(l.split(",")[1]));}h.provice && f.push(h.provice);h.city && f.push(h.city);h.district && f.push(h.district);h.streetNumber && h.streetNumber.street && h.streetNumber.number ? (f.push(h.streetNumber.street), f.push(h.streetNumber.number)) : f.push(g.roads[0].name);f = f.join("");a.success([{ iconPath: a.iconPath, width: a.iconWidth, height: a.iconHeight, name: f, desc: k, longitude: m, latitude: n, id: 0, regeocodeData: g }]);} else a.fail({ errCode: g.data.infocode,
+          errMsg: g.data.info });}, fail: function fail(g) {a.fail({ errCode: "0", errMsg: g.errMsg || "" });} });}var c = this;a.location ? b(a.location) : c.getWxLocation(a, function (d) {b(d);});};
+AMapWX.prototype.getWeather = function (a) {function b(g) {var h = "base";a.type && "forecast" == a.type && (h = "all");wx.request({ url: "https://restapi.amap.com/v3/weather/weatherInfo", data: { key: d.key, city: g, extensions: h, s: e.s, platform: e.platform, appname: d.key, sdkversion: e.sdkversion, logversion: e.logversion }, method: "GET", header: { "content-type": "application/json" }, success: function success(f) {if (f.data.status && "1" == f.data.status) {if (f.data.lives) {if ((f = f.data.lives) && 0 < f.length) {f = f[0];var k = { city: { text: "\u57CE\u5E02", data: f.city },
+                weather: { text: "\u5929\u6C14", data: f.weather }, temperature: { text: "\u6E29\u5EA6", data: f.temperature }, winddirection: { text: "\u98CE\u5411", data: f.winddirection + "\u98CE" }, windpower: { text: "\u98CE\u529B", data: f.windpower + "\u7EA7" }, humidity: { text: "\u6E7F\u5EA6", data: f.humidity + "%" } };k.liveData = f;a.success(k);}} else f.data.forecasts && f.data.forecasts[0] && a.success({ forecast: f.data.forecasts[0] });} else a.fail({ errCode: f.data.infocode, errMsg: f.data.info });}, fail: function fail(f) {a.fail({ errCode: "0", errMsg: f.errMsg || "" });} });}
+  function c(g) {wx.request({ url: "https://restapi.amap.com/v3/geocode/regeo", data: { key: d.key, location: g, extensions: "all", s: e.s, platform: e.platform, appname: d.key, sdkversion: e.sdkversion, logversion: e.logversion }, method: "GET", header: { "content-type": "application/json" }, success: function success(h) {if (h.data.status && "1" == h.data.status) {h = h.data.regeocode;if (h.addressComponent) var f = h.addressComponent.adcode;else h.aois && 0 < h.aois.length && (f = h.aois[0].adcode);b(f);} else a.fail({ errCode: h.data.infocode, errMsg: h.data.info });},
+      fail: function fail(h) {a.fail({ errCode: "0", errMsg: h.errMsg || "" });} });}var d = this,e = d.requestConfig;a.city ? b(a.city) : d.getWxLocation(a, function (g) {c(g);});};
+AMapWX.prototype.getPoiAround = function (a) {function b(e) {e = { key: c.key, location: e, s: d.s, platform: d.platform, appname: c.key, sdkversion: d.sdkversion, logversion: d.logversion };a.querytypes && (e.types = a.querytypes);a.querykeywords && (e.keywords = a.querykeywords);wx.request({ url: "https://restapi.amap.com/v3/place/around", data: e, method: "GET", header: { "content-type": "application/json" }, success: function success(g) {if (g.data.status && "1" == g.data.status) {if ((g = g.data) && g.pois) {for (var h = [], f = 0; f < g.pois.length; f++) {var k = 0 ==
+              f ? a.iconPathSelected : a.iconPath;h.push({ latitude: parseFloat(g.pois[f].location.split(",")[1]), longitude: parseFloat(g.pois[f].location.split(",")[0]), iconPath: k, width: 22, height: 32, id: f, name: g.pois[f].name, address: g.pois[f].address });}a.success({ markers: h, poisData: g.pois });}} else a.fail({ errCode: g.data.infocode, errMsg: g.data.info });}, fail: function fail(g) {a.fail({ errCode: "0", errMsg: g.errMsg || "" });} });}var c = this,d = c.requestConfig;a.location ? b(a.location) : c.getWxLocation(a, function (e) {b(e);});};
+AMapWX.prototype.getStaticmap = function (a) {function b(e) {c.push("location=" + e);a.zoom && c.push("zoom=" + a.zoom);a.size && c.push("size=" + a.size);a.scale && c.push("scale=" + a.scale);a.markers && c.push("markers=" + a.markers);a.labels && c.push("labels=" + a.labels);a.paths && c.push("paths=" + a.paths);a.traffic && c.push("traffic=" + a.traffic);e = "https://restapi.amap.com/v3/staticmap?" + c.join("&");a.success({ url: e });}var c = [];c.push("key=" + this.key);var d = this.requestConfig;c.push("s=" + d.s);c.push("platform=" + d.platform);
+  c.push("appname=" + d.appname);c.push("sdkversion=" + d.sdkversion);c.push("logversion=" + d.logversion);a.location ? b(a.location) : this.getWxLocation(a, function (e) {b(e);});};
+AMapWX.prototype.getInputtips = function (a) {var b = Object.assign({}, this.requestConfig);a.location && (b.location = a.location);a.keywords && (b.keywords = a.keywords);a.type && (b.type = a.type);a.city && (b.city = a.city);a.citylimit && (b.citylimit = a.citylimit);wx.request({ url: "https://restapi.amap.com/v3/assistant/inputtips", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.tips && a.success({ tips: c.data.tips });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg ||
+        "" });} });};
+AMapWX.prototype.getDrivingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);a.strategy && (b.strategy = a.strategy);a.waypoints && (b.waypoints = a.waypoints);a.avoidpolygons && (b.avoidpolygons = a.avoidpolygons);a.avoidroad && (b.avoidroad = a.avoidroad);wx.request({ url: "https://restapi.amap.com/v3/direction/driving", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths,
+        taxi_cost: c.data.route.taxi_cost || "" });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
+AMapWX.prototype.getWalkingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);wx.request({ url: "https://restapi.amap.com/v3/direction/walking", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
+AMapWX.prototype.getTransitRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);a.strategy && (b.strategy = a.strategy);a.city && (b.city = a.city);a.cityd && (b.cityd = a.cityd);wx.request({ url: "https://restapi.amap.com/v3/direction/transit/integrated", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && (c = c.data.route, a.success({ distance: c.distance || "", taxi_cost: c.taxi_cost ||
+        "", transits: c.transits }));}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
+AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);wx.request({ url: "https://restapi.amap.com/v3/direction/riding", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};module.exports.AMapWX = AMapWX;
+
+/***/ }),
+
+/***/ 48:
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
+
+var loginUrl = 'user/login';exports.loginUrl = loginUrl;
+var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
+
+var imgSearchUrl = 'question/imgSearch';exports.imgSearchUrl = imgSearchUrl;
+var getQuestionUrl = 'question/20Question';exports.getQuestionUrl = getQuestionUrl;
+var searchQuestionUrl = 'question/searchQuestion';exports.searchQuestionUrl = searchQuestionUrl;
+var getUserUrl = 'user/getUser';exports.getUserUrl = getUserUrl;
+
+var hotSearchUrl = '/ebapi/store_api/hot_search';exports.hotSearchUrl = hotSearchUrl;
+var indexUrl = '/ebapi/public_api/index';exports.indexUrl = indexUrl;
+var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
+exports.location = location;
+
+/***/ }),
+
+/***/ 49:
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.api.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 48);
+var install = function install(Vue, vm) {
+
+  var login = function login() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.loginUrl, params);};
+  var getQRcode = function getQRcode(params) {return vm.$u.get("".concat(_http.getQRcodeUrl, "/").concat(params));};
+
+  var imgSearch = function imgSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.imgSearchUrl);};
+  var getQuestion = function getQuestion() {return vm.$u.get(_http.getQuestionUrl);};
+  var searchQuestion = function searchQuestion() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.searchQuestionUrl, params);};
+  var getUser = function getUser(params) {return vm.$u.get("".concat(_http.getUserUrl, "/").concat(params));};
+
+
+
+
+  var getSearch = function getSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.get(_http.hotSearchUrl, {
+      id: 2 });};
+
+
+  var getGetwxacode = function getGetwxacode() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post("".concat(_http.getwxacode, "?access_token=").concat(params.access_token), { path: params.path });};
+  var getInfo = function getInfo() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.indexUrl, params);};
+  vm.$u.api = { login: login, getQRcode: getQRcode, imgSearch: imgSearch, getQuestion: getQuestion, searchQuestion: searchQuestion, getSearch: getSearch, getUser: getUser, getInfo: getInfo, getGetwxacode: getGetwxacode };
+};var _default =
+
+{
+  install: install };exports.default = _default;
+
+/***/ }),
+
+/***/ 50:
+/*!************************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.interceptor.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 48);
+// common/http.interceptor.js
+
+// 这里的Vue为Vue对象(非创建出来的实例)，vm为main.js中“Vue.use(httpInterceptor, app)”这一句的第二个参数，
+// 为一个Vue的实例，也即每个页面的"this"
+// 如果需要了解这个install方法是什么，请移步：https://uviewui.com/components/vueUse.html
+var install = function install(Vue, vm) {
+  // 此为自定义配置参数，具体参数见上方说明
+  Vue.prototype.$u.http.setConfig({
+    baseUrl: _http.BASE_URL,
+    loadingText: '努力加载中~',
+    loadingTime: 800
+    // 设置自定义头部content-type
+    // header: {
+    // 	'content-type': 'xxx'
+    // }
+    // ......
+  });
+  // 请求拦截部分，如配置，每次请求前都会执行
+  Vue.prototype.$u.http.interceptor.request = function (config) {
+    // 引用token
+    config.header.openid = vm.$store.state.openId;
+
+    // 可以对某个url进行特别处理，此url参数为this.$u.get(url)中的url值
+    // if(config.url == '/user/login') config.header.noToken = true; //例子
+    // 最后需要将config进行return
+    return config;
+    // 如果return一个false值，则会取消本次请求
+    // if(config.url == '/user/rest') return false; // 取消某次请求 //例子
+  };
+  // 响应拦截，如配置，每次请求结束都会执行本方法
+  // Vue.prototype.$u.http.interceptor.response = (res) => {
+  // 	return res.result;
+  // }
+};var _default =
+
+{
+  install: install };exports.default = _default;
+
+/***/ }),
+
+/***/ 8:
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -13348,387 +13730,6 @@ var index = {
 
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
-
-/***/ }),
-
-/***/ 42:
-/*!*************************************************!*\
-  !*** /Users/mac/code/driver1234/store/state.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
-  searchInteraction: '',
-  userInfo: '',
-  openId: '',
-  location: '',
-  locationModel: false,
-  shareCode: '',
-  sureCodeBase64: '',
-  phoneNumber: '',
-  questionArr: [],
-  loginCode: '' };var _default =
-
-state;exports.default = _default;
-
-/***/ }),
-
-/***/ 43:
-/*!*****************************************************!*\
-  !*** /Users/mac/code/driver1234/store/mutations.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var mutations = {
-  setSearchInteraction: function setSearchInteraction(state, string) {
-    state.searchInteraction = string;
-  },
-  setUserInfo: function setUserInfo(state, obj) {
-    state.userInfo = obj;
-  },
-  setOpenid: function setOpenid(state, string) {
-    state.openId = string;
-  },
-  setLocation: function setLocation(state, string) {
-    state.location = string;
-  },
-  setLocationModel: function setLocationModel(state, boolea) {
-    state.locationModel = boolea;
-  },
-  setShareCode: function setShareCode(state, string) {
-    state.shareCode = string;
-  },
-  setWXCode: function setWXCode(state, string) {
-    state.sureCodeBase64 = string;
-  },
-  setPhoneNumber: function setPhoneNumber(state, string) {
-    wx.setStorage({ key: 'phoneNumber', data: string });
-    state.phoneNumber = string;
-  },
-  setQusetionArr: function setQusetionArr(state, arr) {
-    console.log(arr);
-    state.qusetionArr = arr;
-  },
-  setLoginCode: function setLoginCode(state, code) {
-    state.loginCode = code;
-  } };var _default =
-
-
-mutations;exports.default = _default;
-
-/***/ }),
-
-/***/ 44:
-/*!***************************************************!*\
-  !*** /Users/mac/code/driver1234/store/getters.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var getters = {
-  sureCode: function sureCode(_ref) {var sureCodeBase64 = _ref.sureCodeBase64;
-    var str = sureCodeBase64.replace(/\. +/g, '');
-    str = str.replace(/[\r\n]/g, '');
-    return "data:image/png;base64,".concat(str);
-  } };var _default =
-
-getters;exports.default = _default;
-
-/***/ }),
-
-/***/ 45:
-/*!***************************************************!*\
-  !*** /Users/mac/code/driver1234/store/actions.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));var _main = _interopRequireDefault(__webpack_require__(/*! ../main */ 0));
-var _constant = __webpack_require__(/*! ../utils/constant.js */ 46);
-
-
-var _amapWx = _interopRequireDefault(__webpack_require__(/*! ../static/amap-wx.130.js */ 47));
-var _httpUrl = __webpack_require__(/*! ../utils/http.url.js */ 48);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
-
-
-var actions = {
-  // 授权后 获取地理位置
-  getAccurate: function getAccurate(_ref)
-
-  {var commit = _ref.commit;
-    var myAmapFun = new _amapWx.default.AMapWX({
-      key: _constant.MAP_KEY });
-
-    uni.getLocation({
-      type: 'wgs84',
-      success: function success(_ref2)
-
-
-      {var latitude = _ref2.latitude,longitude = _ref2.longitude;
-        myAmapFun.getRegeo({
-          location: "".concat(longitude, ",").concat(latitude), //经纬度
-          success: function success(res) {var
-
-            province =
-            res[0].regeocodeData.addressComponent.province;
-            // 设置城市 关闭请求模态框
-            commit('setLocation', province);
-            commit('setLocationModel', false);
-          },
-          fail: function fail(err) {
-            // 暂未处理失败，后续添加
-            console.log('err', err);
-          } });
-
-      } });
-
-  },
-  getUserInfo: function getUserInfo(_ref3,
-
-
-  obj) {var dispatch = _ref3.dispatch,commit = _ref3.commit;
-    uni.getUserInfo({
-      success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                  commit('setUserInfo', res.userInfo);
-                  dispatch('login', _objectSpread(_objectSpread({}, obj), {}, { userInfo: res.userInfo }));case 2:case "end":return _context.stop();}}}, _callee);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
-
-
-  },
-  getQuestion: function getQuestion(_ref4)
-
-  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var commit, res, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:commit = _ref4.commit;_context2.next = 3;return (
-                _main.default.$u.api.getQuestion());case 3:res = _context2.sent;
-
-              data =
-              res.data;
-              commit('setQusetionArr', data);case 6:case "end":return _context2.stop();}}}, _callee2);}))();
-  },
-  login: function login(_ref5, _ref6)
-
-
-
-
-
-
-  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var commit, state, isAuthor, encryptedData, iv, callBack, userInfo, loginRes, _ref7, userId, openId, phone, codeRes;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:commit = _ref5.commit, state = _ref5.state;isAuthor = _ref6.isAuthor, encryptedData = _ref6.encryptedData, iv = _ref6.iv, callBack = _ref6.callBack, userInfo = _ref6.userInfo;if (
-              state.loginCode) {_context3.next = 5;break;}
-              uni.showToast({
-                icon: "none",
-                title: '网络错误,请重新进入小程序',
-                position: 'center' });return _context3.abrupt("return");case 5:
-
-
-
-              if (isAuthor) {
-                uni.showToast({
-                  icon: "loading",
-                  title: '登陆中',
-                  position: 'center' });
-
-              }
-              if (state.shareCode) {
-                userInfo.referrerId = state.shareCode;
-              }_context3.next = 9;return (
-                _main.default.$u.api.login({
-                  code: state.loginCode,
-                  userInfo: userInfo,
-                  iv: iv,
-                  encryptedData: encryptedData }));case 9:loginRes = _context3.sent;_ref7 =
-
-
-
-
-
-              loginRes.data || {}, userId = _ref7.userId, openId = _ref7.openId, phone = _ref7.phone;
-              commit('setPhoneNumber', phone);
-              commit('setUserInfo', loginRes.data);
-              commit('setOpenid', openId);_context3.next = 16;return (
-                _main.default.$u.api.getQRcode(userId));case 16:codeRes = _context3.sent;
-              commit('setWXCode', codeRes);
-              callBack && callBack();
-              if (isAuthor) {
-                uni.showToast({
-                  icon: "none",
-                  title: '登陆成功',
-                  duration: 1000,
-                  position: 'center' });
-
-              }case 20:case "end":return _context3.stop();}}}, _callee3);}))();
-  } };var _default =
-
-actions;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 46:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/constant.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.MAP_KEY = exports.PICTURE = exports.PHOTOGRAPH = void 0;var PHOTOGRAPH = 'photograph';exports.PHOTOGRAPH = PHOTOGRAPH;
-var PICTURE = 'picture';exports.PICTURE = PICTURE;
-var MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7';exports.MAP_KEY = MAP_KEY;
-
-/***/ }),
-
-/***/ 47:
-/*!********************************************************!*\
-  !*** /Users/mac/code/driver1234/static/amap-wx.130.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function AMapWX(a) {this.key = a.key;this.requestConfig = { key: a.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };this.MeRequestConfig = { key: a.key, serviceName: "https://restapi.amap.com/rest/me" };}
-AMapWX.prototype.getWxLocation = function (a, b) {wx.getLocation({ type: "gcj02", success: function success(c) {c = c.longitude + "," + c.latitude;wx.setStorage({ key: "userLocation", data: c });b(c);}, fail: function fail(c) {wx.getStorage({ key: "userLocation", success: function success(d) {d.data && b(d.data);} });a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
-AMapWX.prototype.getMEKeywordsSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.keywords && (d.keywords = b.keywords);b.city && (d.city = b.city);b.filter && (d.filter = b.filter);b.sortrule && (d.sortrule = b.sortrule);b.pageNum && (d.pageNum = b.pageNum);b.pageSize && (d.pageSize = b.pageSize);b.sig && (d.sig =
-  b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/local", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
-AMapWX.prototype.getMEIdSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.id && (d.id = b.id);b.sig && (d.sig = b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/id", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status &&
-      0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
-AMapWX.prototype.getMEPolygonSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.keywords && (d.keywords = b.keywords);b.polygon && (d.polygon = b.polygon);b.filter && (d.filter = b.filter);b.sortrule && (d.sortrule = b.sortrule);b.pageNum && (d.pageNum = b.pageNum);b.pageSize && (d.pageSize = b.pageSize);
-  b.sig && (d.sig = b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/polygon", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
-AMapWX.prototype.getMEaroundSearch = function (a) {if (!a.options) return a.fail({ errCode: "0", errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });var b = a.options,c = this.MeRequestConfig,d = { key: c.key, s: "rsx", platform: "WXJS", appname: a.key, sdkversion: "1.2.0", logversion: "2.0" };b.layerId && (d.layerId = b.layerId);b.keywords && (d.keywords = b.keywords);b.center && (d.center = b.center);b.radius && (d.radius = b.radius);b.filter && (d.filter = b.filter);b.sortrule && (d.sortrule = b.sortrule);b.pageNum && (d.pageNum = b.pageNum);b.pageSize && (
-  d.pageSize = b.pageSize);b.sig && (d.sig = b.sig);wx.request({ url: c.serviceName + "/cpoint/datasearch/around", data: d, method: "GET", header: { "content-type": "application/json" }, success: function success(e) {(e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({ errCode: "0", errMsg: e });}, fail: function fail(e) {a.fail({ errCode: "0", errMsg: e.errMsg || "" });} });};
-AMapWX.prototype.getGeo = function (a) {var b = this.requestConfig,c = a.options;b = { key: this.key, extensions: "all", s: b.s, platform: b.platform, appname: this.key, sdkversion: b.sdkversion, logversion: b.logversion };c.address && (b.address = c.address);c.city && (b.city = c.city);c.batch && (b.batch = c.batch);c.sig && (b.sig = c.sig);wx.request({ url: "https://restapi.amap.com/v3/geocode/geo", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(d) {(d = d.data) && d.status && "1" === d.status ? a.success(d) : a.fail({ errCode: "0",
-        errMsg: d });}, fail: function fail(d) {a.fail({ errCode: "0", errMsg: d.errMsg || "" });} });};
-AMapWX.prototype.getRegeo = function (a) {function b(d) {var e = c.requestConfig;wx.request({ url: "https://restapi.amap.com/v3/geocode/regeo", data: { key: c.key, location: d, extensions: "all", s: e.s, platform: e.platform, appname: c.key, sdkversion: e.sdkversion, logversion: e.logversion }, method: "GET", header: { "content-type": "application/json" }, success: function success(g) {if (g.data.status && "1" == g.data.status) {g = g.data.regeocode;var h = g.addressComponent,f = [],k = g.roads[0].name + "\u9644\u8FD1",m = d.split(",")[0],n = d.split(",")[1];if (g.pois &&
-          g.pois[0]) {k = g.pois[0].name + "\u9644\u8FD1";var l = g.pois[0].location;l && (m = parseFloat(l.split(",")[0]), n = parseFloat(l.split(",")[1]));}h.provice && f.push(h.provice);h.city && f.push(h.city);h.district && f.push(h.district);h.streetNumber && h.streetNumber.street && h.streetNumber.number ? (f.push(h.streetNumber.street), f.push(h.streetNumber.number)) : f.push(g.roads[0].name);f = f.join("");a.success([{ iconPath: a.iconPath, width: a.iconWidth, height: a.iconHeight, name: f, desc: k, longitude: m, latitude: n, id: 0, regeocodeData: g }]);} else a.fail({ errCode: g.data.infocode,
-          errMsg: g.data.info });}, fail: function fail(g) {a.fail({ errCode: "0", errMsg: g.errMsg || "" });} });}var c = this;a.location ? b(a.location) : c.getWxLocation(a, function (d) {b(d);});};
-AMapWX.prototype.getWeather = function (a) {function b(g) {var h = "base";a.type && "forecast" == a.type && (h = "all");wx.request({ url: "https://restapi.amap.com/v3/weather/weatherInfo", data: { key: d.key, city: g, extensions: h, s: e.s, platform: e.platform, appname: d.key, sdkversion: e.sdkversion, logversion: e.logversion }, method: "GET", header: { "content-type": "application/json" }, success: function success(f) {if (f.data.status && "1" == f.data.status) {if (f.data.lives) {if ((f = f.data.lives) && 0 < f.length) {f = f[0];var k = { city: { text: "\u57CE\u5E02", data: f.city },
-                weather: { text: "\u5929\u6C14", data: f.weather }, temperature: { text: "\u6E29\u5EA6", data: f.temperature }, winddirection: { text: "\u98CE\u5411", data: f.winddirection + "\u98CE" }, windpower: { text: "\u98CE\u529B", data: f.windpower + "\u7EA7" }, humidity: { text: "\u6E7F\u5EA6", data: f.humidity + "%" } };k.liveData = f;a.success(k);}} else f.data.forecasts && f.data.forecasts[0] && a.success({ forecast: f.data.forecasts[0] });} else a.fail({ errCode: f.data.infocode, errMsg: f.data.info });}, fail: function fail(f) {a.fail({ errCode: "0", errMsg: f.errMsg || "" });} });}
-  function c(g) {wx.request({ url: "https://restapi.amap.com/v3/geocode/regeo", data: { key: d.key, location: g, extensions: "all", s: e.s, platform: e.platform, appname: d.key, sdkversion: e.sdkversion, logversion: e.logversion }, method: "GET", header: { "content-type": "application/json" }, success: function success(h) {if (h.data.status && "1" == h.data.status) {h = h.data.regeocode;if (h.addressComponent) var f = h.addressComponent.adcode;else h.aois && 0 < h.aois.length && (f = h.aois[0].adcode);b(f);} else a.fail({ errCode: h.data.infocode, errMsg: h.data.info });},
-      fail: function fail(h) {a.fail({ errCode: "0", errMsg: h.errMsg || "" });} });}var d = this,e = d.requestConfig;a.city ? b(a.city) : d.getWxLocation(a, function (g) {c(g);});};
-AMapWX.prototype.getPoiAround = function (a) {function b(e) {e = { key: c.key, location: e, s: d.s, platform: d.platform, appname: c.key, sdkversion: d.sdkversion, logversion: d.logversion };a.querytypes && (e.types = a.querytypes);a.querykeywords && (e.keywords = a.querykeywords);wx.request({ url: "https://restapi.amap.com/v3/place/around", data: e, method: "GET", header: { "content-type": "application/json" }, success: function success(g) {if (g.data.status && "1" == g.data.status) {if ((g = g.data) && g.pois) {for (var h = [], f = 0; f < g.pois.length; f++) {var k = 0 ==
-              f ? a.iconPathSelected : a.iconPath;h.push({ latitude: parseFloat(g.pois[f].location.split(",")[1]), longitude: parseFloat(g.pois[f].location.split(",")[0]), iconPath: k, width: 22, height: 32, id: f, name: g.pois[f].name, address: g.pois[f].address });}a.success({ markers: h, poisData: g.pois });}} else a.fail({ errCode: g.data.infocode, errMsg: g.data.info });}, fail: function fail(g) {a.fail({ errCode: "0", errMsg: g.errMsg || "" });} });}var c = this,d = c.requestConfig;a.location ? b(a.location) : c.getWxLocation(a, function (e) {b(e);});};
-AMapWX.prototype.getStaticmap = function (a) {function b(e) {c.push("location=" + e);a.zoom && c.push("zoom=" + a.zoom);a.size && c.push("size=" + a.size);a.scale && c.push("scale=" + a.scale);a.markers && c.push("markers=" + a.markers);a.labels && c.push("labels=" + a.labels);a.paths && c.push("paths=" + a.paths);a.traffic && c.push("traffic=" + a.traffic);e = "https://restapi.amap.com/v3/staticmap?" + c.join("&");a.success({ url: e });}var c = [];c.push("key=" + this.key);var d = this.requestConfig;c.push("s=" + d.s);c.push("platform=" + d.platform);
-  c.push("appname=" + d.appname);c.push("sdkversion=" + d.sdkversion);c.push("logversion=" + d.logversion);a.location ? b(a.location) : this.getWxLocation(a, function (e) {b(e);});};
-AMapWX.prototype.getInputtips = function (a) {var b = Object.assign({}, this.requestConfig);a.location && (b.location = a.location);a.keywords && (b.keywords = a.keywords);a.type && (b.type = a.type);a.city && (b.city = a.city);a.citylimit && (b.citylimit = a.citylimit);wx.request({ url: "https://restapi.amap.com/v3/assistant/inputtips", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.tips && a.success({ tips: c.data.tips });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg ||
-        "" });} });};
-AMapWX.prototype.getDrivingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);a.strategy && (b.strategy = a.strategy);a.waypoints && (b.waypoints = a.waypoints);a.avoidpolygons && (b.avoidpolygons = a.avoidpolygons);a.avoidroad && (b.avoidroad = a.avoidroad);wx.request({ url: "https://restapi.amap.com/v3/direction/driving", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths,
-        taxi_cost: c.data.route.taxi_cost || "" });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
-AMapWX.prototype.getWalkingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);wx.request({ url: "https://restapi.amap.com/v3/direction/walking", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
-AMapWX.prototype.getTransitRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);a.strategy && (b.strategy = a.strategy);a.city && (b.city = a.city);a.cityd && (b.cityd = a.cityd);wx.request({ url: "https://restapi.amap.com/v3/direction/transit/integrated", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && (c = c.data.route, a.success({ distance: c.distance || "", taxi_cost: c.taxi_cost ||
-        "", transits: c.transits }));}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};
-AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.requestConfig);a.origin && (b.origin = a.origin);a.destination && (b.destination = a.destination);wx.request({ url: "https://restapi.amap.com/v3/direction/riding", data: b, method: "GET", header: { "content-type": "application/json" }, success: function success(c) {c && c.data && c.data.route && a.success({ paths: c.data.route.paths });}, fail: function fail(c) {a.fail({ errCode: "0", errMsg: c.errMsg || "" });} });};module.exports.AMapWX = AMapWX;
-
-/***/ }),
-
-/***/ 48:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
-
-var loginUrl = 'user/login';exports.loginUrl = loginUrl;
-var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
-
-var imgSearchUrl = 'question/imgSearch';exports.imgSearchUrl = imgSearchUrl;
-var getQuestionUrl = 'question/20Question';exports.getQuestionUrl = getQuestionUrl;
-var searchQuestionUrl = 'question/searchQuestion';exports.searchQuestionUrl = searchQuestionUrl;
-var getUserUrl = 'user/getUser';exports.getUserUrl = getUserUrl;
-
-var hotSearchUrl = '/ebapi/store_api/hot_search';exports.hotSearchUrl = hotSearchUrl;
-var indexUrl = '/ebapi/public_api/index';exports.indexUrl = indexUrl;
-var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
-exports.location = location;
-
-/***/ }),
-
-/***/ 49:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.api.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 48);
-var install = function install(Vue, vm) {
-
-  var login = function login() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.loginUrl, params);};
-  var getQRcode = function getQRcode(params) {return vm.$u.get("".concat(_http.getQRcodeUrl, "/").concat(params));};
-
-  var imgSearch = function imgSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.imgSearchUrl);};
-  var getQuestion = function getQuestion() {return vm.$u.get(_http.getQuestionUrl);};
-  var searchQuestion = function searchQuestion() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.searchQuestionUrl, params);};
-  var getUser = function getUser(params) {return vm.$u.get("".concat(_http.getUserUrl, "/").concat(params));};
-
-
-
-
-  var getSearch = function getSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.get(_http.hotSearchUrl, {
-      id: 2 });};
-
-
-  var getGetwxacode = function getGetwxacode() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post("".concat(_http.getwxacode, "?access_token=").concat(params.access_token), { path: params.path });};
-  var getInfo = function getInfo() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.indexUrl, params);};
-  vm.$u.api = { login: login, getQRcode: getQRcode, imgSearch: imgSearch, getQuestion: getQuestion, searchQuestion: searchQuestion, getSearch: getSearch, getUser: getUser, getInfo: getInfo, getGetwxacode: getGetwxacode };
-};var _default =
-
-{
-  install: install };exports.default = _default;
-
-/***/ }),
-
-/***/ 50:
-/*!************************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.interceptor.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 48);
-// common/http.interceptor.js
-
-// 这里的Vue为Vue对象(非创建出来的实例)，vm为main.js中“Vue.use(httpInterceptor, app)”这一句的第二个参数，
-// 为一个Vue的实例，也即每个页面的"this"
-// 如果需要了解这个install方法是什么，请移步：https://uviewui.com/components/vueUse.html
-var install = function install(Vue, vm) {
-  // 此为自定义配置参数，具体参数见上方说明
-  Vue.prototype.$u.http.setConfig({
-    baseUrl: _http.BASE_URL,
-    loadingText: '努力加载中~',
-    loadingTime: 800
-    // 设置自定义头部content-type
-    // header: {
-    // 	'content-type': 'xxx'
-    // }
-    // ......
-  });
-  // 请求拦截部分，如配置，每次请求前都会执行
-  Vue.prototype.$u.http.interceptor.request = function (config) {
-    // 引用token
-    config.header.openid = vm.$store.state.openId;
-
-    // 可以对某个url进行特别处理，此url参数为this.$u.get(url)中的url值
-    // if(config.url == '/user/login') config.header.noToken = true; //例子
-    // 最后需要将config进行return
-    return config;
-    // 如果return一个false值，则会取消本次请求
-    // if(config.url == '/user/rest') return false; // 取消某次请求 //例子
-  };
-  // 响应拦截，如配置，每次请求结束都会执行本方法
-  // Vue.prototype.$u.http.interceptor.response = (res) => {
-  // 	return res.result;
-  // }
-};var _default =
-
-{
-  install: install };exports.default = _default;
 
 /***/ })
 

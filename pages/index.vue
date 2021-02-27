@@ -15,12 +15,14 @@
 			<view @click="tabGoTo(PICTURE)" class="right_picture">
 				<view class="box">
 						<u-icon name="photo"  size="40" color="#1296db"></u-icon>   
-						<text class="photograph" >拍照答题</text>
+						<text class="photograph" >图片答题</text>
 				</view>
 			</view>
 		</view>	
 		<u-grid :col="2" :border="false">
-			<u-grid-item @click="goTo('pages/tutorial')">
+			<u-grid-item @click="$u.route({
+						url: 'pagesA/tutorial',
+					})">
 				<u-icon name="question-circle-fill"  color="#5aa2e0" :size="46"></u-icon>
 				<view class="grid-text">使用教程</view>
 			</u-grid-item>
@@ -53,12 +55,10 @@
 					'一片冰心在玉壶'
 				],
 				list: [{
-						image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
-						title: '昨夜星辰昨夜风，画楼西畔桂堂东'
+						image: 'https://changpingwanglou.cn/file/lbt/1.jpg',
 					},
 					{
-						image: 'https://cdn.uviewui.com/uview/swiper/2.jpg',
-						title: '身无彩凤双飞翼，心有灵犀一点通'
+						image: 'https://changpingwanglou.cn/file/lbt/2.jpg',
 					}
 				],
 			}

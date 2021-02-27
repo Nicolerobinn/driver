@@ -56,6 +56,7 @@ const actions = {
 		const {
 			data
 		} = res
+		
 		commit('setQusetionArr', data)
 	},
 	async login({

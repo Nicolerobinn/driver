@@ -11,7 +11,8 @@
       "pages": [
         "promotion",
         "personal",
-        "announcementList"
+        "announcementList",
+        "tutorial"
       ]
     }
   ],
@@ -59,5 +60,5 @@
     }
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap50.json"
+  "sitemapLocation": "sitemap85.json"
 }

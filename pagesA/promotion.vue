@@ -1,109 +1,97 @@
 <template>
 	<view class="conetnt u-flex">
-		<view ref="modelasd" class="canvas_box  u-flex" >
-			<image :src="src" mode=""></image>
-			<image v-show="path"  show-menu-by-longpress="1"  :src="path"></image>
-			<l-painter
-				custom-style="position: fixed; z-index:-1;left:1000000px"
-				isRenderImage
-				:board="base"
-				@success="pathSuccess"
-				@fail="fail"
-			></l-painter>
+		<view ref="modelasd" class="canvas_box  u-flex">
+			<image show-menu-by-longpress="1" :src="path"></image>
+			<l-painter isRenderImage :board="board" custom-style="position: fixed; z-index:-1;left:1000000px" @success="pathSuccess" @fail="fail"></l-painter>
 		</view>
 		<u-button type="primary" size="medium" shape="circle" @click="auth">保存海报</u-button>
-		
+
 	</view>
 </template>
 
 <script>
-	
 	const scope = 'scope.writePhotosAlbum';
-	import lPainter from './components/painter'
-	import { mapState,mapGetters,mapActions } from 'vuex'
+	import lPainter from './components/lime-painter'
+	import {
+		mapState,
+		mapGetters,
+		mapActions
+	} from 'vuex'
 	export default {
 		data() {
 			return {
-				path:'',
-				src:'',
-				base: {
+				path: '',
+				board: {
 					width: '550rpx',
 					height: '1000rpx',
-					views: [
-						{
-							type: 'image',
-							src: '../static/img/terre.jpg',
-							css: {
-								left: '0rpx',
-								top: '0rpx',
-								width: '550rpx',
-								height: '1000rpx',
-							}
-						},
-					]
+					views: [{
+						type: 'view',
+						css: {
+							left: '0rpx',
+							top: '0rpx',
+							width: '550rpx',
+							height: '1000rpx',
+							background: '#07c160'
+						}
+					}]
 				}
 			};
 		},
-        computed: {
-            ...mapState([ 'openId' ,'buffer','userInfo']),
+		computed: {
+			...mapState(['openId', 'buffer', 'userInfo']),
 			...mapGetters(['sureCode']),
-        },
-		watch:{
-			sureCode:{
-				handler(base64){
-						if(base64){
-							this.src = base64
-							// setTimeout(()=>this.onRender(base64))
-						}
-				},
-				immediate:true
-			}
 		},
-		components:{
+		components: {
 			lPainter
 		},
-		onShow () {
+		mounted() {
+			setTimeout(() => {
+				this.onRender(this.sureCode), 1000
+			})
 		},
-		methods:{
-			fail(err){
-				console.log('fail',fail)
+		onShow() {},
+		methods: {
+			fail(err) {
+				console.log('fail', fail)
 			},
-			pathSuccess(url){
+			pathSuccess(url) {
 				this.path = url
 				console.log(url)
 			},
-		    onRender(url) {
-				this.base.views.push(
-					{
+			onRender(url) {
+				this.board.views.push({
 						type: 'image',
-						src:url,
+						url: url,
 						css: {
-							background:'transparent',
+							background: 'transparent',
 							left: '175rpx',
 							top: '700rpx',
 							width: '200rpx',
 							height: '200rpx'
 						}
-				})
+					}
+				)
 			},
-			saveModal(){
+			saveModal() {
 				uni.showModal({
 					title: '授权提醒',
 					content: '请允许小程序获取您的相册权限，点击确定获取授权',
-					confirmText:'允许',
-					cancelText:'拒绝',
-					success:({confirm})=>{
-						 if (confirm) {
+					confirmText: '允许',
+					cancelText: '拒绝',
+					success: ({
+						confirm
+					}) => {
+						if (confirm) {
 							this.confirm()
-						} 
+						}
 					}
 				})
 			},
-			confirm(){
+			confirm() {
 				uni.openSetting({
-					success:(res)=> {
+					success: (res) => {
 						const boole = res.authSetting['scope.writePhotosAlbum']
-						if(boole){
+						if (boole) {
 							uni.showToast({
 								icon: "none",
 								title: '设置成功',
@@ -113,19 +101,19 @@
 					}
 				});
 			},
-			auth(){
+			auth() {
 				uni.getSetting({
-					success:(res)=> {
+					success: (res) => {
 						if (res.scope) {
 							this.saveImage()
 							return
 						}
 						uni.authorize({
 							scope: scope,
-							success:()=> {
+							success: () => {
 								this.saveImage()
 							},
-							fail:(res)=>{
+							fail: (res) => {
 								// TODO 此处应该引导用户打开相册
 								this.saveModal()
 							}
@@ -151,27 +139,29 @@
 						});
 					}
 				});
-			},  
+			},
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-.conetnt{
-	margin: 0 auto;
-	width: 80%;
-	justify-content: center;
-	flex-wrap: wrap;
-	.canvas_box{
+	.conetnt {
+		margin: 0 auto;
+		width: 80%;
 		justify-content: center;
 		flex-wrap: wrap;
-		margin: 20rpx;
-		height: 1000rpx;
-		width: 550rpx;
-		image{
+
+		.canvas_box {
+			justify-content: center;
+			flex-wrap: wrap;
+			margin: 20rpx;
 			height: 1000rpx;
 			width: 550rpx;
+
+			image {
+				height: 1000rpx;
+				width: 550rpx;
+			}
 		}
 	}
-}
 </style>

@@ -1,6 +1,20 @@
+const _expand = ctx => {
+	return {
+		setFonts({fontFamily: ff = 'sans-serif', fontSize: fs = 14, fontWeight: fw = 'normal' , textStyle: ts = 'normal'}) {
+			// 设置属性
+			// #ifdef MP-TOUTIAO
+			fw = fw == 'bold' ? 'bold' : ''
+			ts =  ts == 'italic' ? 'italic' : ''
+			// #endif
+			ctx.font = `${ts} ${fw} ${fs}px ${ff}`;
+		},
+	}
+};
+export function expand(ctx) {
+	return Object.assign(ctx, _expand(ctx))
+}
 export function adaptor(ctx) {
-	// @ts-ignore
-	return Object.assign(ctx, {
+	return Object.assign(ctx, _expand(ctx), {
 		setStrokeStyle(val) {
 			ctx.strokeStyle = val;
 		},

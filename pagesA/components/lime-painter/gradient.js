@@ -37,7 +37,6 @@ function radialEffect(width, height, bg, ctx) {
 		grd.addColorStop(colorPer.percents[i], colorPer.colors[i]);
 	}
 	ctx.setFillStyle(grd);
-	//ctx.fillRect(-(width / 2), -(height / 2), width, height);
 }
 
 function analizeLinear(bg, width, height) {
@@ -105,5 +104,4 @@ function linearEffect(width, height, bg, ctx) {
 		grd.addColorStop(colorPer.percents[i], colorPer.colors[i]);
 	}
 	ctx.setFillStyle(grd);
-	//ctx.fillRect(-(width / 2), -(height / 2), width, height);
 }

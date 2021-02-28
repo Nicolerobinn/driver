@@ -25,8 +25,7 @@ const mutations= {
         state.phoneNumber = string
 	},
 	setQusetionArr(state,arr){
-		console.log(arr)
-        state.qusetionArr = arr
+        state.questionArr = arr
 	},
 	setLoginCode(state,code){
         state.loginCode = code

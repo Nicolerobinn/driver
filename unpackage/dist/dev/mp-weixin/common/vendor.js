@@ -8956,66 +8956,6 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 219:
-/*!****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 递归使用 call 方式this指向
-                                                                                                      * @param componentName // 需要找的组件的名称
-                                                                                                      * @param eventName // 事件名称
-                                                                                                      * @param params // 需要传递的参数
-                                                                                                      */
-function _broadcast(componentName, eventName, params) {
-  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
-  this.$children.map(function (child) {
-    if (componentName === child.$options.name) {
-      child.$emit.apply(child, [eventName].concat(params));
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat(params));
-    }
-  });
-}var _default =
-{
-  methods: {
-    /**
-              * 派发 (向上查找) (一个)
-              * @param componentName // 需要找的组件的名称
-              * @param eventName // 事件名称
-              * @param params // 需要传递的参数
-              */
-    dispatch: function dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
-      var name = parent.$options.name; // 获取当前组件实例的name
-      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
-      // 循环出当前名称的一样的组件实例
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-        if (parent) {
-          name = parent.$options.name;
-        }
-      }
-      // 有节点表示当前找到了name一样的实例
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
-      }
-    },
-    /**
-        * 广播 (向下查找) (广播多个)
-        * @param componentName // 需要找的组件的名称
-        * @param eventName // 事件名称
-        * @param params // 需要传递的参数
-        */
-    broadcast: function broadcast(componentName, eventName, params) {
-      _broadcast.call(this, componentName, eventName, params);
-    } } };exports.default = _default;
-
-/***/ }),
-
 /***/ 22:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
@@ -9748,6 +9688,66 @@ function _broadcast(componentName, eventName, params) {
 
 /***/ }),
 
+/***/ 221:
+/*!****************************************************************!*\
+  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
+
+/***/ }),
+
 /***/ 23:
 /*!***********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/timeFormat.js ***!
@@ -10064,7 +10064,7 @@ guid;exports.default = _default;
 
 /***/ }),
 
-/***/ 262:
+/***/ 264:
 /*!**************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/utils.js ***!
   \**************************************************************************/
@@ -10479,7 +10479,7 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 
 /***/ }),
 
-/***/ 263:
+/***/ 265:
 /*!*************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/draw.js ***!
   \*************************************************************************/
@@ -10487,8 +10487,8 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 262);
-var _gradient = __webpack_require__(/*! ./gradient */ 264);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 264);
+var _gradient = __webpack_require__(/*! ./gradient */ 266);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Draw = /*#__PURE__*/function () {
   function Draw(context, canvas) {var use2dCanvas = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;var isH5PathToBase64 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;var sleep = arguments.length > 4 ? arguments[4] : undefined;_classCallCheck(this, Draw);
@@ -11164,7 +11164,7 @@ Draw = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 264:
+/***/ 266:
 /*!*****************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/gradient.js ***!
   \*****************************************************************************/
@@ -11282,7 +11282,7 @@ function linearEffect(width, height, bg, ctx) {
 
 /***/ }),
 
-/***/ 265:
+/***/ 267:
 /*!***************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/layout.js ***!
   \***************************************************************************/
@@ -11290,7 +11290,7 @@ function linearEffect(width, height, bg, ctx) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 262);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 264);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Layout = /*#__PURE__*/function () {
   function Layout() {_classCallCheck(this, Layout);
@@ -11661,7 +11661,7 @@ Layout = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 266:
+/***/ 268:
 /*!***************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/canvas.js ***!
   \***************************************************************************/
@@ -12297,8 +12297,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     state.phoneNumber = string;
   },
   setQusetionArr: function setQusetionArr(state, arr) {
-    console.log(arr);
-    state.qusetionArr = arr;
+    state.questionArr = arr;
   },
   setLoginCode: function setLoginCode(state, code) {
     state.loginCode = code;
@@ -12387,29 +12386,19 @@ var actions = {
 
 
   },
-  getQuestion: function getQuestion(_ref4)
-
-  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var commit, res, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:commit = _ref4.commit;_context2.next = 3;return (
-                _main.default.$u.api.getQuestion());case 3:res = _context2.sent;
-
-              data =
-              res.data;
-
-              commit('setQusetionArr', data);case 6:case "end":return _context2.stop();}}}, _callee2);}))();
-  },
-  login: function login(_ref5, _ref6)
+  login: function login(_ref4, _ref5)
 
 
 
 
 
 
-  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var commit, state, isAuthor, encryptedData, iv, callBack, userInfo, loginRes, _ref7, userId, openId, phone, codeRes;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:commit = _ref5.commit, state = _ref5.state;isAuthor = _ref6.isAuthor, encryptedData = _ref6.encryptedData, iv = _ref6.iv, callBack = _ref6.callBack, userInfo = _ref6.userInfo;if (
-              state.loginCode) {_context3.next = 5;break;}
+  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var commit, state, isAuthor, encryptedData, iv, callBack, userInfo, loginRes, _ref6, userId, openId, phone, codeRes;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:commit = _ref4.commit, state = _ref4.state;isAuthor = _ref5.isAuthor, encryptedData = _ref5.encryptedData, iv = _ref5.iv, callBack = _ref5.callBack, userInfo = _ref5.userInfo;if (
+              state.loginCode) {_context2.next = 5;break;}
               uni.showToast({
                 icon: "none",
                 title: '网络错误,请重新进入小程序',
-                position: 'center' });return _context3.abrupt("return");case 5:
+                position: 'center' });return _context2.abrupt("return");case 5:
 
 
 
@@ -12422,22 +12411,22 @@ var actions = {
               }
               if (state.shareCode) {
                 userInfo.referrerId = state.shareCode;
-              }_context3.next = 9;return (
+              }_context2.next = 9;return (
                 _main.default.$u.api.login({
                   code: state.loginCode,
                   userInfo: userInfo,
                   iv: iv,
-                  encryptedData: encryptedData }));case 9:loginRes = _context3.sent;_ref7 =
+                  encryptedData: encryptedData }));case 9:loginRes = _context2.sent;_ref6 =
 
 
 
 
 
-              loginRes.data || {}, userId = _ref7.userId, openId = _ref7.openId, phone = _ref7.phone;
+              loginRes.data || {}, userId = _ref6.userId, openId = _ref6.openId, phone = _ref6.phone;
               commit('setPhoneNumber', phone);
               commit('setUserInfo', loginRes.data);
-              commit('setOpenid', openId);_context3.next = 16;return (
-                _main.default.$u.api.getQRcode(userId));case 16:codeRes = _context3.sent;
+              commit('setOpenid', openId);_context2.next = 16;return (
+                _main.default.$u.api.getQRcode(userId));case 16:codeRes = _context2.sent;
               commit('setWXCode', codeRes);
               callBack && callBack();
               if (isAuthor) {
@@ -12447,7 +12436,7 @@ var actions = {
                   duration: 1000,
                   position: 'center' });
 
-              }case 20:case "end":return _context3.stop();}}}, _callee3);}))();
+              }case 20:case "end":return _context2.stop();}}}, _callee2);}))();
   } };var _default =
 
 actions;exports.default = _default;
@@ -12518,7 +12507,7 @@ AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.r
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.withdraw = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
 
 var loginUrl = 'user/login';exports.loginUrl = loginUrl;
 var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
@@ -12528,6 +12517,8 @@ var getQuestionUrl = 'question/20Question';exports.getQuestionUrl = getQuestionU
 var searchQuestionUrl = 'question/searchQuestion';exports.searchQuestionUrl = searchQuestionUrl;
 var getUserUrl = 'user/getUser';exports.getUserUrl = getUserUrl;
 
+
+var withdraw = 'wxPay/withdraw';exports.withdraw = withdraw;
 var hotSearchUrl = '/ebapi/store_api/hot_search';exports.hotSearchUrl = hotSearchUrl;
 var indexUrl = '/ebapi/public_api/index';exports.indexUrl = indexUrl;
 var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图

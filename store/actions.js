@@ -49,16 +49,6 @@ const actions = {
 			}
 		})
 	},
-	async getQuestion({
-		commit
-	}, ) {
-		const res = await app.$u.api.getQuestion()
-		const {
-			data
-		} = res
-		
-		commit('setQusetionArr', data)
-	},
 	async login({
 		commit,
 		state

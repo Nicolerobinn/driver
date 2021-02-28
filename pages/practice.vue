@@ -1,57 +1,65 @@
 <template>
 	<view class="content">
 		<authModal ref="authModal" @onChange="authModalChange" />
-		<authPhoneModal ref="authPhoneModal" @change="authPhoneModalChange" />
+		<authPhoneModal ref="authPhoneModal" @onChange="authPhoneModalChange" />
 		<view class="question">
-			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">判断题</span> <span style=" color:#5192ff"> 同方向积分绝地反击非基督教覅记得覅绝地反击地方的积分绝地反击飞机的积分ID就飞机的积分ID积分绝地反击飞机抵积分IDf。</span></view>
+			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{questionObj.multipleChoice | choiceFilter}}</span>
+				<span style=" color:#5192ff"> {{questionObj.questionStem}}</span></view>
 			<view class='radioChoose'>
-				<u-radio-group v-model="value" @change="radioGroupChange" wrap='true'>
-					<u-radio @change="radioChange" v-for="(item, index) in list" :key="index" :name="item.name" :disabled="item.disabled">
-						{{item.name}}
-					</u-radio>
-				</u-radio-group>
+				<label class="u-flex radio" @click="checkboxGroupChange(index)" v-for="(item, index) in optionsArr" :key="index">
+					<view>
+						<radio  :disabled="questionObj.isComplete"  :checked="item.checked" />
+					</view>
+					<view>{{item.text || ''}} </view>
+					<view class="icon">
+						<u-icon v-if="questionObj.isComplete && judge(item.name,questionObj.answerArr)" name="checkmark" color="blue"
+						 size="28"></u-icon>
+						<u-icon v-else-if="questionObj.isComplete" name="close" color="red" size="28"></u-icon>
+					</view> 
+				</label>
 			</view>
-			<view class="answer_box" v-if="answerShow">
-				
+			<view class="answer_box" v-if="questionObj.wrong">
+				答案:{{questionObj.answer}}
 			</view>
 			<view class="button_box">
-				<view class="choose" @click="before()">
+				<view v-if="index!==0" class="choose" @click="before()">
 					上一题
 				</view>
-				<view class="choose" @click="confirm()">
+				<view class="choose" v-if=" questionObj.multipleChoice==2 &&  !questionObj.isComplete" @click="confirm()">
 					确认选择
 				</view>
-				<view class="choose" @click="after()">
+				<view v-if="index!==questionArr.length-1" class="choose" @click="after()">
 					下一题
 				</view>
 			</view>
 		</view>
-		<view class="blank" >
-			
+		<view class="blank">
+
 		</view>
 		<view class="bottom_box">
-			<view class="reset">
+			<view class="reset" @click="getQuestion()">
 				重置
 			</view>
 			<view class="right_button">
 				<view class="button_box">
-						<u-icon name="checkmark-circle-fill" color="#2979ff" size="28"></u-icon>
-					    0
+					<u-icon name="checkmark-circle-fill" color="#2979ff" size="28"></u-icon>
+					{{correctCount}}
 				</view>
 				<view class="button_box">
-						<u-icon name="close-circle-fill" color="red" size="28"></u-icon>
-					    0
+					<u-icon name="close-circle-fill" color="red" size="28"></u-icon>
+					{{errorCount}}
 				</view>
 				<view class="button_box" @click="popupShow=true">
-						<u-icon name="grid" color="gray" size="28"></u-icon>
-					    0/20
+					<u-icon name="grid" color="gray" size="28"></u-icon>
+					{{index+1}}/{{questionArr.length}}
 				</view>
-				
+
 			</view>
 		</view>
 		<u-popup v-model="popupShow" mode="bottom">
 			<view class="popup">
-				<view class="qid" v-for="(obj,i) in arr" @click="chooseProblem(i)" :key="i">
+				<view class="qid" v-for="(obj,i) in questionArr" :class="{ correct: obj.correct,wrong:obj.error }" @click="chooseProblem(i)"
+				 :key="i">
 					{{i+1}}
 				</view>
 			</view>
@@ -61,49 +69,71 @@
 </template>
 
 <script>
-	import { mapMutations,mapState,mapActions } from 'vuex'
-	import {authModal} from '../components/authModal'
-	import {authPhoneModal} from '../components/authPhoneModal'
+	import {
+		mapMutations,
+		mapState,
+		mapActions
+	} from 'vuex'
+	import {
+		authModal
+	} from '../components/authModal'
+	import {
+		authPhoneModal
+	} from '../components/authPhoneModal'
 	export default {
 		data() {
 			return {
 				title: 'Hello',
-				popupShow:false,
-				answerShow:false,
-				list: [{
-						name: '正确',
-						disabled: false
-					},
-					{
-						name: '错误',
-						disabled: false
-					}
-
-				],
-				value: '',
-				arr:20
+				popupShow: false,
+				answerShow: false,
+				questionObj: {
+					questionStem: '',
+					analysis: '',
+					answer: '',
+					multipleChoice: '',
+					options: '',
+					optionsArr: [],
+					answerArr: []
+				},
+				optionsArr: [],
+				index: 0,
+				correctCount:0,
+				errorCount:0,
+				count:0
 			}
 		},
-        computed: {
-            ...mapState([ 'loginCode','phoneNumber','openId' ])
-        },
-		components:{
+		computed: {
+			...mapState(['loginCode', 'questionArr', 'phoneNumber', 'openId'])
+		},
+		components: {
 			authPhoneModal,
 			authModal
 		},
-		onShow () {
-			if(!this.openId){
-				if(this.loginCode){
+		filters: {
+			choiceFilter(number) {
+				switch (number) {
+					case 1:
+						return '单选';
+					case 2:
+						return '多选';
+					case 3:
+						return '判断';
+				}
+			}
+		},
+		onShow() {
+			if (!this.openId) {
+				if (this.loginCode) {
 					this.getSetting()
-				}else{
+				} else {
 					uni.login({
-							provider: 'weixin',
-							success: async ({
-								code
-							}) => {
-								this.setLoginCode(code)
-								this.getSetting()
-							}
+						provider: 'weixin',
+						success: async ({
+							code
+						}) => {
+							this.setLoginCode(code)
+							this.getSetting()
+						}
 					})
 				}
 				return
@@ -111,58 +141,131 @@
 			this.authPhoneModalChange()
 		},
 		methods: {
-			...mapActions(['getQuestion','questionArr']),
-			...mapMutations(['setLoginCode']),
-			getSetting(){
+			...mapMutations(['setLoginCode', 'setQusetionArr']),
+			judge(str, options) {
+				return options.some((e) => str === e)
+			},
+			getOpionts(str = '') {
+				if (!str) return []
+				return str.split(';').map((e = '') => {
+					const arr = e.split(':')
+					return {
+						name: arr[0],
+						text: arr[1],
+						checked: false
+					}
+				})
+			},
+			getSetting() {
 				uni.getSetting({
-					success:(res)=> {  
+					success: (res) => {
 						// 判断是否获取到用户信息权限
-						if(!res.authSetting['scope.userInfo']){
+						if (!res.authSetting['scope.userInfo']) {
 							// 弹出权限弹框
-							this.$refs.authModal.show() 
-						}else{
+							this.$refs.authModal.show()
+						} else {
 							this.authModalChange()
 						}
 					}
 				})
 			},
-			questionEqual(){
-				if(this.questionArr.length === 0){
+			async getQuestion() {
+				const res = await this.$u.api.getQuestion();
+				const {
+					data
+				} = res
+				const arr = data.map(e => {
+					return {
+						optionsArr: this.getOpionts(e.options),
+						answerArr: e.answer.split(','),
+						...e,
+					}
+				})
+				this.optionsArr = arr[0].optionsArr
+				this.questionObj = arr[0]
+				this.setQusetionArr(arr)
+				this.index= 0
+				this.correctCount=0
+				this.errorCount=0
+				this.count=0
+				
+			},
+			authPhoneModalChange() {
+				if (this.questionArr.length === 0) {
 					this.getQuestion()
 				}
 			},
-			authPhoneModalChange(){
-				this.questionEqual()
-			},
-			authModalChange(){
+			authModalChange() {
 				this.$refs.authPhoneModal.show()
 			},
-			goTo(url){
+			goTo(url) {
 				this.$u.route({
 					url: url,
 				})
 			},
-			// 选中某个单选框时，由radio时触发
-			radioChange(e) {
-				// console.log(e);
-			},
 			// 选中任一radio时，由radio-group触发
-			radioGroupChange(e) {
-				// console.log(e);
+			checkboxGroupChange(e) {
+				this.optionsArr[e].checked = !this.optionsArr[e].checked
+				if (this.questionObj.multipleChoice == 2) {
+					return
+				}
+				if (this.optionsArr[e].name === this.questionObj.answer) {
+					this.questionObj.correct = true
+					this.correctCount +=1
+				} else {
+					this.questionObj.wrong = true
+					this.errorCount +=1
+				}
+					this.count +=1
+				this.questionObj.isComplete = true
 			},
-			confirm(e){
-				
+			confirm(e) {
+				const arr = this.optionsArr.filter(e=>e.checked)
+				let n = 0
+				for(let i = 0;i<arr.length;i++){
+					if(arr[i]){
+						n++
+					}
+				}
+				if(n<=1){
+					uni.showToast({
+						icon: "none",
+						title: '至少选择两个选项',
+						position: 'center'
+					})
+					return
+				}
+				const boole = 	arr.every(e=>this.questionObj.answerArr.some(a=>a === e.name))
+				if(boole){
+					this.correctCount +=1
+				}else{
+					this.errorCount +=1
+				}
+				this.$set(this.questionObj, 'isComplete', true)
 			},
-			after(){
-				
+			after() {
+				this.questionObj.optionsArr = this.optionsArr
+				const obj = this.questionArr[this.index + 1]
+				this.optionsArr = obj.optionsArr
+				this.questionObj = obj
+				this.index += 1
 			},
-			before(){
-				
+			before() {
+				this.questionObj.optionsArr = this.optionsArr
+				const obj = this.questionArr[this.index - 1]
+				this.optionsArr = obj.optionsArr
+				this.questionObj = obj
+				this.index -= 1
 			},
-			chooseProblem(i){
+			chooseProblem(i) {
+				this.questionObj.optionsArr = this.optionsArr
+				this.index = i
+				const obj = this.questionArr[this.index]
+				this.optionsArr = obj.optionsArr
+				this.questionObj = obj
 				this.popupShow = false
 			}
-			
+
 		}
 	}
 </script>
@@ -172,58 +275,88 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		.blank{
-			flex:1
+
+		.blank {
+			flex: 1
 		}
-		.popup{
+
+		.answer_box {
+			background-color: '#f5f5f5';
+			padding: 20rpx;
+			font-weight: 700;
+		}
+
+		.popup {
 			display: flex;
-			padding:10rpx;
+			padding: 10rpx;
 			flex-wrap: wrap;
-			.qid{
+
+			.qid {
 				margin: 20rpx;
-				width:50rpx;
-				height:50rpx;
+				width: 50rpx;
+				height: 50rpx;
 				border-radius: 50%;
 				border: 1px solid black;
 				line-height: 50rpx;
 				text-align: center;
 			}
-			
+
+			.correct {
+				color: blue;
+			}
+
+			.wrong {
+				color: red;
+			}
 		}
+
 		.question {
 			background-color: #ffff;
 			width: 100%;
 			padding: 10rpx;
-			.button_box{
+
+			.button_box {
 				padding-top: 20px;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 			}
 		}
-		.bottom_box{
+
+		.bottom_box {
 			padding: 30rpx;
 			width: 100%;
-			height:20rpx;
+			height: 20rpx;
 			background: #fff;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			.reset{
+
+			.reset {
 				font-size: 26rpx;
 			}
-			.right_button{
+
+			.right_button {
 				display: flex;
 				align-items: center;
-				.button_box{
+
+				.button_box {
 					margin-left: 12rpx;
 				}
 			}
 		}
 	}
+
 	.radioChoose {
 		margin-top: 10px;
+		.radio{
+			margin: 10rpx;
+			.icon{
+				padding: 0 30rpx;
+			}
+		}
 	}
+
 	.choose {
 		padding: 4rpx 8rpx;
 		border-radius: 8rpx;

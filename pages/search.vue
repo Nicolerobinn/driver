@@ -6,7 +6,7 @@
 			<view class="alert-box">
 				<u-input v-model="value" type="textarea" class="textarea" placeholder="搜索题目" :border="true" :height="100"  />
 				<u-gap height="10" bg-color="#fff"></u-gap>
-				<view class="u-flex u-row-center">
+				<view class="u-flex u-row-between">
 					<u-button class="button" size="mini"  type="primary" @click="textSearch">搜索</u-button>
 					<u-button class="button" size="mini"  type="primary" @click="value = ''">重置</u-button>
 				</view>
@@ -218,12 +218,11 @@
 				const res = await this.$u.api.searchQuestion({questionStem:this.value})
 				const { data = {} } = res ||{}
 				switch (data.multipleChoice) {
-					case 0:
+					case 1:
 						data.multipleChoice = '单选'
 						break;
-					case 1:
+					case 2:
 						data.multipleChoice = '多选'
-						
 						break;
 					case 3:
 						data.multipleChoice = '判断'

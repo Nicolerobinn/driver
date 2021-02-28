@@ -26,11 +26,10 @@
 		<u-gap height="30" ></u-gap>
 		<view class="bottom_box ">
 			<u-cell-group>
-				<u-cell-item @click="goTo('pagesA/personal')" icon="file-text" title="答题记录"></u-cell-item>
-				<u-cell-item @click="goTo('pagesA/personal')" icon="rmb" title="佣金"></u-cell-item>
-				<u-cell-item @click="goTo('pagesA/personal')" icon="account-fill" title="我的团队"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/commission')" icon="rmb" title="佣金"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
-				<u-cell-item @click="goTo('pagesA/personal')" icon="server-man" title="客服"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="获取套餐价格"></u-cell-item>
+				<u-cell-item @click="getmember()" title="成为会员"></u-cell-item>
 			</u-cell-group>
 		</view>
 	</view>
@@ -81,6 +80,31 @@
 		methods: {
 			...mapMutations(['setLoginCode']),
 			...mapActions(['getUserInfo']),
+			async   getmember(){
+				if(!this.openId){
+					if(this.loginCode){
+						this.getSetting()
+					}else{
+						uni.login({
+								provider: 'weixin',
+								success: async ({
+									code
+								}) => {
+									this.setLoginCode(code)
+									this.getSetting()
+								}
+						})
+					}
+					return
+				}
+				const res =	await this.$u.api.prePay({code:this.loginCode,setMealId:0})
+				uni.showToast({
+					icon: "none",
+					title: res.msg,
+					position: 'center'
+				})
+				this.authPhoneModalChange()
+			},
 			getSetting(){
 				uni.getSetting({
 					success:(res)=> {  
@@ -103,6 +127,22 @@
 				this.$refs.authPhoneModal.show()
 			},
 			goTo(url){
+				if(!this.openId){
+					if(this.loginCode){
+						this.getSetting()
+					}else{
+						uni.login({
+								provider: 'weixin',
+								success: async ({
+									code
+								}) => {
+									this.setLoginCode(code)
+									this.getSetting()
+								}
+						})
+					}
+					return
+				}
 				this.$u.route({
 					url: url,
 				})

@@ -12,7 +12,10 @@
         "promotion",
         "personal",
         "announcementList",
-        "tutorial"
+        "tutorial",
+        "commission",
+        "withdrawal",
+        "package"
       ]
     }
   ],
@@ -59,6 +62,5 @@
       "desc": "请授权位置信息，以便为您提供更好的服"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap48.json"
+  "usingComponents": {}
 }

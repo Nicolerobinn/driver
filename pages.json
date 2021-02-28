@@ -27,7 +27,23 @@
 				"navigationBarTitleText": "使用教程"
 			}
 			
-		}]
+		},{
+			"path": "commission",
+			"style": {
+				"navigationBarTitleText": "佣金"
+			}
+		},{
+			"path": "withdrawal",
+			"style": {
+				"navigationBarTitleText": "提现"
+			}
+		},{
+			"path": "package",
+			"style": {
+				"navigationBarTitleText": "套餐"
+			}
+		}
+		]
 	}],
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{

@@ -32,7 +32,7 @@
 			</u-grid-item>
 		</u-grid>
 		<u-gap height="30" ></u-gap>
-		<u-notice-bar @click="noticeClick('pages/announcementList')" :volumeIcon="true" :moreIcon="true" mode="vertical" :list="barList"></u-notice-bar>
+		<!-- <u-notice-bar @click="noticeClick('pages/announcementList')" :volumeIcon="true" :moreIcon="true" mode="vertical" :list="barList"></u-notice-bar> -->
 		<u-gap height="30" ></u-gap>
 		<u-swiper height="300" :list="list"></u-swiper>
 	</view>

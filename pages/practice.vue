@@ -2,7 +2,7 @@
 	<view class="content">
 		<authModal ref="authModal" @onChange="authModalChange" />
 		<authPhoneModal ref="authPhoneModal" @onChange="authPhoneModalChange" />
-		<view class="question">
+		<view v-if="openId" class="question">
 			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{questionObj.multipleChoice | choiceFilter}}</span>
 				<span style=" color:#5192ff"> {{questionObj.questionStem}}</span></view>
 			<view class='radioChoose'>
@@ -36,7 +36,7 @@
 		<view class="blank">
 
 		</view>
-		<view class="bottom_box">
+		<view class="bottom_box" v-if="openId">
 			<view class="reset" @click="getQuestion()">
 				重置
 			</view>
@@ -213,7 +213,7 @@
 					this.questionObj.correct = true
 					this.correctCount +=1
 				} else {
-					this.questionObj.wrong = true
+					this.questionObj.error = true
 					this.errorCount +=1
 				}
 					this.count +=1
@@ -237,8 +237,10 @@
 				}
 				const boole = 	arr.every(e=>this.questionObj.answerArr.some(a=>a === e.name))
 				if(boole){
+					this.questionObj.correct = true
 					this.correctCount +=1
-				}else{
+				} else {
+					this.questionObj.error = true
 					this.errorCount +=1
 				}
 				this.$set(this.questionObj, 'isComplete', true)
@@ -303,10 +305,14 @@
 
 			.correct {
 				color: blue;
+				background-color: #a5cdf5;
+				border: none !important;
 			}
 
 			.wrong {
 				color: red;
+				background-color: #f1c0c0;
+				border: none !important;
 			}
 		}
 

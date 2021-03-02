@@ -5,6 +5,9 @@ const mutations= {
     setUserInfo(state,obj){
         state.userInfo = obj
     },
+	setUserId(state,number){
+        state.userId = number
+	},
     setOpenid(state,string){
         state.openId = string
     },

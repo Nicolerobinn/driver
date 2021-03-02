@@ -9688,66 +9688,6 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 221:
-/*!****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 递归使用 call 方式this指向
-                                                                                                      * @param componentName // 需要找的组件的名称
-                                                                                                      * @param eventName // 事件名称
-                                                                                                      * @param params // 需要传递的参数
-                                                                                                      */
-function _broadcast(componentName, eventName, params) {
-  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
-  this.$children.map(function (child) {
-    if (componentName === child.$options.name) {
-      child.$emit.apply(child, [eventName].concat(params));
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat(params));
-    }
-  });
-}var _default =
-{
-  methods: {
-    /**
-              * 派发 (向上查找) (一个)
-              * @param componentName // 需要找的组件的名称
-              * @param eventName // 事件名称
-              * @param params // 需要传递的参数
-              */
-    dispatch: function dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
-      var name = parent.$options.name; // 获取当前组件实例的name
-      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
-      // 循环出当前名称的一样的组件实例
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-        if (parent) {
-          name = parent.$options.name;
-        }
-      }
-      // 有节点表示当前找到了name一样的实例
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
-      }
-    },
-    /**
-        * 广播 (向下查找) (广播多个)
-        * @param componentName // 需要找的组件的名称
-        * @param eventName // 事件名称
-        * @param params // 需要传递的参数
-        */
-    broadcast: function broadcast(componentName, eventName, params) {
-      _broadcast.call(this, componentName, eventName, params);
-    } } };exports.default = _default;
-
-/***/ }),
-
 /***/ 23:
 /*!***********************************************************************!*\
   !*** /Users/mac/code/driver1234/uview-ui/libs/function/timeFormat.js ***!
@@ -9807,6 +9747,66 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 }var _default =
 
 timeFormat;exports.default = _default;
+
+/***/ }),
+
+/***/ 236:
+/*!****************************************************************!*\
+  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
 
 /***/ }),
 
@@ -10012,7 +10012,59 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 
 /***/ }),
 
-/***/ 250:
+/***/ 26:
+/*!*****************************************************************!*\
+  !*** /Users/mac/code/driver1234/uview-ui/libs/function/guid.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
+                                                                                                      * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
+                                                                                                      * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
+                                                                                                      * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
+                                                                                                      * v-for的时候,推荐使用后端返回的id而不是循环的index
+                                                                                                      * @param {Number} len uuid的长度
+                                                                                                      * @param {Boolean} firstU 将返回的首字母置为"u"
+                                                                                                      * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
+                                                                                                      */
+function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  var uuid = [];
+  radix = radix || chars.length;
+
+  if (len) {
+    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
+    for (var i = 0; i < len; i++) {uuid[i] = chars[0 | Math.random() * radix];}
+  } else {
+    var r;
+    // rfc4122标准要求返回的uuid中,某些位为固定的字符
+    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+    uuid[14] = '4';
+
+    for (var _i = 0; _i < 36; _i++) {
+      if (!uuid[_i]) {
+        r = 0 | Math.random() * 16;
+        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
+      }
+    }
+  }
+  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guuid不能用作id或者class
+  if (firstU) {
+    uuid.shift();
+    return 'u' + uuid.join('');
+  } else {
+    return uuid.join('');
+  }
+}var _default =
+
+guid;exports.default = _default;
+
+/***/ }),
+
+/***/ 265:
 /*!**************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/utils.js ***!
   \**************************************************************************/
@@ -10427,7 +10479,7 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 
 /***/ }),
 
-/***/ 251:
+/***/ 266:
 /*!*************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/draw.js ***!
   \*************************************************************************/
@@ -10435,8 +10487,8 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 250);
-var _gradient = __webpack_require__(/*! ./gradient */ 252);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 265);
+var _gradient = __webpack_require__(/*! ./gradient */ 267);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Draw = /*#__PURE__*/function () {
   function Draw(context, canvas) {var use2dCanvas = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;var isH5PathToBase64 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;var sleep = arguments.length > 4 ? arguments[4] : undefined;_classCallCheck(this, Draw);
@@ -11112,7 +11164,7 @@ Draw = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 252:
+/***/ 267:
 /*!*****************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/gradient.js ***!
   \*****************************************************************************/
@@ -11230,7 +11282,7 @@ function linearEffect(width, height, bg, ctx) {
 
 /***/ }),
 
-/***/ 253:
+/***/ 268:
 /*!***************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/layout.js ***!
   \***************************************************************************/
@@ -11238,7 +11290,7 @@ function linearEffect(width, height, bg, ctx) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 250);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 265);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Layout = /*#__PURE__*/function () {
   function Layout() {_classCallCheck(this, Layout);
@@ -11609,7 +11661,7 @@ Layout = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 254:
+/***/ 269:
 /*!***************************************************************************!*\
   !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/canvas.js ***!
   \***************************************************************************/
@@ -11674,58 +11726,6 @@ function adaptor(ctx) {
     draw: function draw() {} });
 
 }
-
-/***/ }),
-
-/***/ 26:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/guid.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
-                                                                                                      * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
-                                                                                                      * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
-                                                                                                      * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
-                                                                                                      * v-for的时候,推荐使用后端返回的id而不是循环的index
-                                                                                                      * @param {Number} len uuid的长度
-                                                                                                      * @param {Boolean} firstU 将返回的首字母置为"u"
-                                                                                                      * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
-                                                                                                      */
-function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-  var uuid = [];
-  radix = radix || chars.length;
-
-  if (len) {
-    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
-    for (var i = 0; i < len; i++) {uuid[i] = chars[0 | Math.random() * radix];}
-  } else {
-    var r;
-    // rfc4122标准要求返回的uuid中,某些位为固定的字符
-    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-    uuid[14] = '4';
-
-    for (var _i = 0; _i < 36; _i++) {
-      if (!uuid[_i]) {
-        r = 0 | Math.random() * 16;
-        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
-      }
-    }
-  }
-  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guuid不能用作id或者class
-  if (firstU) {
-    uuid.shift();
-    return 'u' + uuid.join('');
-  } else {
-    return uuid.join('');
-  }
-}var _default =
-
-guid;exports.default = _default;
 
 /***/ }),
 
@@ -12256,7 +12256,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   sureCodeBase64: '',
   phoneNumber: '',
   questionArr: [],
-  loginCode: '' };var _default =
+  loginCode: '',
+  userId: '' };var _default =
 
 state;exports.default = _default;
 
@@ -12276,6 +12277,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   },
   setUserInfo: function setUserInfo(state, obj) {
     state.userInfo = obj;
+  },
+  setUserId: function setUserId(state, number) {
+    state.userId = number;
   },
   setOpenid: function setOpenid(state, string) {
     state.openId = string;
@@ -12425,8 +12429,9 @@ var actions = {
               loginRes.data || {}, userId = _ref6.userId, openId = _ref6.openId, phone = _ref6.phone;
               commit('setPhoneNumber', phone);
               commit('setUserInfo', loginRes.data);
-              commit('setOpenid', openId);_context2.next = 16;return (
-                _main.default.$u.api.getQRcode(userId));case 16:codeRes = _context2.sent;
+              commit('setOpenid', openId);
+              commit('setUserId', userId);_context2.next = 17;return (
+                _main.default.$u.api.getQRcode(userId));case 17:codeRes = _context2.sent;
               commit('setWXCode', codeRes);
               callBack && callBack();
               if (isAuthor) {
@@ -12436,7 +12441,7 @@ var actions = {
                   duration: 1000,
                   position: 'center' });
 
-              }case 20:case "end":return _context2.stop();}}}, _callee2);}))();
+              }case 21:case "end":return _context2.stop();}}}, _callee2);}))();
   } };var _default =
 
 actions;exports.default = _default;
@@ -12507,7 +12512,7 @@ AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.r
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.indexUrl = exports.hotSearchUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
 
 var loginUrl = 'user/login';exports.loginUrl = loginUrl;
 var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
@@ -12523,8 +12528,10 @@ var getMemberPriceUrl = 'wxPay/getMemberPrice';exports.getMemberPriceUrl = getMe
 var getSetMealUrl = 'wxPay/getSetMeal';exports.getSetMealUrl = getSetMealUrl;
 var prePayUrl = 'wxPay/prePay';exports.prePayUrl = prePayUrl;
 
-var hotSearchUrl = '/ebapi/store_api/hot_search';exports.hotSearchUrl = hotSearchUrl;
-var indexUrl = '/ebapi/public_api/index';exports.indexUrl = indexUrl;
+
+var saveAnswerRecordUrl = 'question/saveAnswerRecord';exports.saveAnswerRecordUrl = saveAnswerRecordUrl;
+var answerRecordUrl = 'question/answerRecord';exports.answerRecordUrl = answerRecordUrl;
+
 var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
 exports.location = location;
 
@@ -12554,6 +12561,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
 var install = function install(Vue, vm) {
 
   var login = function login() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.loginUrl, params);};
@@ -12562,8 +12570,9 @@ var install = function install(Vue, vm) {
   var imgSearch = function imgSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.imgSearchUrl);};
   var getQuestion = function getQuestion() {return vm.$u.get(_http.getQuestionUrl);};
   var searchQuestion = function searchQuestion() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.searchQuestionUrl, params);};
+  var saveAnswerRecord = function saveAnswerRecord() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.saveAnswerRecordUrl, params);};
   var getUser = function getUser(params) {return vm.$u.get("".concat(_http.getUserUrl, "/").concat(params));};
-
+  var answerRecord = function answerRecord(params) {return vm.$u.get("".concat(_http.answerRecordUrl, "/").concat(params.userId, "/").concat(params.currPage, "/").concat(params.pageSize));};
 
   var withdraw = function withdraw() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.withdrawUrl, params);};
   var getMemberPrice = function getMemberPrice() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.get(_http.getMemberPriceUrl, params);};
@@ -12577,13 +12586,14 @@ var install = function install(Vue, vm) {
   var getGetwxacode = function getGetwxacode() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post("".concat(_http.getwxacode, "?access_token=").concat(params.access_token), {
       path: params.path });};
 
-  var getInfo = function getInfo() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.indexUrl, params);};
   vm.$u.api = {
     login: login,
     getQRcode: getQRcode,
     imgSearch: imgSearch,
     getQuestion: getQuestion,
     searchQuestion: searchQuestion,
+    saveAnswerRecord: saveAnswerRecord,
+    answerRecord: answerRecord,
 
     withdraw: withdraw,
     getMemberPrice: getMemberPrice,
@@ -12592,7 +12602,6 @@ var install = function install(Vue, vm) {
 
     getSearch: getSearch,
     getUser: getUser,
-    getInfo: getInfo,
     getGetwxacode: getGetwxacode };
 
 };var _default =

@@ -71,6 +71,7 @@
 				show: false,
 				number: '',
 				value:'',
+				isMember:true,
 				questionObj:{}
 			}
 		},
@@ -135,7 +136,9 @@
 				const {
 					data
 				} = res
-				this.number = data
+				const { count ,member} = data ||{}
+				this.number = count
+				this.isMember = member!=1
 			},
 			authModalChange() {
 				this.$refs.authPhoneModal.show()

@@ -19,7 +19,7 @@
 		}, {
 			"path": "announcementList",
 			"style": {
-				"navigationBarTitleText": "平台公告"
+				"navigationBarTitleText": "答题记录"
 			}
 		},{
 			"path": "tutorial",
@@ -31,11 +31,6 @@
 			"path": "commission",
 			"style": {
 				"navigationBarTitleText": "佣金"
-			}
-		},{
-			"path": "withdrawal",
-			"style": {
-				"navigationBarTitleText": "提现"
 			}
 		},{
 			"path": "package",

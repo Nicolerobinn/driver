@@ -8,6 +8,7 @@ const state= {
 	sureCodeBase64:'',
 	phoneNumber:'',
 	questionArr:[],
-	loginCode:''
+	loginCode:'',
+	userId:''
 }
 export default state

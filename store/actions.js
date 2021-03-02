@@ -89,6 +89,7 @@ const actions = {
 		commit('setPhoneNumber',phone)
 		commit('setUserInfo', loginRes.data)
 		commit('setOpenid', openId)
+		commit('setUserId',userId)
 		const codeRes = await app.$u.api.getQRcode(userId)
 		commit('setWXCode', codeRes)
 		callBack && callBack()

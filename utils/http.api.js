@@ -10,8 +10,9 @@ import {
 	getMemberPriceUrl,
 	getSetMealUrl,
 	prePayUrl,
-	indexUrl,
+	saveAnswerRecordUrl,
 	jscode2session,
+	answerRecordUrl,
 	getwxacode
 } from './http.url'
 const install = (Vue, vm) => {
@@ -22,8 +23,9 @@ const install = (Vue, vm) => {
 	const imgSearch = (params = {}) => vm.$u.post(imgSearchUrl);
 	const getQuestion = () => vm.$u.get(getQuestionUrl);
 	const searchQuestion = (params = {}) => vm.$u.post(searchQuestionUrl, params);
+	const saveAnswerRecord = (params = {}) => vm.$u.post(saveAnswerRecordUrl, params);
 	const getUser = (params) => vm.$u.get(`${getUserUrl}/${params}`);
-
+	const answerRecord = (params) => vm.$u.get(`${answerRecordUrl}/${params.userId}/${params.currPage}/${params.pageSize}`);
 
 	const withdraw = (params = {}) => vm.$u.post(withdrawUrl, params);
 	const getMemberPrice = (params = {}) => vm.$u.get(getMemberPriceUrl, params);
@@ -37,13 +39,14 @@ const install = (Vue, vm) => {
 	const getGetwxacode = (params = {}) => vm.$u.post(`${getwxacode}?access_token=${params.access_token}`, {
 		path: params.path
 	});
-	const getInfo = (params = {}) => vm.$u.post(indexUrl, params);
 	vm.$u.api = {
 		login,
 		getQRcode,
 		imgSearch,
 		getQuestion,
 		searchQuestion,
+		saveAnswerRecord,
+		answerRecord,
 		
 		withdraw,
 		getMemberPrice,
@@ -52,7 +55,6 @@ const install = (Vue, vm) => {
 		
 		getSearch,
 		getUser,
-		getInfo,
 		getGetwxacode
 	};
 }

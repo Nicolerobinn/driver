@@ -103,7 +103,7 @@
 			}
 		},
 		computed: {
-			...mapState(['loginCode', 'questionArr', 'phoneNumber', 'openId'])
+			...mapState(['loginCode', 'questionArr', 'phoneNumber', 'openId','userId'])
 		},
 		components: {
 			authPhoneModal,
@@ -209,6 +209,7 @@
 				if (this.questionObj.multipleChoice == 2) {
 					return
 				}
+				this.save()
 				if (this.optionsArr[e].name === this.questionObj.answer) {
 					this.questionObj.correct = true
 					this.correctCount +=1
@@ -235,6 +236,7 @@
 					})
 					return
 				}
+				this.save()
 				const boole = 	arr.every(e=>this.questionObj.answerArr.some(a=>a === e.name))
 				if(boole){
 					this.questionObj.correct = true
@@ -244,6 +246,12 @@
 					this.errorCount +=1
 				}
 				this.$set(this.questionObj, 'isComplete', true)
+			},
+			save(){
+				this.$u.api.saveAnswerRecord({
+					questionId:this.questionObj.id,
+					userId:this.userId
+				});	
 			},
 			after() {
 				this.questionObj.optionsArr = this.optionsArr

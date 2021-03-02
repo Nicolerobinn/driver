@@ -14,7 +14,9 @@ export const getMemberPriceUrl = 'wxPay/getMemberPrice'
 export const getSetMealUrl = 'wxPay/getSetMeal'
 export const prePayUrl = 'wxPay/prePay'
 
-export const hotSearchUrl = '/ebapi/store_api/hot_search';
-export const indexUrl = '/ebapi/public_api/index';
+
+export const saveAnswerRecordUrl = 'question/saveAnswerRecord'
+export const answerRecordUrl = 'question/answerRecord'
+
 export const location = 'https://restapi.amap.com/v3/geocode/regeo'			 // 高德地图
 

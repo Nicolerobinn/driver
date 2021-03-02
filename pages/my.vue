@@ -22,14 +22,13 @@
 			</view>
 		</view>
 		<u-gap height="30" ></u-gap>
-			<u-image class="center_box" width="100%" height="100rpx" :src="src"></u-image>
-		<u-gap height="30" ></u-gap>
 		<view class="bottom_box ">
 			<u-cell-group>
+				<u-cell-item @click="goTo('pagesA/announcementList')" icon="order" title="答题记录"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/commission')" icon="rmb" title="佣金"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="获取套餐价格"></u-cell-item>
-				<u-cell-item @click="getmember()" title="成为会员"></u-cell-item>
+				<u-cell-item v-if="!isMember" @click="getmember()" icon="level"  title="成为会员"></u-cell-item>
 			</u-cell-group>
 		</view>
 	</view>
@@ -42,10 +41,9 @@
 	export default {
 		data() {
 			return {
-				src: 'https://cdn.uviewui.com/uview/example/fade.jpg',
-				pic:'https://uviewui.com/common/logo.png',
 				show:true,
-				number:''
+				number:'',
+				isMember:true
 			}
 		},
 		components:{
@@ -121,7 +119,9 @@
 			async	authPhoneModalChange(){
 				const res =	await this.$u.api.getUser(this.openId)
 				const { data } = res
-				this.number = data
+				const { count ,member} = data ||{}
+				this.number = count
+				this.isMember = member==1
 			},
 			authModalChange(){
 				this.$refs.authPhoneModal.show()

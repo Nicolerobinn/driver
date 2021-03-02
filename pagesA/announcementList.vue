@@ -34,7 +34,7 @@
 					nomore: '我也是有底线的'
 				},
 				currPage:0,
-				pageSize:2,
+				pageSize:10,
 				list:[]
 			}
 		},
@@ -84,7 +84,7 @@
 				})
 				this.list = [...this.list,...arr]
 				this.currPage++
-				if((total/this.pageSize) - this.currPage){
+				if((total/this.pageSize) - this.currPage>0){
 					this.status = 'loadmore';
 				}else{
 					this.status = 'nomore';

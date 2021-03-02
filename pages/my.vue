@@ -27,7 +27,7 @@
 				<u-cell-item @click="goTo('pagesA/announcementList')" icon="order" title="答题记录"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/commission')" icon="rmb" title="佣金"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
-				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="获取套餐价格"></u-cell-item>
+				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="套餐详情"></u-cell-item>
 				<u-cell-item v-if="!isMember" @click="getmember()" icon="level"  title="成为会员"></u-cell-item>
 			</u-cell-group>
 		</view>

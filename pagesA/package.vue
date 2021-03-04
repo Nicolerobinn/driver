@@ -20,7 +20,7 @@
 			}
 		},
         computed: {
-            ...mapState(['loginCode'])
+            ...mapState(['openId'])
         },
 		async   onShow() {
 				const res =	await this.$u.api.getSetMeal()
@@ -30,16 +30,39 @@
 		},
 		methods: {
 			async   get(item){
-				const res =	await this.$u.api.prePay({code:this.loginCode,setMealId:item.id})
-				uni.showToast({
-					icon: "none",
-					title: res.msg,
-					position: 'center'
-				})
-			},
-			
+				const res =	await this.$u.api.prePay({openid:this.openId,setMealId:item.id})
+				const { nonceStr,out_trade_no,package:a,paySign,timestamp } = res.data  || {}
+			      uni.requestPayment({
+					timeStamp:timestamp,
+					 nonceStr: nonceStr,
+					 package: a,
+					 signType: 'RSA',
+					 paySign: paySign,
+					   success: (res)=> {
+						uni.showToast({
+						 title: '支付成功',
+						 icon: 'none',
+						 duration: 2000
+						});
+					   },
+						fail: function (err) {
+						  if(JSON.stringify(err.errMsg) == 'requestPayment:fail:[payment微信:-1]General errors'){
+						   uni.showToast({
+							 icon:'none',
+							   title: '签名错误、未注册APPID、APPID不正确、注册的APPID与设置的不匹配'
+						   });
+						  }
+						  if(JSON.stringify(err.errMsg) == 'requestPayment:fail:[payment微信:-2]General errors'){
+						   uni.showToast({
+							 icon:'none',
+							   title: '用户取消'
+						   });
+						  }
+						}
+			      });
+			  },
+			  }
 		}
-	}
 </script>
 
 <style scoped lang="scss">

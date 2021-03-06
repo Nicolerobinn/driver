@@ -1,20 +1,32 @@
 <template>
 	<view class="content">
 		<view class="item u-border-bottom" v-for="(item, index) in list" :key="index">
-			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{item.multipleChoice | choiceFilter}}</span>
-				<span style=" color:#5192ff"> {{item.questionStem}}</span></view>
-			<view class='radioChoose'>
-				<view class="u-flex radio"  v-for="(item, index) in item.optionsArr" :key="index">
-					<view>{{item.name || ''}} </view>
-					<view>{{item.text || ''}} </view>
+			<view class='question_content'>题干：	<span style=" color:#5192ff"> {{item.questionStem}}</span></view>
+			<view class="radio_box" v-if="item.multipleChoice !=2 ">
+				<view class="button_box">
+					<u-button  type="primary" size="mini"  @click="radioAdd(index)" >选项+</u-button>
+					<u-button  type="primary" size="mini"  @click="radioRed(index)" >选项-</u-button>
+				</view>
+			<u-gap height="30" ></u-gap>
+				<view class="radio" v-for="(a ,b) in item.arr" :key="b">
+					<u-input v-model="item.arr[b]"  class="textarea" placeholder="请输入答案,默认为ABC正序" :border="true" />
 				</view>
 			</view>
-			<u-button type="primary" @click="deleteQuestion(item)" >删除</u-button>
-			<view class="answer_box" >
-				答案:{{item.answer}}
-			</view>
-			<view class="answer_box" >
-				解析:{{item.analysis}}
+			<u-gap height="30" ></u-gap>
+			<u-input v-model="analysis" type="textarea" class="textarea" placeholder="解析" :border="true" :height="100" />
+			
+			<u-gap height="30" ></u-gap>
+			<u-radio-group v-model="item.multipleChoice" @change="radioGroupChange(index)">
+				<u-radio  v-for="(obj, i) in radioList" :key="i" :name="obj.value">
+					{{obj.name}}
+				</u-radio>
+			</u-radio-group>
+			
+			<u-gap height="30" ></u-gap>
+			<view class="button_box">
+				<u-button  type="error" size="mini"  @click="add(index)" >删除</u-button>
+				<u-button  type="warning" size="mini"  @click="clear(index)" >重置</u-button>
+				<u-button  type="primary" size="mini"  @click="deleteQu(index)" >添加</u-button>
 			</view>
 		</view>
 		<u-loadmore :status="status"  @loadmore="getList()" :load-text="loadText" />
@@ -36,7 +48,21 @@
 				},
 				currPage:0,
 				pageSize:10,
-				list:[]
+				list:[],
+				radioList: [{
+						value: '0',
+						name:'单选'
+					},
+					{
+						value: '1',
+						name:'多选'
+					},
+					{
+						value: '2',
+						name:'判断'
+					}
+				],
+				multipleChoice: '0',
 			}
 		},
 		filters: {
@@ -63,10 +89,54 @@
 			this.getList()
 		},
 		methods: {
-			async	deleteQuestion(item){
+			radioRed(){
+				
+			},
+			radioAdd(){
+				
+			},
+			clear(){
+				
+			},
+			async	add(item){
 				const res = await this.$u.api.deleteNoAnswer(item.id);
 				this.currPage = 0
-				this.getList()
+				const obj = {
+					userId:this.userId,
+					currPage:0,
+					pageSize:this.pageSize
+				}
+				const respone = await this.$u.api.noAnswerQuestion(obj);
+				const {data	} = respone
+				const {list,total} = data
+				const a = list.map(e=>{
+					return {
+						...e,
+						multipleChoice:1,
+						arr:['']
+					}
+				})
+				this.list = a
+			},
+			async	deleteQu(item){
+				const res = await this.$u.api.deleteNoAnswer(item.id);
+				this.currPage = 0
+				const obj = {
+					userId:this.userId,
+					currPage:0,
+					pageSize:this.pageSize
+				}
+				const respone = await this.$u.api.noAnswerQuestion(obj);
+				const {data	} = respone
+				const {list,total} = data
+				const a = list.map(e=>{
+					return {
+						...e,
+						multipleChoice:1,
+						arr:['']
+					}
+				})
+				this.list = a
 			},
 			async	getList(){
 				if(	this.status === 'loading'){
@@ -81,14 +151,14 @@
 				const res = await this.$u.api.noAnswerQuestion(obj);
 				const {data	} = res
 				const {list,total} = data
-				const arr = list.map(e => {
+				const a = list.map(e=>{
 					return {
-						optionsArr: this.getOpionts(e.options),
-						answerArr: e.answer.split(','),
 						...e,
+						multipleChoice:1,
+						arr:['']
 					}
 				})
-				this.list = [...this.list,...arr]
+				this.list = [...this.list,...a]
 				this.currPage++
 				if((total/this.pageSize) - this.currPage>0){
 					this.status = 'loadmore';
@@ -99,16 +169,10 @@
 			judge(str, options) {
 				return options.some((e) => str === e)
 			},
-			getOpionts(str = '') {
-				if (!str) return []
-				return str.split(';').map((e = '') => {
-					const arr = e.split(':')
-					return {
-						name: arr[0],
-						text: arr[1]
-					}
-				})
-			},
+			// 选中任一radio时，由radio-group触发
+			radioGroupChange(e) {
+				// console.log(e);
+			}
 		}
 	}
 </script>

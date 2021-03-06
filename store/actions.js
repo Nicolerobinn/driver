@@ -23,11 +23,12 @@ const actions = {
 				myAmapFun.getRegeo({
 					location: `${longitude},${latitude}`, //经纬度
 					success: (res) => {
+						console.log(res)
 						const {
-							province
+							city
 						} = res[0].regeocodeData.addressComponent
 						// 设置城市 关闭请求模态框
-						commit('setLocation', province)
+						commit('setLocation', city)
 						commit('setLocationModel', false)
 					},
 					fail: (err) => {

@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="item u-border-bottom" v-for="(item, index) in list" :key="index">
-			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{item.multipleChoice | choiceFilter}}</span>
+			<view class='question_content'>
 				<span style=" color:#5192ff"> {{item.questionStem}}</span></view>
 			<view class='radioChoose'>
 				<view class="u-flex radio"  v-for="(obj, index) in item.optionsArr" :key="index">

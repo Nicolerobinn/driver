@@ -12363,12 +12363,13 @@ var actions = {
       {var latitude = _ref2.latitude,longitude = _ref2.longitude;
         myAmapFun.getRegeo({
           location: "".concat(longitude, ",").concat(latitude), //经纬度
-          success: function success(res) {var
+          success: function success(res) {
+            console.log(res);var
 
-            province =
-            res[0].regeocodeData.addressComponent.province;
+            city =
+            res[0].regeocodeData.addressComponent.city;
             // 设置城市 关闭请求模态框
-            commit('setLocation', province);
+            commit('setLocation', city);
             commit('setLocationModel', false);
           },
           fail: function fail(err) {

@@ -22,15 +22,9 @@
 				答案:{{questionObj.answer}}
 			</view>
 			<view class="button_box">
-				<view v-if="index!==0" class="choose" @click="before()">
-					上一题
-				</view>
-				<view class="choose" v-if=" questionObj.multipleChoice==2 &&  !questionObj.isComplete" @click="confirm()">
-					确认选择
-				</view>
-				<view v-if="index!==questionArr.length-1" class="choose" @click="after()">
-					下一题
-				</view>
+				<u-button v-if="index!==0" type="primary" size="mini"  @click="before()" >上一题</u-button>
+				<u-button v-if="questionObj.multipleChoice==2 && !questionObj.isComplete" @click="confirm()" type="primary" size="mini"   >确认选择</u-button>
+				<u-button v-if="index!==questionArr.length-1" type="primary" size="mini"  @click="after()" >下一题</u-button>
 			</view>
 		</view>
 		<view class="blank">
@@ -69,6 +63,15 @@
 </template>
 
 <script>
+	const textArr =  [ {
+				name: '正确',
+				text: '正确',
+				checked: false
+			},{
+				name: '错误',
+				text: '错误',
+				checked: false
+			}]
 	import {
 		mapMutations,
 		mapState,
@@ -175,6 +178,13 @@
 					data
 				} = res
 				const arr = data.map(e => {
+					if(e.multipleChoice == 3){
+						return {
+							optionsArr:textArr,
+							answerArr:[e.answer],
+							...e,
+							}
+					}
 					return {
 						optionsArr: this.getOpionts(e.options),
 						answerArr: e.answer.split(','),

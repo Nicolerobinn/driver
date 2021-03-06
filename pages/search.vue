@@ -28,21 +28,32 @@
 			</u-row>
 			<u-gap height="10" bg-color="#fff"></u-gap>
 			<u-line color="#f5f5f5" />
-			<view style="padding: 10rpx;">
-				<text class="title">剩余次数 </text> &nbsp;
-				<text class="number">{{number}}</text>
+			<view v-if="openId" class="question_button" >
+				<view >
+					<text class="title">剩余次数 </text> &nbsp;
+					<text class="number">{{number}}</text>
+				</view>
+				<u-button type="primary" size="mini" @click="addQuestion()" >添加至题库</u-button>
 			</view>
 		</view>
 		<u-gap height="20" bg-color="#f5f5f5"></u-gap>
 		<view  class="scroll-Y">
-		<view class="question" v-if="Object.keys(questionObj).length>0">
-			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{questionObj.multipleChoice}}</span> <span style="color:#5192ff">{{questionObj.questionStem}}</span></view>
-			<view class='radioChoose'>
-				<view v-for="(text,i) in questionObj.options" :key="i" class="number">{{text}}</view>
-			</view>
-			<view>答案 : {{questionObj.answer}}</view>
-			<view v-if="questionObj.analysis">解析 : {{questionObj.analysis}}</view>
-		</view>
+				<view class="item u-border-bottom" v-for="(item, index) in list" :key="index">
+					<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{item.multipleChoice | choiceFilter}}</span>
+						<span style=" color:#5192ff"> {{item.questionStem}}</span></view>
+					<view class='radioChoose'>
+						<view class="u-flex radio"  v-for="(obj, index) in item.optionsArr" :key="index">
+							<view>{{obj.name || ''}} </view>
+							<view>{{obj.text || ''}} </view>
+						</view>
+					</view>
+					<view class="answer_box" >
+						答案:{{item.answer}}
+					</view>
+					<view class="answer_box" >
+						解析:{{item.analysis}}
+					</view>
+				</view>
 
 		</view>
 	</view>
@@ -72,11 +83,11 @@
 				number: '',
 				value:'',
 				isMember:true,
-				questionObj:{}
+				list:{}
 			}
 		},
 		computed: {
-			...mapState(['phoneNumber', 'loginCode', 'openId', 'userInfo', 'searchInteraction'])
+			...mapState(['phoneNumber', 'loginCode','userId', 'openId', 'userInfo', 'searchInteraction'])
 		},
 		components: {
 			authPhoneModal,
@@ -92,8 +103,28 @@
 			}
 			this.authPhoneModalChange()
 		},
+		
+		filters: {
+			choiceFilter(number) {
+				switch (number) {
+					case 1:
+						return '单选';
+					case 2:
+						return '多选';
+					case 3:
+						return '判断';
+				}
+			}
+		},
 		methods: {
 			...mapMutations(['setSearchInteraction', 'setLoginCode']),
+			async	addQuestion(){
+				if(!this.value.trim()){
+					return
+				}
+				const res = await this.$u.api.saveNoAnswerQuestion({questionStem:this.value,userId:this.userId})
+				
+			},
 			auth(){
 				if (!this.openId) {
 					if (this.loginCode) {
@@ -199,6 +230,16 @@
 					sourceType: ['album', 'camera']
 				})
 			},
+			getOpionts(str = '') {
+				if (!str) return []
+				return str.split(';').map((e = '') => {
+					const arr = e.split(':')
+					return {
+						name: arr[0],
+						text: arr[1]
+					}
+				})
+			},
 			async	textSearch(){
 				if(this.number == 0){
 					uni.showToast({
@@ -219,45 +260,31 @@
 					return
 				}
 				const res = await this.$u.api.searchQuestion({questionStem:this.value})
-				const { data = {} } = res ||{}
-				switch (data.multipleChoice) {
-					case 1:
-						data.multipleChoice = '单选'
-						break;
-					case 2:
-						data.multipleChoice = '多选'
-						break;
-					case 3:
-						data.multipleChoice = '判断'
-						
-						break;		
-				}
-				data.options    =	data.options.split(';')
-				this.questionObj = data
+				const { data =[] } = res ||{}
+				const arr = data.map(e => {
+					if(e.multipleChoice == 3){
+						return {
+							optionsArr:textArr,
+							answerArr:[e.answer],
+							...e,
+							}
+					}
+					return {
+						optionsArr: this.getOpionts(e.options),
+						answerArr: e.answer.split(','),
+						...e,
+					}
+				})
+				this.list = arr
 				this.show = false
-			},
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-		.question {
-			background-color: #ffff;
-			width: 100%;
-			padding: 20rpx;
-			.choose {
-				padding: 4rpx 8rpx;
-				border-radius: 8rpx;
-				font-size: 22rpx;
-				color: #fff;
-				line-height: 28rpx;
-				background-color: #5192ff;
-			}
-			.radioChoose{
-				color:gray;
-				margin: 10rpx;
-			}
-		}
+	
+
 	.content {
 		width: 100%;
 		height: 100%;
@@ -294,10 +321,6 @@
 			}
 		}
 
-		.scroll-Y {
-			flex: 1;
-			overflow-y: auto;
-		}
 
 		.input {
 			width: 108%;
@@ -323,6 +346,41 @@
 				display: table-cell;
 				vertical-align: middle;
 				text-align: left;
+			}
+		}
+		
+			.question_button{
+				padding: 10rpx;
+				display: flex;
+				justify-content: space-between;
+			}
+		.scroll-Y {
+			flex: 1;
+			overflow-y: auto;
+			.item {
+				background-color: #ffff;
+				width: 100%;
+				padding: 10rpx;
+				.button_box {
+					padding-top: 20px;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+			
+				.radioChoose {
+					margin-top: 10px;
+				}
+			
+				.choose {
+					padding: 4rpx 8rpx;
+					border-radius: 8rpx;
+					font-size: 22rpx;
+					color: #fff;
+					line-height: 28rpx;
+					background-color: #5192ff;
+				}
+			
 			}
 		}
 	}

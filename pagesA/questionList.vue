@@ -4,11 +4,12 @@
 			<view class='question_content'><span class='choose' style="margin-right: 4rpx;">{{item.multipleChoice | choiceFilter}}</span>
 				<span style=" color:#5192ff"> {{item.questionStem}}</span></view>
 			<view class='radioChoose'>
-				<view class="u-flex radio"  v-for="(obj, index) in item.optionsArr" :key="index">
-					<view>{{obj.name || ''}} :</view>
-					<view>{{obj.text || ''}} </view>
+				<view class="u-flex radio"  v-for="(item, index) in item.optionsArr" :key="index">
+					<view>{{item.name || ''}} </view>
+					<view>{{item.text || ''}} </view>
 				</view>
 			</view>
+			<u-button type="primary" @click="deleteQuestion(item)" >删除</u-button>
 			<view class="answer_box" >
 				答案:{{item.answer}}
 			</view>
@@ -62,6 +63,11 @@
 			this.getList()
 		},
 		methods: {
+			async	deleteQuestion(item){
+				const res = await this.$u.api.deleteNoAnswer(item.id);
+				this.currPage = 0
+				this.getList()
+			},
 			async	getList(){
 				if(	this.status === 'loading'){
 					return
@@ -72,7 +78,7 @@
 					currPage:this.currPage,
 					pageSize:this.pageSize
 				}
-				const res = await this.$u.api.answerRecord(obj);
+				const res = await this.$u.api.noAnswerQuestion(obj);
 				const {data	} = res
 				const {list,total} = data
 				const arr = list.map(e => {
@@ -89,6 +95,9 @@
 				}else{
 					this.status = 'nomore';
 				}
+			},
+			judge(str, options) {
+				return options.some((e) => str === e)
 			},
 			getOpionts(str = '') {
 				if (!str) return []

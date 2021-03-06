@@ -13,6 +13,12 @@ import {
 	saveAnswerRecordUrl,
 	jscode2session,
 	answerRecordUrl,
+	
+	noAnswerQuestionUrl,
+	deleteNoAnswerUrl,
+	saveQuestionUrl,
+	saveNoAnswerQuestionUrl,
+	
 	getwxacode
 } from './http.url'
 const install = (Vue, vm) => {
@@ -26,7 +32,12 @@ const install = (Vue, vm) => {
 	const saveAnswerRecord = (params = {}) => vm.$u.post(saveAnswerRecordUrl, params);
 	const getUser = (params) => vm.$u.get(`${getUserUrl}/${params}`);
 	const answerRecord = (params) => vm.$u.get(`${answerRecordUrl}/${params.userId}/${params.currPage}/${params.pageSize}`);
-
+	const noAnswerQuestion = (params) => vm.$u.get(`${noAnswerQuestionUrl}/${params.userId}/${params.currPage}/${params.pageSize}`);
+	const deleteNoAnswer = (id) => vm.$u.delete(`${deleteNoAnswerUrl}/${id}`);
+	const saveNoAnswerQuestion = (params) => vm.$u.post(saveNoAnswerQuestionUrl, params);
+	const saveQuestion = (params) => vm.$u.post(saveQuestionUrl, params);
+	
+	
 	const withdraw = (params = {}) => vm.$u.post(withdrawUrl, params);
 	const getMemberPrice = (params = {}) => vm.$u.get(getMemberPriceUrl, params);
 	const getSetMeal = (params = {}) => vm.$u.get(getSetMealUrl, params);
@@ -47,6 +58,10 @@ const install = (Vue, vm) => {
 		searchQuestion,
 		saveAnswerRecord,
 		answerRecord,
+		noAnswerQuestion,
+		deleteNoAnswer,
+		saveNoAnswerQuestion,
+		saveQuestion,
 		
 		withdraw,
 		getMemberPrice,

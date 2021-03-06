@@ -24,6 +24,8 @@
 		<u-gap height="30" ></u-gap>
 		<view class="bottom_box ">
 			<u-cell-group>
+				<u-cell-item v-if="isAdministrator" @click="goTo('pagesA/questionList')" icon="file-text-fill" title="题库"></u-cell-item>
+				<u-cell-item v-if="isAdministrator" @click="goTo('pagesA/addQuestion')" icon="plus-square-fill" title="添加题目"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/announcementList')" icon="order" title="答题记录"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/commission')" icon="rmb" title="佣金"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
@@ -43,7 +45,8 @@
 			return {
 				show:true,
 				number:'',
-				isMember:true
+				isMember:true,
+				isAdministrator:false
 			}
 		},
 		components:{
@@ -143,8 +146,9 @@
 			async	authPhoneModalChange(){
 				const res =	await this.$u.api.getUser(this.openId)
 				const { data } = res
-				const { count ,member} = data ||{}
+				const { count ,member,role} = data ||{}
 				this.number = count
+				this.isAdministrator = role ==1 ?true:false
 				this.isMember = member==1
 			},
 			authModalChange(){

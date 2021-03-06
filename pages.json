@@ -37,6 +37,16 @@
 			"style": {
 				"navigationBarTitleText": "套餐"
 			}
+		},{
+			"path": "questionList",
+			"style": {
+				"navigationBarTitleText": "题库列表"
+			}
+		},{
+			"path": "addQuestion",
+			"style": {
+				"navigationBarTitleText": "新增题目"
+			}
 		}
 		]
 	}],

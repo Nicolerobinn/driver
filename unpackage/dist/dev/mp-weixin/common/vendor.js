@@ -12512,7 +12512,7 @@ AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.r
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.saveNoAnswerQuestionUrl = exports.saveQuestionUrl = exports.deleteNoAnswerUrl = exports.noAnswerQuestionUrl = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
 
 var loginUrl = 'user/login';exports.loginUrl = loginUrl;
 var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
@@ -12531,6 +12531,12 @@ var prePayUrl = 'wxPay/prePay';exports.prePayUrl = prePayUrl;
 
 var saveAnswerRecordUrl = 'question/saveAnswerRecord';exports.saveAnswerRecordUrl = saveAnswerRecordUrl;
 var answerRecordUrl = 'question/answerRecord';exports.answerRecordUrl = answerRecordUrl;
+
+var noAnswerQuestionUrl = 'question/noAnswerQuestion/';exports.noAnswerQuestionUrl = noAnswerQuestionUrl;
+var deleteNoAnswerUrl = 'question/deleteNoAnswer';exports.deleteNoAnswerUrl = deleteNoAnswerUrl;
+var saveQuestionUrl = 'question/saveQuestion';exports.saveQuestionUrl = saveQuestionUrl;
+var saveNoAnswerQuestionUrl = 'question/saveNoAnswerQuestion';exports.saveNoAnswerQuestionUrl = saveNoAnswerQuestionUrl;
+
 
 var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
 exports.location = location;
@@ -12562,6 +12568,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
 var install = function install(Vue, vm) {
 
   var login = function login() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.loginUrl, params);};
@@ -12573,6 +12585,11 @@ var install = function install(Vue, vm) {
   var saveAnswerRecord = function saveAnswerRecord() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.saveAnswerRecordUrl, params);};
   var getUser = function getUser(params) {return vm.$u.get("".concat(_http.getUserUrl, "/").concat(params));};
   var answerRecord = function answerRecord(params) {return vm.$u.get("".concat(_http.answerRecordUrl, "/").concat(params.userId, "/").concat(params.currPage, "/").concat(params.pageSize));};
+  var noAnswerQuestion = function noAnswerQuestion(params) {return vm.$u.get("".concat(_http.noAnswerQuestionUrl, "/").concat(params.userId, "/").concat(params.currPage, "/").concat(params.pageSize));};
+  var deleteNoAnswer = function deleteNoAnswer(id) {return vm.$u.delete("".concat(_http.deleteNoAnswerUrl, "/").concat(id));};
+  var saveNoAnswerQuestion = function saveNoAnswerQuestion(params) {return vm.$u.post(_http.saveNoAnswerQuestionUrl, params);};
+  var saveQuestion = function saveQuestion(params) {return vm.$u.post(_http.saveQuestionUrl, params);};
+
 
   var withdraw = function withdraw() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.withdrawUrl, params);};
   var getMemberPrice = function getMemberPrice() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.get(_http.getMemberPriceUrl, params);};
@@ -12594,6 +12611,10 @@ var install = function install(Vue, vm) {
     searchQuestion: searchQuestion,
     saveAnswerRecord: saveAnswerRecord,
     answerRecord: answerRecord,
+    noAnswerQuestion: noAnswerQuestion,
+    deleteNoAnswer: deleteNoAnswer,
+    saveNoAnswerQuestion: saveNoAnswerQuestion,
+    saveQuestion: saveQuestion,
 
     withdraw: withdraw,
     getMemberPrice: getMemberPrice,

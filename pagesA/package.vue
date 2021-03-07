@@ -26,7 +26,6 @@
 				const res =	await this.$u.api.getSetMeal()
 				const { data,msg } = res
 				this.arr = data
-				console.log(data)
 		},
 		methods: {
 			async   get(item){

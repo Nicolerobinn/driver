@@ -35,7 +35,7 @@ const install = (Vue, vm) => {
 	const noAnswerQuestion = (params) => vm.$u.get(`${noAnswerQuestionUrl}/${params.userId}/${params.currPage}/${params.pageSize}`);
 	const deleteNoAnswer = (id) => vm.$u.delete(`${deleteNoAnswerUrl}/${id}`);
 	const saveNoAnswerQuestion = (params) => vm.$u.post(saveNoAnswerQuestionUrl, params);
-	const saveQuestion = (params) => vm.$u.post(saveQuestionUrl, params);
+	const saveQuestion = (params) => vm.$u.post(`${saveQuestionUrl}/${params.id}`, params);
 	
 	
 	const withdraw = (params = {}) => vm.$u.post(withdrawUrl, params);

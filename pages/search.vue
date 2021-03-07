@@ -60,6 +60,15 @@
 </template>
 
 <script>
+	const textArr =  [ {
+				name: '正确',
+				text: '正确',
+				checked: false
+			},{
+				name: '错误',
+				text: '错误',
+				checked: false
+			}]
 	import {
 		mapMutations,
 		mapState,
@@ -123,7 +132,12 @@
 					return
 				}
 				const res = await this.$u.api.saveNoAnswerQuestion({questionStem:this.value,userId:this.userId})
-				
+					uni.showToast({
+						icon: "none",
+						title: '添加成功',
+						duration: 1000,
+						position: 'center'
+					})
 			},
 			auth(){
 				if (!this.openId) {
@@ -202,8 +216,6 @@
 							},
 							success (res){
 								const data = res?.data || {}
-								console.log(321,data)
-								console.log(123,JSON.stringify(data))
 							}
 						})
 					},
@@ -241,6 +253,7 @@
 				})
 			},
 			async	textSearch(){
+				this.show = false
 				if(this.number == 0){
 					uni.showToast({
 						icon: "none",
@@ -261,6 +274,9 @@
 				}
 				const res = await this.$u.api.searchQuestion({questionStem:this.value})
 				const { data =[] } = res ||{}
+				if(!Array.isArray(data)){
+					return
+				}
 				const arr = data.map(e => {
 					if(e.multipleChoice == 3){
 						return {

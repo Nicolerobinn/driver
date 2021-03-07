@@ -52,11 +52,9 @@
 		onShow() {},
 		methods: {
 			fail(err) {
-				console.log('fail', fail)
 			},
 			pathSuccess(url) {
 				this.path = url
-				console.log(url)
 			},
 			onRender(url) {
 				this.board.views.push({

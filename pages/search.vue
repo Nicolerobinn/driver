@@ -92,7 +92,7 @@
 				number: '',
 				value:'',
 				isMember:true,
-				list:{}
+				list:[]
 			}
 		},
 		computed: {
@@ -201,28 +201,26 @@
 				const {
 					count = 6, sizeType = ['original'], sourceType = ['album', 'camera'], callback
 				} = obj
-				uni.chooseImage({
-					count: count, //默认9
-					sizeType: sizeType, //可以指定是原图还是压缩图，默认二者都有
-					sourceType: sourceType, //从相册选择、摄像头
-					success: (res) => {
-						const tempFilePaths = res.tempFilePaths
-						wx.uploadFile({
-							url:`${BASE_URL}/${imgSearchUrl}`, //仅为示例，非真实的接口地址
-							filePath: tempFilePaths[0],
-							name: 'file',
-							header: {
-								openid: this.openId
-							},
-							success (res){
-								const data = res?.data || {}
-							}
-						})
-					},
-					fail: (err) => {
-					}
-
-				});
+				wx.chooseImage({
+				sizeType: sizeType, //可以指定是原图还是压缩图，默认二者都有
+				sourceType: sourceType, //从相册选择、摄像头
+				  success: (res)=> {
+				    const tempFilePaths = res.tempFilePaths
+				    wx.uploadFile({
+						url:`${BASE_URL}/${imgSearchUrl}`, 
+						filePath: tempFilePaths[0],
+						name: 'file',
+						header: {
+							openid: this.openId
+						},
+						success:(res)=>{
+							const str = res.data
+							const arr = JSON.parse(str).data
+							this.list = arr
+						}
+				    })
+				  }
+				})
 			},
 			getPicture() {
 				this.filterChooseImage({

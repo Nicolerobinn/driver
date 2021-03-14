@@ -12343,10 +12343,7 @@ getters;exports.default = _default;
 var _constant = __webpack_require__(/*! ../utils/constant.js */ 46);
 
 
-var _amapWx = _interopRequireDefault(__webpack_require__(/*! ../static/amap-wx.130.js */ 47));
-var _httpUrl = __webpack_require__(/*! ../utils/http.url.js */ 48);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
-
-
+var _amapWx = _interopRequireDefault(__webpack_require__(/*! ../static/amap-wx.130.js */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 引入
 var actions = {
   // 授权后 获取地理位置
   getAccurate: function getAccurate(_ref)
@@ -12361,13 +12358,16 @@ var actions = {
 
 
       {var latitude = _ref2.latitude,longitude = _ref2.longitude;
+        console.log(
+        latitude,
+        longitude, myAmapFun);
         myAmapFun.getRegeo({
           location: "".concat(longitude, ",").concat(latitude), //经纬度
-          success: function success(res) {
-            console.log(res);var
+          success: function success(res) {var _res$0$regeocodeData$ =
 
-            city =
-            res[0].regeocodeData.addressComponent.city;
+
+            res[0].regeocodeData.addressComponent,province = _res$0$regeocodeData$.province,city = _res$0$regeocodeData$.city;
+
             // 设置城市 关闭请求模态框
             commit('setLocation', city);
             commit('setLocationModel', false);
@@ -12507,52 +12507,13 @@ AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.r
 
 /***/ 48:
 /*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.saveNoAnswerQuestionUrl = exports.saveQuestionUrl = exports.deleteNoAnswerUrl = exports.noAnswerQuestionUrl = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
-
-var loginUrl = 'user/login';exports.loginUrl = loginUrl;
-var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
-
-var imgSearchUrl = 'question/imgSearch';exports.imgSearchUrl = imgSearchUrl;
-var getQuestionUrl = 'question/20Question';exports.getQuestionUrl = getQuestionUrl;
-var searchQuestionUrl = 'question/searchQuestion';exports.searchQuestionUrl = searchQuestionUrl;
-var getUserUrl = 'user/getUser';exports.getUserUrl = getUserUrl;
-
-
-var withdrawUrl = 'wxPay/withdraw';exports.withdrawUrl = withdrawUrl;
-var getMemberPriceUrl = 'wxPay/getMemberPrice';exports.getMemberPriceUrl = getMemberPriceUrl;
-var getSetMealUrl = 'wxPay/getSetMeal';exports.getSetMealUrl = getSetMealUrl;
-var prePayUrl = 'wxPay/prePay';exports.prePayUrl = prePayUrl;
-
-
-var saveAnswerRecordUrl = 'question/saveAnswerRecord';exports.saveAnswerRecordUrl = saveAnswerRecordUrl;
-var answerRecordUrl = 'question/answerRecord';exports.answerRecordUrl = answerRecordUrl;
-
-var noAnswerQuestionUrl = 'question/noAnswerQuestion/';exports.noAnswerQuestionUrl = noAnswerQuestionUrl;
-var deleteNoAnswerUrl = 'question/deleteNoAnswer';exports.deleteNoAnswerUrl = deleteNoAnswerUrl;
-var saveQuestionUrl = 'question/saveQuestion';exports.saveQuestionUrl = saveQuestionUrl;
-var saveNoAnswerQuestionUrl = 'question/saveNoAnswerQuestion';exports.saveNoAnswerQuestionUrl = saveNoAnswerQuestionUrl;
-
-
-var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
-exports.location = location;
-
-/***/ }),
-
-/***/ 49:
-/*!****************************************************!*\
   !*** /Users/mac/code/driver1234/utils/http.api.js ***!
   \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 48);
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 49);
 
 
 
@@ -12633,6 +12594,45 @@ var install = function install(Vue, vm) {
 
 /***/ }),
 
+/***/ 49:
+/*!****************************************************!*\
+  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.saveNoAnswerQuestionUrl = exports.saveQuestionUrl = exports.deleteNoAnswerUrl = exports.noAnswerQuestionUrl = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
+
+var loginUrl = 'user/login';exports.loginUrl = loginUrl;
+var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
+
+var imgSearchUrl = 'question/imgSearch';exports.imgSearchUrl = imgSearchUrl;
+var getQuestionUrl = 'question/20Question';exports.getQuestionUrl = getQuestionUrl;
+var searchQuestionUrl = 'question/searchQuestion';exports.searchQuestionUrl = searchQuestionUrl;
+var getUserUrl = 'user/getUser';exports.getUserUrl = getUserUrl;
+
+
+var withdrawUrl = 'wxPay/withdraw';exports.withdrawUrl = withdrawUrl;
+var getMemberPriceUrl = 'wxPay/getMemberPrice';exports.getMemberPriceUrl = getMemberPriceUrl;
+var getSetMealUrl = 'wxPay/getSetMeal';exports.getSetMealUrl = getSetMealUrl;
+var prePayUrl = 'wxPay/prePay';exports.prePayUrl = prePayUrl;
+
+
+var saveAnswerRecordUrl = 'question/saveAnswerRecord';exports.saveAnswerRecordUrl = saveAnswerRecordUrl;
+var answerRecordUrl = 'question/answerRecord';exports.answerRecordUrl = answerRecordUrl;
+
+var noAnswerQuestionUrl = 'question/noAnswerQuestion/';exports.noAnswerQuestionUrl = noAnswerQuestionUrl;
+var deleteNoAnswerUrl = 'question/deleteNoAnswer';exports.deleteNoAnswerUrl = deleteNoAnswerUrl;
+var saveQuestionUrl = 'question/saveQuestion';exports.saveQuestionUrl = saveQuestionUrl;
+var saveNoAnswerQuestionUrl = 'question/saveNoAnswerQuestion';exports.saveNoAnswerQuestionUrl = saveNoAnswerQuestionUrl;
+
+
+var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
+exports.location = location;
+
+/***/ }),
+
 /***/ 50:
 /*!************************************************************!*\
   !*** /Users/mac/code/driver1234/utils/http.interceptor.js ***!
@@ -12641,7 +12641,7 @@ var install = function install(Vue, vm) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 48);
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _http = __webpack_require__(/*! ./http.url */ 49);
 // common/http.interceptor.js
 
 // 这里的Vue为Vue对象(非创建出来的实例)，vm为main.js中“Vue.use(httpInterceptor, app)”这一句的第二个参数，

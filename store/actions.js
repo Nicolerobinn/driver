@@ -3,9 +3,6 @@ import {
 	MAP_KEY
 } from '../utils/constant.js'
 import amapFile from '../static/amap-wx.130.js' // 引入
-import {
-	getwxacode
-} from '../utils/http.url.js'
 const actions = {
 	// 授权后 获取地理位置
 	getAccurate({
@@ -20,13 +17,16 @@ const actions = {
 				latitude,
 				longitude
 			}) => {
+				console.log(
+					latitude,
+					longitude,myAmapFun)
 				myAmapFun.getRegeo({
 					location: `${longitude},${latitude}`, //经纬度
 					success: (res) => {
-						console.log(res)
 						const {
-							city
+							province,city
 						} = res[0].regeocodeData.addressComponent
+						
 						// 设置城市 关闭请求模态框
 						commit('setLocation', city)
 						commit('setLocationModel', false)

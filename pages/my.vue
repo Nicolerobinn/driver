@@ -3,6 +3,16 @@
 		<authModal ref="authModal" @onChange="authModalChange" />
 		<authPhoneModal ref="authPhoneModal" @onChange="authPhoneModalChange()" />
 		<view class="top_box">
+			<u-cell-item v-if="!isMember" @click="getmember()" icon="level"  title="成为会员"></u-cell-item>
+			<view v-if="isMember" class="member">
+				<u-icon name="level" color="#972528" size="60"></u-icon>
+				尊贵的会员
+			</view>
+			<view v-else class="member"  @click="getmember()">
+				<u-icon name="level" color="#969799" size="60"></u-icon>
+				点击成为会员，享受优质的服务
+			</view>
+			<u-gap height="30" ></u-gap>
 			<view class=" u-flex user-box u-p-r-20 " @click="goTo('pagesA/personal')">
 				<view class="top u-m-r-10">
 					<u-avatar :src="userInfo.avatarUrl" size="100"></u-avatar>
@@ -17,22 +27,24 @@
 			</view>
 			<view class="residue">
 				<u-line color="#e4e7ed" />
-				<text class="title">剩余次数 </text> &nbsp;
+				<text class="title">剩余次数 ： </text> &nbsp;
 				<text class="number">{{number}}</text>
 			</view>
 		</view>
 		<u-gap height="30" ></u-gap>
+		<u-button open-type="contact" type="primary" >点击联系客服</u-button>
+		<u-gap height="30" ></u-gap>
 		<view class="bottom_box ">
 			<u-cell-group>
+				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="套餐详情"></u-cell-item>
 				<u-cell-item v-if="isAdministrator" @click="goTo('pagesA/questionList')" icon="file-text-fill" title="题库"></u-cell-item>
 				<u-cell-item v-if="isAdministrator" @click="goTo('pagesA/addQuestion')" icon="plus-square-fill" title="添加题目"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/announcementList')" icon="order" title="答题记录"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/commission')" icon="rmb" title="佣金"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/promotion')" icon="plus-people-fill" title="推广二维码"></u-cell-item>
-				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="套餐详情"></u-cell-item>
-				<u-cell-item v-if="!isMember" @click="getmember()" icon="level"  title="成为会员"></u-cell-item>
 			</u-cell-group>
 		</view>
+		<image style="width: 100%;" src="https://changpingwanglou.cn/file/guanggao/2.jpg" mode=""></image>
 	</view>
 </template>
 
@@ -96,6 +108,14 @@
 								}
 						})
 					}
+					return
+				}
+				const s = wx.getSystemInfoSync()
+				if( s.platform ==='ios'){
+					uni.showToast({
+						icon:'none',
+						title: 'ios用户不可用，如需购买请联系管理员'
+					});
 					return
 				}
 				const res =	await this.$u.api.prePay({openid:this.openId,setMealId:0})
@@ -183,6 +203,11 @@
 	.content {
 		padding:50rpx 30rpx;
 		position: relative;
+		.member{
+			display: flex;
+			align-items: center;
+			font-weight: bold;
+		}
 		.top_box{
 			background-color: #fff;
 			padding: 15rpx 0 0 32rpx ;
@@ -207,18 +232,6 @@
 		.top_box,.center_box,.bottom_box{
 			border-radius:10rpx;
 			overflow: hidden;
-		}
-		&::before{
-			position: absolute;
-			content: "";
-			top: 0;
-			left: 0;
-			background-color:#1296db;
-			height: 150rpx;
-			width: 100%;
-			z-index: -1;
-			border-bottom-left-radius: 95%;
-			border-bottom-right-radius: 95%;
 		}
 	}
 </style>

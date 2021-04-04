@@ -25,13 +25,13 @@
 					width: '550rpx',
 					height: '1000rpx',
 					views: [{
-						type: 'view',
+						type: 'image',
+						src:'https://changpingwanglou.cn/file/guanggao/3.jpg',
 						css: {
 							left: '0rpx',
 							top: '0rpx',
 							width: '550rpx',
 							height: '1000rpx',
-							background: '#07c160'
 						}
 					}]
 				}

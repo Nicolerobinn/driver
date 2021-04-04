@@ -104,17 +104,13 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
   onLaunch: function onLaunch() {
   },
   onLoad: function onLoad(options) {
-    var obj = wx.getLaunchOptionsSync();
-    //部分版本在无referrerInfo的时候会返回 undefined,可以做一下判断
-    if (options.referrerInfo && options.referrerInfo.appId) {var _ref =
-      obj.query || {},shareCode = _ref.shareCode;
-      if (shareCode) {
-        this.setShareCode(shareCode);
-      }
-    }
     console.log('onLoad');
   },
-  onShow: function onShow() {
+  onShow: function onShow(obj) {
+    if (obj && obj.query) {var _ref =
+      obj.query || {},shareCode = _ref.shareCode;
+      this.setShareCode(shareCode);
+    }
     console.log('App Show');
   },
   onHide: function onHide() {

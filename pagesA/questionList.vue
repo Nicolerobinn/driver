@@ -21,11 +21,14 @@
 				<u-gap height="30"></u-gap>
 				<view class="radio" v-for="(a ,b) in item.arr" :key="b">
 					<u-input v-model="item.arr[b]" class="textarea" placeholder="请输入选项,默认为ABC正序" :border="true" />
+					<u-gap height="10"></u-gap>
 				</view>
 			</view>
 			<u-gap height="30"></u-gap>
+			答案:
 			<u-input v-if="item.multipleChoice != 3 " v-model="item.answer" placeholder="请输入正确答案,格式为ABCD" :border="true" />
 			<u-gap height="30"></u-gap>
+			解析:
 			<u-input v-model="item.analysis" type="textarea" class="textarea" placeholder="解析" :border="true"
 				:height="100" />
 
@@ -117,7 +120,7 @@
 				const art = {
 					...this.list[i],
 					multipleChoice: 1,
-					arr: [''],
+					arr: ['','','',''],
 					answer: '',
 					analysis: '',
 				}
@@ -163,6 +166,7 @@
 					s.arr.map((e, i) => {
 						options += `${String.fromCharCode(64 + parseInt(i+1))}:${e};`
 					})
+					options = options.substr(0, options.length - 1);  
 				}
 				const o = {
 					options,
@@ -191,7 +195,7 @@
 					return {
 						...e,
 						multipleChoice: 1,
-						arr: [''],
+						arr: ['','','',''],
 						answer: '',
 						analysis: '',
 						radio:''
@@ -219,7 +223,7 @@
 					return {
 						...e,
 						multipleChoice: 1,
-						arr: [''],
+						arr: ['','','',''],
 						answer: '',
 						analysis: '',
 					}
@@ -248,7 +252,7 @@
 					return {
 						...e,
 						multipleChoice: 1,
-						arr: [''],
+						arr: ['','','',''],
 						answer: '',
 						analysis: '',
 					}

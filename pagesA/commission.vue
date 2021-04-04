@@ -3,7 +3,7 @@
 		<view class="box">
 			<text>佣金</text>
 			<view class="">
-				{{money}}
+				{{money}} 元
 			</view>
 		</view>
 		<view class="withdrawal">
@@ -29,13 +29,20 @@
 				value:0
 			}
 		},
-		onshow() {
-
+		mounted() {
+			this.getMoney()
 		},
         computed: {
             ...mapState(['openId'])
         },
 		methods: {
+			async	getMoney(){
+				console.log(123)
+				const res =	await this.$u.api.getUser(this.openId)
+				const { data } = res
+				const { commission} = data ||{}
+				this.money = commission
+			},
 			async	withdraw(){
 				if(!(/(^[1-9]\d*$)/.test(this.value))){
 					uni.showToast({
@@ -63,6 +70,7 @@
 				}			
 				const res =	await this.$u.api.withdraw({openid:this.openId,count:this.value})
 				const { data,msg } = res
+				this.getMoney()
 				uni.showToast({
 					icon: "none",
 					title: msg,

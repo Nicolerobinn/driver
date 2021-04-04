@@ -13,6 +13,7 @@ import {
 	saveAnswerRecordUrl,
 	jscode2session,
 	answerRecordUrl,
+	getImgCountUrl,
 	
 	noAnswerQuestionUrl,
 	deleteNoAnswerUrl,
@@ -28,6 +29,7 @@ const install = (Vue, vm) => {
 
 	const imgSearch = (params = {}) => vm.$u.post(imgSearchUrl);
 	const getQuestion = () => vm.$u.get(getQuestionUrl);
+	const getImgCount = () => vm.$u.get(getImgCountUrl);
 	const searchQuestion = (params = {}) => vm.$u.post(searchQuestionUrl, params);
 	const saveAnswerRecord = (params = {}) => vm.$u.post(saveAnswerRecordUrl, params);
 	const getUser = (params) => vm.$u.get(`${getUserUrl}/${params}`);
@@ -36,7 +38,6 @@ const install = (Vue, vm) => {
 	const deleteNoAnswer = (id) => vm.$u.delete(`${deleteNoAnswerUrl}/${id}`);
 	const saveNoAnswerQuestion = (params) => vm.$u.post(saveNoAnswerQuestionUrl, params);
 	const saveQuestion = (params) => vm.$u.post(`${saveQuestionUrl}/${params.id}`, params);
-	
 	
 	const withdraw = (params = {}) => vm.$u.post(withdrawUrl, params);
 	const getMemberPrice = (params = {}) => vm.$u.get(getMemberPriceUrl, params);
@@ -56,6 +57,7 @@ const install = (Vue, vm) => {
 		imgSearch,
 		getQuestion,
 		searchQuestion,
+		getImgCount,
 		saveAnswerRecord,
 		answerRecord,
 		noAnswerQuestion,

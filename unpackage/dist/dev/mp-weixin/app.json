@@ -46,13 +46,13 @@
       },
       {
         "pagePath": "pages/practice",
-        "text": "练习",
+        "text": "练习题目",
         "iconPath": "static/img/practice.png",
         "selectedIconPath": "static/img/selectPractice.png"
       },
       {
         "pagePath": "pages/my",
-        "text": "我的",
+        "text": "我的信息",
         "iconPath": "static/img/my.png",
         "selectedIconPath": "static/img/selectMy.png"
       }
@@ -64,5 +64,5 @@
     }
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap41.json"
+  "sitemapLocation": "sitemap88.json"
 }

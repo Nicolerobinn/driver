@@ -7,7 +7,7 @@ export const imgSearchUrl = 'question/imgSearch'
 export const getQuestionUrl = 'question/20Question'
 export const searchQuestionUrl = 'question/searchQuestion'
 export const getUserUrl = 'user/getUser'
-
+export const getImgCountUrl = 'user/getImgCount'
 
 export const withdrawUrl = 'wxPay/withdraw'
 export const getMemberPriceUrl = 'wxPay/getMemberPrice'

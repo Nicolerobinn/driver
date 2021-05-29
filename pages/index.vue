@@ -12,24 +12,25 @@
 		</view>
 		<u-swiper height="300" :list="list"></u-swiper>
 		<u-gap height="30"></u-gap>
-		<u-grid :col="3" :border="false">
-			<u-grid-item @click="$u.route({
-						url: 'pagesA/tutorial',
-					})">
-				<u-icon name="question-circle-fill" color="#5aa2e0" :size="46"></u-icon>
-				<view class="grid-text">使用教程</view>
-			</u-grid-item>
-			<u-grid-item @click="$u.route({
-						url: 'pagesA/tutorial',
-					})">
-				<u-icon @click="tabGoTo(PHOTOGRAPH)" name="camera-fill" color="#5aa2e0" :size="46"></u-icon>
-				<view class="grid-text">拍照答题</view>
-			</u-grid-item>
-			<u-grid-item @click="goTo('pagesA/promotion')">
-				<u-icon name="plus-people-fill" color="#5aa2e0" :size="46"></u-icon>
-				<view class="grid-text">我要推广</view>
-			</u-grid-item>
-		</u-grid>
+		<view style="background-color: #fff;">
+			<u-grid :col="3" :border="false">
+				<u-grid-item @click="$u.route({
+							url: 'pagesA/tutorial',
+						})">
+					<u-icon name="question-circle-fill" color="#5aa2e0" :size="100"></u-icon>
+					<view class="grid-text">使用教程</view>
+				</u-grid-item>
+				<u-grid-item >
+					<u-icon @click="tabGoTo(PHOTOGRAPH)" name="camera-fill" color="#5aa2e0" :size="150"></u-icon>
+					<view class="grid-text">拍照答题</view>
+				</u-grid-item>
+				<u-grid-item @click="goTo('pagesA/promotion')">
+					<u-icon name="plus-people-fill" color="#5aa2e0" :size="100"></u-icon>
+					<view class="grid-text">我要推广</view>
+				</u-grid-item>
+			</u-grid>
+			
+		</view>
 		<u-gap height="30"></u-gap>
 		<u-button open-type="contact" type="primary">点击联系客服</u-button>
 		<u-gap height="30"></u-gap>
@@ -58,14 +59,34 @@
 			return {
 				PHOTOGRAPH: PHOTOGRAPH,
 				PICTURE: PICTURE,
-				barList: [
-					'寒雨连江夜入吴',
-					'平明送客楚山孤',
-					'洛阳亲友如相问',
-					'一片冰心在玉壶'
-				],
 				list: [],
 			}
+		},
+		onShareAppMessage(options){
+     　// 设置菜单中的转发按钮触发转发事件时的转发内容
+			　　var shareObj = {
+			　　　　title: "学法减分邀请您来~",        // 默认是小程序的名称(可以写slogan等)
+			　　　　path: '/pages/index',        // 默认是当前页面，必须是以‘/’开头的完整路径
+			　　　　imageUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+			　　　　success: (res)=>{
+			　　　　　　// 转发成功之后的回调
+			　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
+			　　　　　　}
+			　　　　},
+			　　　　fail: ()=>{
+			　　　　　　// 转发失败之后的回调
+			　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
+			　　　　　　　　// 用户取消转发
+			　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
+			　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
+			　　　　　　}
+			　　　　},
+			　　　　complete: ()=>{
+			　　　　　　// 转发结束之后的回调（转发成不成功都会执行）
+			　　　　}
+			　　};
+			　　// 返回shareObj
+			　　return shareObj;
 		},
 		onLoad() {
 			this.getImg()
@@ -90,7 +111,7 @@
 		},
 		methods: {
 			...mapMutations(['setSearchInteraction', 'setLoginCode']),
-			...mapActions(['getAccurate', 'login']),
+			...mapActions(['getAccurate']),
 			getImg() {
 				this.$u.api.getImgCount().then(res => {
 					const {
@@ -146,21 +167,11 @@
 					}
 				});
 			},
-			auth() {
-				uni.getSetting({
-					success: (res) => {
-						// 判断是否获取到用户信息权限
-						if (!res.authSetting['scope.userInfo']) {
-							// 弹出权限弹框
-							this.$refs.authModal.show()
-						} else {
-							this.authModalChange()
-						}
-					}
-				})
-			},
 			authModalChange() {
 				this.$refs.authPhoneModal.show()
+			},
+			auth(){
+								this.$refs.authModal.show() 
 			},
 			goTo(url) {
 				if (this.openId) {
@@ -251,6 +262,6 @@
 	}
 
 	.grid-text {
-		font-size: 20rpx;
+		font-size: 30rpx;
 	}
 </style>

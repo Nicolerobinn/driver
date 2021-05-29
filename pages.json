@@ -1,6 +1,6 @@
 {
 	"easycom": {
-		 "^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"subPackages": [{
 		"root": "pagesA",
@@ -21,34 +21,40 @@
 			"style": {
 				"navigationBarTitleText": "答题记录"
 			}
-		},{
+		}, {
 			"path": "tutorial",
 			"style": {
 				"navigationBarTitleText": "使用教程"
 			}
-			
-		},{
+
+		}, {
 			"path": "commission",
 			"style": {
 				"navigationBarTitleText": "佣金"
 			}
-		},{
+		}, {
 			"path": "package",
 			"style": {
 				"navigationBarTitleText": "套餐"
 			}
-		},{
+		}, {
 			"path": "questionList",
 			"style": {
 				"navigationBarTitleText": "题库列表"
 			}
-		},{
+		}, {
 			"path": "addQuestion",
 			"style": {
 				"navigationBarTitleText": "新增题目"
 			}
-		}
-		]
+		}, {
+			"path": "myTeam",
+			"style": {
+				"navigationBarTitleText": "我的团队",
+				"enablePullDownRefresh": false
+			}
+
+		}]
 	}],
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
@@ -57,17 +63,17 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页"
 			}
-		},		{
+		}, {
 			"path": "pages/my",
 			"style": {
 				"navigationBarTitleText": "我的信息"
 			}
-		},		{
+		}, {
 			"path": "pages/search",
 			"style": {
 				"navigationBarTitleText": "搜索题目"
 			}
-		},{
+		}, {
 			"path": "pages/practice",
 			"style": {
 				"navigationBarTitleText": "练习题目"

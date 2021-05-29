@@ -43,25 +43,15 @@ const actions = {
 			}
 		})
 	},
-	getUserInfo({
-		dispatch,
-		commit
-	}, obj) {
-		uni.getUserInfo({
-			success: async (res) => {
-				commit('setUserInfo',res.userInfo )
-				dispatch('login',{...obj,userInfo:res.userInfo})
-			}
-		})
-	},
 	async login({
 		commit,
 		state
 	}, {
 		isAuthor,
 		encryptedData,
-		iv,callBack,userInfo
+		iv,callBack
 	}) {
+		console.log(iv)
 		if (!state.loginCode) {
 			uni.showToast({
 				icon: "none",
@@ -77,15 +67,17 @@ const actions = {
 				position: 'center'
 			})
 		}
+		const user = state.userInfo
 		if (state.shareCode) {
-			userInfo.referrerId = state.shareCode
+			user.referrerId = state.shareCode
 		}
 		const loginRes = await app.$u.api.login({
 			code: state.loginCode,
-			userInfo: userInfo,
+			userInfo: user,
 			iv,
 			encryptedData,
 		})
+		console.log(loginRes)
 		const {
 			userId,
 			openId,

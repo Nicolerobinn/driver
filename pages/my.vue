@@ -37,6 +37,7 @@
 		<view class="bottom_box ">
 			<u-cell-group>
 				<u-cell-item @click="goTo('pagesA/package')" icon="coupon" title="套餐详情"></u-cell-item>
+				<u-cell-item v-if="openId" @click="goTo('pagesA/myTeam')" icon="integral-fill" title="我的团队"></u-cell-item>
 				<u-cell-item v-if="isAdministrator" @click="goTo('pagesA/questionList')" icon="file-text-fill" title="题库"></u-cell-item>
 				<u-cell-item v-if="isAdministrator" @click="goTo('pagesA/addQuestion')" icon="plus-square-fill" title="添加题目"></u-cell-item>
 				<u-cell-item @click="goTo('pagesA/announcementList')" icon="order" title="答题记录"></u-cell-item>
@@ -90,9 +91,34 @@
 			}
 			this.authPhoneModalChange()
 		},
+		onShareAppMessage(options){
+     　// 设置菜单中的转发按钮触发转发事件时的转发内容
+			　　var shareObj = {
+			　　　　title: "学法减分邀请您来~",        // 默认是小程序的名称(可以写slogan等)
+			　　　　path: '/pages/my',        // 默认是当前页面，必须是以‘/’开头的完整路径
+			　　　　imageUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+			　　　　success: (res)=>{
+			　　　　　　// 转发成功之后的回调
+			　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
+			　　　　　　}
+			　　　　},
+			　　　　fail: ()=>{
+			　　　　　　// 转发失败之后的回调
+			　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
+			　　　　　　　　// 用户取消转发
+			　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
+			　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
+			　　　　　　}
+			　　　　},
+			　　　　complete: ()=>{
+			　　　　　　// 转发结束之后的回调（转发成不成功都会执行）
+			　　　　}
+			　　};
+			　　// 返回shareObj
+			　　return shareObj;
+		},
 		methods: {
 			...mapMutations(['setLoginCode']),
-			...mapActions(['getUserInfo']),
 			async   getmember(){
 				if(!this.openId){
 					if(this.loginCode){
@@ -151,17 +177,7 @@
 				  });
 			},
 			getSetting(){
-				uni.getSetting({
-					success:(res)=> {  
-						// 判断是否获取到用户信息权限
-						if(!res.authSetting['scope.userInfo']){
-							// 弹出权限弹框
 							this.$refs.authModal.show() 
-						}else{
-							this.authModalChange()
-						}
-					}
-				})
 			},
 			async	authPhoneModalChange(){
 				const res =	await this.$u.api.getUser(this.openId)

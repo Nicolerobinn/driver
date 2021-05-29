@@ -17,11 +17,11 @@
 				<view>
 					<text class="title">您剩余的搜索次数 : </text> &nbsp;
 					<text class="number">{{number}}</text>
+				<u-icon name='search'  @click="inputClick()" :size="40" class='search'></u-icon>
 				</view>
 			</view>
 		<view class="top">
 			<view class="input" @click="inputClick()">
-				<u-icon name='search' size="60" class='search'></u-icon>
 				<u-input v-model="value" :maxlength="100000" type="textarea" :disabled="true" auto-height="autoHeight"
 					@click="inputClick()" />
 			</view>
@@ -36,8 +36,8 @@
 		</view>
 		<u-gap height="20" bg-color="#f5f5f5"></u-gap>
 		<view class="blueBox" @click="chooseImage()">
-			<u-icon name='camera-fill' size="55" class='camera' color='#ffff'></u-icon>
-			拍照或者从图库选择图片搜索
+			<u-icon name='camera-fill' :size="40" class='camera' color='#ffff'></u-icon>
+			点击按钮，拍照答题
 		</view>
 		<u-gap height="20" bg-color="#f5f5f5"></u-gap>
 		<view class="scroll-Y">
@@ -147,6 +147,32 @@
 				}
 			}
 		},
+		onShareAppMessage(options){
+     　// 设置菜单中的转发按钮触发转发事件时的转发内容
+			　　var shareObj = {
+			　　　　title: "学法减分邀请您来~",        // 默认是小程序的名称(可以写slogan等)
+			　　　　path: '/pages/search',        // 默认是当前页面，必须是以‘/’开头的完整路径
+			　　　　imageUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+			　　　　success: (res)=>{
+			　　　　　　// 转发成功之后的回调
+			　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
+			　　　　　　}
+			　　　　},
+			　　　　fail: ()=>{
+			　　　　　　// 转发失败之后的回调
+			　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
+			　　　　　　　　// 用户取消转发
+			　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
+			　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
+			　　　　　　}
+			　　　　},
+			　　　　complete: ()=>{
+			　　　　　　// 转发结束之后的回调（转发成不成功都会执行）
+			　　　　}
+			　　};
+			　　// 返回shareObj
+			　　return shareObj;
+		},
 		methods: {
 			...mapMutations(['setSearchInteraction', 'setLoginCode']),
 			async addQuestion() {
@@ -183,17 +209,7 @@
 				}
 			},
 			getSetting() {
-				uni.getSetting({
-					success: (res) => {
-						// 判断是否获取到用户信息权限
-						if (!res.authSetting['scope.userInfo']) {
-							// 弹出权限弹框
-							this.$refs.authModal.show()
-						} else {
-							this.authModalChange()
-						}
-					}
-				})
+				this.$refs.authModal.show()
 			},
 			inputClick() {
 				if (this.auth()) {
@@ -246,6 +262,7 @@
 							},
 							success: (res) => {
 								const str = res.data
+								console.log(JSON.parse(str))
 								const arr = JSON.parse(str).data
 								uni.hideLoading();
 								if (Array.isArray(arr)) {
@@ -369,13 +386,16 @@
 		background-color: #FFFFFF;
 		display: flex;
 		flex-direction: column;
+		.search{
+			float:right ;
+		}
 		.notice {
 			background-color: #fff;
 			padding: 20rpx;
 		}
 		.residue{
 			padding: 20rpx;
-			font-size: 40rpx;
+			font-size: 30rpx;
 			font-weight: bold;
 		}
 		.top {
@@ -406,11 +426,12 @@
 
 		.blueBox {
 			margin: 20rpx;
-			height: 35px;
+			padding: 20rpx;
 			background-color: #2c96fc;
 			border-radius: 5px;
 			text-align: center;
 			display: flex;
+			flex-direction: column;
 			justify-content: space-around;
 			color: #fff;
 			align-items: center;

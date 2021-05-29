@@ -5,7 +5,7 @@
 			</view>
 			<view class="butotn_box u-flex">
 				<view class="left">
-					<u-button open-type="getUserInfo" type="primary" @getuserinfo="getUserInfo" :custom-style="leftCustomStyle" >允许</u-button>
+					<button @click="handleClick">点我授权</button>
 				</view>
 				<view class="right" @click="cacel()" >
 					拒绝
@@ -29,23 +29,25 @@
 				}
 			}
 		},
-		onLoad() {
-
-		},
-		computed:{
-			...mapState(['openId'])	
-		},
 		methods: {
+			...mapMutations([ 'setUserInfo']),
 			show(){
 				this.modalShow = true
 			},
-			getUserInfo({detail}){   //授权个人信息
-				if (detail.userInfo){
-					this.modalShow = false
-					this.$emit('onChange')
-				} else {
-					this.cacel()
-				}
+			handleClick(){
+				   uni.getUserProfile({
+					desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+				     success: res => {
+						console.log(res)
+						this.setUserInfo(res.userInfo)
+						this.modalShow = false
+						this.$emit('onChange')
+				     },
+					 fail:(res)=>{
+							console.log(res)
+						 	this.cacel()
+					 }
+				   })
 			},
 			cacel(){
 				this.modalShow = false

@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createPlugin = createPlugin;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -681,7 +681,7 @@ var customize = cached(function (str) {
 
 function initTriggerEvent(mpInstance) {
   {
-    if (!wx.canIUse('nextTick')) {
+    if (!wx.canIUse || !wx.canIUse('nextTick')) {
       return;
     }
   }
@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1295,11 +1295,63 @@ function initEventChannel() {
   };
 }
 
+function initScopedSlotsParams() {
+  var center = {};
+  var parents = {};
+
+  _vue.default.prototype.$hasScopedSlotsParams = function (vueId) {
+    var has = center[vueId];
+    if (!has) {
+      parents[vueId] = this;
+      this.$on('hook:destory', function () {
+        delete parents[vueId];
+      });
+    }
+    return has;
+  };
+
+  _vue.default.prototype.$getScopedSlotsParams = function (vueId, name, key) {
+    var data = center[vueId];
+    if (data) {
+      var object = data[name] || {};
+      return key ? object[key] : object;
+    } else {
+      parents[vueId] = this;
+      this.$on('hook:destory', function () {
+        delete parents[vueId];
+      });
+    }
+  };
+
+  _vue.default.prototype.$setScopedSlotsParams = function (name, value) {
+    var vueId = this.$options.propsData.vueId;
+    var object = center[vueId] = center[vueId] || {};
+    object[name] = value;
+    if (parents[vueId]) {
+      parents[vueId].$forceUpdate();
+    }
+  };
+
+  _vue.default.mixin({
+    destroyed: function destroyed() {
+      var propsData = this.$options.propsData;
+      var vueId = propsData && propsData.vueId;
+      if (vueId) {
+        delete center[vueId];
+        delete parents[vueId];
+      }
+    } });
+
+}
+
 function parseBaseApp(vm, _ref3)
 
 
 {var mocks = _ref3.mocks,initRefs = _ref3.initRefs;
   initEventChannel();
+  {
+    initScopedSlotsParams();
+  }
   if (vm.$options.store) {
     _vue.default.prototype.$store = vm.$options.store;
   }
@@ -1323,7 +1375,7 @@ function parseBaseApp(vm, _ref3)
 
       delete this.$options.mpType;
       delete this.$options.mpInstance;
-      if (this.mpType === 'page') {// hack vue-i18n
+      if (this.mpType === 'page' && typeof getApp === 'function') {// hack vue-i18n
         var app = getApp();
         if (app.$vm && app.$vm.$i18n) {
           this._i18n = app.$vm.$i18n;
@@ -1342,7 +1394,7 @@ function parseBaseApp(vm, _ref3)
         return;
       }
       {
-        if (!wx.canIUse('nextTick')) {// 事实 上2.2.3 即可，简单使用 2.3.0 的 nextTick 判断
+        if (wx.canIUse && !wx.canIUse('nextTick')) {// 事实 上2.2.3 即可，简单使用 2.3.0 的 nextTick 判断
           console.error('当前微信基础库版本过低，请将 微信开发者工具-详情-项目设置-调试基础库版本 更换为`2.3.0`以上');
         }
       }
@@ -1711,6 +1763,25 @@ function createSubpackageApp(vm) {
   return vm;
 }
 
+function createPlugin(vm) {
+  var appOptions = parseApp(vm);
+  if (isFn(appOptions.onShow) && wx.onAppShow) {
+    wx.onAppShow(function () {for (var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {args[_key7] = arguments[_key7];}
+      appOptions.onShow.apply(vm, args);
+    });
+  }
+  if (isFn(appOptions.onHide) && wx.onAppHide) {
+    wx.onAppHide(function () {for (var _len8 = arguments.length, args = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {args[_key8] = arguments[_key8];}
+      appOptions.onHide.apply(vm, args);
+    });
+  }
+  if (isFn(appOptions.onLaunch)) {
+    var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
+    appOptions.onLaunch.call(vm, args);
+  }
+  return vm;
+}
+
 todos.forEach(function (todoApi) {
   protocols[todoApi] = false;
 });
@@ -1791,6 +1862,7 @@ wx.createApp = createApp;
 wx.createPage = createPage;
 wx.createComponent = createComponent;
 wx.createSubpackageApp = createSubpackageApp;
+wx.createPlugin = createPlugin;
 
 var uni$1 = uni;var _default =
 
@@ -1928,9 +2000,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 12:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/index.js ***!
-  \****************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/index.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2080,9 +2152,9 @@ var install = function install(Vue) {
 /***/ }),
 
 /***/ 13:
-/*!***************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/mixin/mixin.js ***!
-  \***************************************************************/
+/*!*********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/mixin/mixin.js ***!
+  \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2154,9 +2226,9 @@ var install = function install(Vue) {
 /***/ }),
 
 /***/ 14:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/request/index.js ***!
-  \*****************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/request/index.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2335,9 +2407,9 @@ new Request();exports.default = _default;
 /***/ }),
 
 /***/ 15:
-/*!**********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/deepMerge.js ***!
-  \**********************************************************************/
+/*!****************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/deepMerge.js ***!
+  \****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2376,9 +2448,9 @@ deepMerge;exports.default = _default;
 /***/ }),
 
 /***/ 16:
-/*!**********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/deepClone.js ***!
-  \**********************************************************************/
+/*!****************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/deepClone.js ***!
+  \****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2410,9 +2482,9 @@ deepClone;exports.default = _default;
 /***/ }),
 
 /***/ 17:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/test.js ***!
-  \*****************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/test.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2652,9 +2724,9 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
 /***/ }),
 
 /***/ 18:
-/*!************************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/queryParams.js ***!
-  \************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/queryParams.js ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2721,17 +2793,17 @@ queryParams;exports.default = _default;
 /***/ }),
 
 /***/ 19:
-/*!******************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/route.js ***!
-  \******************************************************************/
+/*!************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/route.js ***!
+  \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  */var
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    */var
 
 Router = /*#__PURE__*/function () {
   function Router() {_classCallCheck(this, Router);
@@ -8380,7 +8452,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8401,14 +8473,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8494,7 +8566,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"driver1234","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8670,7 +8742,7 @@ function internalMixin(Vue) {
     Vue.util.warn(("Error in " + info + ": \"" + (err.toString()) + "\""), vm);
     console.error(err);
     /* eslint-disable no-undef */
-    var app = getApp();
+    var app = typeof getApp === 'function' && getApp();
     if (app && app.onError) {
       app.onError(err);
     }
@@ -9694,9 +9766,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 23:
-/*!***********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/timeFormat.js ***!
-  \***********************************************************************/
+/*!*****************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/timeFormat.js ***!
+  \*****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9756,9 +9828,9 @@ timeFormat;exports.default = _default;
 /***/ }),
 
 /***/ 24:
-/*!*********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/timeFrom.js ***!
-  \*********************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/timeFrom.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9813,70 +9885,10 @@ timeFrom;exports.default = _default;
 
 /***/ }),
 
-/***/ 248:
-/*!****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/util/emitter.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 递归使用 call 方式this指向
-                                                                                                      * @param componentName // 需要找的组件的名称
-                                                                                                      * @param eventName // 事件名称
-                                                                                                      * @param params // 需要传递的参数
-                                                                                                      */
-function _broadcast(componentName, eventName, params) {
-  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
-  this.$children.map(function (child) {
-    if (componentName === child.$options.name) {
-      child.$emit.apply(child, [eventName].concat(params));
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat(params));
-    }
-  });
-}var _default =
-{
-  methods: {
-    /**
-              * 派发 (向上查找) (一个)
-              * @param componentName // 需要找的组件的名称
-              * @param eventName // 事件名称
-              * @param params // 需要传递的参数
-              */
-    dispatch: function dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
-      var name = parent.$options.name; // 获取当前组件实例的name
-      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
-      // 循环出当前名称的一样的组件实例
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-        if (parent) {
-          name = parent.$options.name;
-        }
-      }
-      // 有节点表示当前找到了name一样的实例
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
-      }
-    },
-    /**
-        * 广播 (向下查找) (广播多个)
-        * @param componentName // 需要找的组件的名称
-        * @param eventName // 事件名称
-        * @param params // 需要传递的参数
-        */
-    broadcast: function broadcast(componentName, eventName, params) {
-      _broadcast.call(this, componentName, eventName, params);
-    } } };exports.default = _default;
-
-/***/ }),
-
 /***/ 25:
-/*!**************************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/colorGradient.js ***!
-  \**************************************************************************/
+/*!********************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/colorGradient.js ***!
+  \********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10018,9 +10030,121 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 /***/ }),
 
 /***/ 256:
-/*!**************************************************************************!*\
-  !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/utils.js ***!
-  \**************************************************************************/
+/*!**********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/util/emitter.js ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
+
+/***/ }),
+
+/***/ 26:
+/*!***********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/guid.js ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
+                                                                                                      * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
+                                                                                                      * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
+                                                                                                      * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
+                                                                                                      * v-for的时候,推荐使用后端返回的id而不是循环的index
+                                                                                                      * @param {Number} len uuid的长度
+                                                                                                      * @param {Boolean} firstU 将返回的首字母置为"u"
+                                                                                                      * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
+                                                                                                      */
+function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  var uuid = [];
+  radix = radix || chars.length;
+
+  if (len) {
+    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
+    for (var i = 0; i < len; i++) {uuid[i] = chars[0 | Math.random() * radix];}
+  } else {
+    var r;
+    // rfc4122标准要求返回的uuid中,某些位为固定的字符
+    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+    uuid[14] = '4';
+
+    for (var _i = 0; _i < 36; _i++) {
+      if (!uuid[_i]) {
+        r = 0 | Math.random() * 16;
+        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
+      }
+    }
+  }
+  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guuid不能用作id或者class
+  if (firstU) {
+    uuid.shift();
+    return 'u' + uuid.join('');
+  } else {
+    return uuid.join('');
+  }
+}var _default =
+
+guid;exports.default = _default;
+
+/***/ }),
+
+/***/ 264:
+/*!********************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/pagesA/components/lime-painter/utils.js ***!
+  \********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10432,16 +10556,16 @@ function getImageInfo(img, isH5PathToBase64) {var isReset = arguments.length > 2
 
 /***/ }),
 
-/***/ 257:
-/*!*************************************************************************!*\
-  !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/draw.js ***!
-  \*************************************************************************/
+/***/ 265:
+/*!*******************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/pagesA/components/lime-painter/draw.js ***!
+  \*******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 256);
-var _gradient = __webpack_require__(/*! ./gradient */ 258);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Draw = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 264);
+var _gradient = __webpack_require__(/*! ./gradient */ 266);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Draw = /*#__PURE__*/function () {
   function Draw(context, canvas) {var use2dCanvas = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;var isH5PathToBase64 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;var sleep = arguments.length > 4 ? arguments[4] : undefined;_classCallCheck(this, Draw);
@@ -11117,10 +11241,10 @@ Draw = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 258:
-/*!*****************************************************************************!*\
-  !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/gradient.js ***!
-  \*****************************************************************************/
+/***/ 266:
+/*!***********************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/pagesA/components/lime-painter/gradient.js ***!
+  \***********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11235,15 +11359,15 @@ function linearEffect(width, height, bg, ctx) {
 
 /***/ }),
 
-/***/ 259:
-/*!***************************************************************************!*\
-  !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/layout.js ***!
-  \***************************************************************************/
+/***/ 267:
+/*!*********************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/pagesA/components/lime-painter/layout.js ***!
+  \*********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 256);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.Layout = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));var _utils = __webpack_require__(/*! ./utils */ 264);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 Layout = /*#__PURE__*/function () {
   function Layout() {_classCallCheck(this, Layout);
@@ -11614,62 +11738,10 @@ Layout = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 26:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/guid.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
-                                                                                                      * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
-                                                                                                      * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
-                                                                                                      * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
-                                                                                                      * v-for的时候,推荐使用后端返回的id而不是循环的index
-                                                                                                      * @param {Number} len uuid的长度
-                                                                                                      * @param {Boolean} firstU 将返回的首字母置为"u"
-                                                                                                      * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
-                                                                                                      */
-function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-  var uuid = [];
-  radix = radix || chars.length;
-
-  if (len) {
-    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
-    for (var i = 0; i < len; i++) {uuid[i] = chars[0 | Math.random() * radix];}
-  } else {
-    var r;
-    // rfc4122标准要求返回的uuid中,某些位为固定的字符
-    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-    uuid[14] = '4';
-
-    for (var _i = 0; _i < 36; _i++) {
-      if (!uuid[_i]) {
-        r = 0 | Math.random() * 16;
-        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
-      }
-    }
-  }
-  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guuid不能用作id或者class
-  if (firstU) {
-    uuid.shift();
-    return 'u' + uuid.join('');
-  } else {
-    return uuid.join('');
-  }
-}var _default =
-
-guid;exports.default = _default;
-
-/***/ }),
-
-/***/ 260:
-/*!***************************************************************************!*\
-  !*** /Users/mac/code/driver1234/pagesA/components/lime-painter/canvas.js ***!
-  \***************************************************************************/
+/***/ 268:
+/*!*********************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/pagesA/components/lime-painter/canvas.js ***!
+  \*********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11735,9 +11807,9 @@ function adaptor(ctx) {
 /***/ }),
 
 /***/ 27:
-/*!******************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/color.js ***!
-  \******************************************************************/
+/*!************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/color.js ***!
+  \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11783,9 +11855,9 @@ color;exports.default = _default;
 /***/ }),
 
 /***/ 28:
-/*!**********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/type2icon.js ***!
-  \**********************************************************************/
+/*!****************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/type2icon.js ***!
+  \****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11829,9 +11901,9 @@ type2icon;exports.default = _default;
 /***/ }),
 
 /***/ 29:
-/*!************************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/randomArray.js ***!
-  \************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/randomArray.js ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11878,9 +11950,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 30:
-/*!********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/addUnit.js ***!
-  \********************************************************************/
+/*!**************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/addUnit.js ***!
+  \**************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11897,9 +11969,9 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 /***/ }),
 
 /***/ 31:
-/*!*******************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/random.js ***!
-  \*******************************************************************/
+/*!*************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/random.js ***!
+  \*************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11918,9 +11990,9 @@ random;exports.default = _default;
 /***/ }),
 
 /***/ 32:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/trim.js ***!
-  \*****************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/trim.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11944,9 +12016,9 @@ trim;exports.default = _default;
 /***/ }),
 
 /***/ 33:
-/*!******************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/toast.js ***!
-  \******************************************************************/
+/*!************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/toast.js ***!
+  \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11965,9 +12037,9 @@ toast;exports.default = _default;
 /***/ }),
 
 /***/ 34:
-/*!**********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/getParent.js ***!
-  \**********************************************************************/
+/*!****************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/getParent.js ***!
+  \****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12023,9 +12095,9 @@ function getParent(name, keys) {
 /***/ }),
 
 /***/ 35:
-/*!********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/$parent.js ***!
-  \********************************************************************/
+/*!**************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/$parent.js ***!
+  \**************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12052,9 +12124,9 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 /***/ }),
 
 /***/ 36:
-/*!****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/sys.js ***!
-  \****************************************************************/
+/*!**********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/sys.js ***!
+  \**********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12071,9 +12143,9 @@ function sys() {
 /***/ }),
 
 /***/ 37:
-/*!*********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/debounce.js ***!
-  \*********************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/debounce.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12111,9 +12183,9 @@ debounce;exports.default = _default;
 /***/ }),
 
 /***/ 38:
-/*!*********************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/function/throttle.js ***!
-  \*********************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/function/throttle.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12154,9 +12226,9 @@ throttle;exports.default = _default;
 /***/ }),
 
 /***/ 39:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/config/config.js ***!
-  \*****************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/config/config.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12178,9 +12250,9 @@ var version = '1.8.3';var _default =
 /***/ }),
 
 /***/ 4:
-/*!*********************************************!*\
-  !*** /Users/mac/code/driver1234/pages.json ***!
-  \*********************************************/
+/*!***************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/pages.json ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -12189,9 +12261,9 @@ var version = '1.8.3';var _default =
 /***/ }),
 
 /***/ 40:
-/*!*****************************************************************!*\
-  !*** /Users/mac/code/driver1234/uview-ui/libs/config/zIndex.js ***!
-  \*****************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/uview-ui/libs/config/zIndex.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12219,9 +12291,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 41:
-/*!*************************************************!*\
-  !*** /Users/mac/code/driver1234/store/index.js ***!
-  \*************************************************/
+/*!*******************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/store/index.js ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12244,9 +12316,9 @@ store;exports.default = _default;
 /***/ }),
 
 /***/ 42:
-/*!*************************************************!*\
-  !*** /Users/mac/code/driver1234/store/state.js ***!
-  \*************************************************/
+/*!*******************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/store/state.js ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12269,9 +12341,9 @@ state;exports.default = _default;
 /***/ }),
 
 /***/ 43:
-/*!*****************************************************!*\
-  !*** /Users/mac/code/driver1234/store/mutations.js ***!
-  \*****************************************************/
+/*!***********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/store/mutations.js ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12318,9 +12390,9 @@ mutations;exports.default = _default;
 /***/ }),
 
 /***/ 44:
-/*!***************************************************!*\
-  !*** /Users/mac/code/driver1234/store/getters.js ***!
-  \***************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/store/getters.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12337,9 +12409,9 @@ getters;exports.default = _default;
 /***/ }),
 
 /***/ 45:
-/*!***************************************************!*\
-  !*** /Users/mac/code/driver1234/store/actions.js ***!
-  \***************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/store/actions.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12389,30 +12461,20 @@ var actions = {
       } });
 
   },
-  getUserInfo: function getUserInfo(_ref3,
-
-
-  obj) {var dispatch = _ref3.dispatch,commit = _ref3.commit;
-    uni.getUserInfo({
-      success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                  commit('setUserInfo', res.userInfo);
-                  dispatch('login', _objectSpread(_objectSpread({}, obj), {}, { userInfo: res.userInfo }));case 2:case "end":return _context.stop();}}}, _callee);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
-
-
-  },
-  login: function login(_ref4, _ref5)
+  login: function login(_ref3, _ref4)
 
 
 
 
 
 
-  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var commit, state, isAuthor, encryptedData, iv, callBack, userInfo, loginRes, _ref6, userId, openId, phone, codeRes;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:commit = _ref4.commit, state = _ref4.state;isAuthor = _ref5.isAuthor, encryptedData = _ref5.encryptedData, iv = _ref5.iv, callBack = _ref5.callBack, userInfo = _ref5.userInfo;if (
-              state.loginCode) {_context2.next = 5;break;}
+  {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var commit, state, isAuthor, encryptedData, iv, callBack, user, loginRes, _ref5, userId, openId, phone, codeRes;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:commit = _ref3.commit, state = _ref3.state;isAuthor = _ref4.isAuthor, encryptedData = _ref4.encryptedData, iv = _ref4.iv, callBack = _ref4.callBack;
+              console.log(iv);if (
+              state.loginCode) {_context.next = 6;break;}
               uni.showToast({
                 icon: "none",
                 title: '网络错误,请重新进入小程序',
-                position: 'center' });return _context2.abrupt("return");case 5:
+                position: 'center' });return _context.abrupt("return");case 6:
 
 
 
@@ -12423,25 +12485,27 @@ var actions = {
                   position: 'center' });
 
               }
+              user = state.userInfo;
               if (state.shareCode) {
-                userInfo.referrerId = state.shareCode;
-              }_context2.next = 9;return (
+                user.referrerId = state.shareCode;
+              }_context.next = 11;return (
                 _main.default.$u.api.login({
                   code: state.loginCode,
-                  userInfo: userInfo,
+                  userInfo: user,
                   iv: iv,
-                  encryptedData: encryptedData }));case 9:loginRes = _context2.sent;_ref6 =
+                  encryptedData: encryptedData }));case 11:loginRes = _context.sent;
+
+              console.log(loginRes);_ref5 =
 
 
 
 
-
-              loginRes.data || {}, userId = _ref6.userId, openId = _ref6.openId, phone = _ref6.phone;
+              loginRes.data || {}, userId = _ref5.userId, openId = _ref5.openId, phone = _ref5.phone;
               commit('setPhoneNumber', phone);
               commit('setUserInfo', _objectSpread(_objectSpread({}, state.userInfo), loginRes.data));
               commit('setOpenid', openId);
-              commit('setUserId', userId);_context2.next = 17;return (
-                _main.default.$u.api.getQRcode(userId));case 17:codeRes = _context2.sent;
+              commit('setUserId', userId);_context.next = 20;return (
+                _main.default.$u.api.getQRcode(userId));case 20:codeRes = _context.sent;
               commit('setWXCode', codeRes);
               callBack && callBack();
               if (isAuthor) {
@@ -12451,7 +12515,7 @@ var actions = {
                   duration: 1000,
                   position: 'center' });
 
-              }case 21:case "end":return _context2.stop();}}}, _callee2);}))();
+              }case 24:case "end":return _context.stop();}}}, _callee);}))();
   } };var _default =
 
 actions;exports.default = _default;
@@ -12460,9 +12524,9 @@ actions;exports.default = _default;
 /***/ }),
 
 /***/ 46:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/constant.js ***!
-  \****************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/utils/constant.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12474,9 +12538,9 @@ var MAP_KEY = 'eafc0c5af4f9941bc25135721cef4dd7';exports.MAP_KEY = MAP_KEY;
 /***/ }),
 
 /***/ 47:
-/*!********************************************************!*\
-  !*** /Users/mac/code/driver1234/static/amap-wx.130.js ***!
-  \********************************************************/
+/*!**************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/static/amap-wx.130.js ***!
+  \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -12515,9 +12579,9 @@ AMapWX.prototype.getRidingRoute = function (a) {var b = Object.assign({}, this.r
 /***/ }),
 
 /***/ 48:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.api.js ***!
-  \****************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/utils/http.api.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12546,10 +12610,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
 var install = function install(Vue, vm) {
 
   var login = function login() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.loginUrl, params);};
   var getQRcode = function getQRcode(params) {return vm.$u.get("".concat(_http.getQRcodeUrl, "/").concat(params));};
+  var getMyTeam = function getMyTeam(params) {return vm.$u.get("".concat(_http.getMyTeamUrl), params);};
 
   var imgSearch = function imgSearch() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};return vm.$u.post(_http.imgSearchUrl);};
   var getQuestion = function getQuestion() {return vm.$u.get(_http.getQuestionUrl);};
@@ -12588,6 +12654,7 @@ var install = function install(Vue, vm) {
     deleteNoAnswer: deleteNoAnswer,
     saveNoAnswerQuestion: saveNoAnswerQuestion,
     saveQuestion: saveQuestion,
+    getMyTeam: getMyTeam,
 
     withdraw: withdraw,
     getMemberPrice: getMemberPrice,
@@ -12606,14 +12673,14 @@ var install = function install(Vue, vm) {
 /***/ }),
 
 /***/ 49:
-/*!****************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.url.js ***!
-  \****************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/utils/http.url.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.saveNoAnswerQuestionUrl = exports.saveQuestionUrl = exports.deleteNoAnswerUrl = exports.noAnswerQuestionUrl = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getImgCountUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
+Object.defineProperty(exports, "__esModule", { value: true });exports.location = exports.saveNoAnswerQuestionUrl = exports.saveQuestionUrl = exports.deleteNoAnswerUrl = exports.noAnswerQuestionUrl = exports.answerRecordUrl = exports.saveAnswerRecordUrl = exports.prePayUrl = exports.getSetMealUrl = exports.getMemberPriceUrl = exports.withdrawUrl = exports.getMyTeamUrl = exports.getImgCountUrl = exports.getUserUrl = exports.searchQuestionUrl = exports.getQuestionUrl = exports.imgSearchUrl = exports.getQRcodeUrl = exports.loginUrl = exports.BASE_URL = void 0;var BASE_URL = 'https://changpingwanglou.cn/cheguan';exports.BASE_URL = BASE_URL;
 
 var loginUrl = 'user/login';exports.loginUrl = loginUrl;
 var getQRcodeUrl = 'user/getCode';exports.getQRcodeUrl = getQRcodeUrl;
@@ -12623,6 +12690,7 @@ var getQuestionUrl = 'question/20Question';exports.getQuestionUrl = getQuestionU
 var searchQuestionUrl = 'question/searchQuestion';exports.searchQuestionUrl = searchQuestionUrl;
 var getUserUrl = 'user/getUser';exports.getUserUrl = getUserUrl;
 var getImgCountUrl = 'user/getImgCount';exports.getImgCountUrl = getImgCountUrl;
+var getMyTeamUrl = 'user/getMyTeam';exports.getMyTeamUrl = getMyTeamUrl;
 
 var withdrawUrl = 'wxPay/withdraw';exports.withdrawUrl = withdrawUrl;
 var getMemberPriceUrl = 'wxPay/getMemberPrice';exports.getMemberPriceUrl = getMemberPriceUrl;
@@ -12638,16 +12706,15 @@ var deleteNoAnswerUrl = 'question/deleteNoAnswer';exports.deleteNoAnswerUrl = de
 var saveQuestionUrl = 'question/saveQuestion';exports.saveQuestionUrl = saveQuestionUrl;
 var saveNoAnswerQuestionUrl = 'question/saveNoAnswerQuestion';exports.saveNoAnswerQuestionUrl = saveNoAnswerQuestionUrl;
 
-
 var location = 'https://restapi.amap.com/v3/geocode/regeo'; // 高德地图
 exports.location = location;
 
 /***/ }),
 
 /***/ 50:
-/*!************************************************************!*\
-  !*** /Users/mac/code/driver1234/utils/http.interceptor.js ***!
-  \************************************************************/
+/*!******************************************************************************************************************************!*\
+  !*** G:/weCatData/WeChat Files/wxid_fbptqyyvlg4x22/FileStorage/File/2021-05/driver1234/driver1234/utils/http.interceptor.js ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

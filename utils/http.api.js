@@ -14,6 +14,7 @@ import {
 	jscode2session,
 	answerRecordUrl,
 	getImgCountUrl,
+	getMyTeamUrl,
 	
 	noAnswerQuestionUrl,
 	deleteNoAnswerUrl,
@@ -26,6 +27,7 @@ const install = (Vue, vm) => {
 
 	const login = (params = {}) => vm.$u.post(loginUrl, params);
 	const getQRcode = (params) => vm.$u.get(`${getQRcodeUrl}/${params}`);
+	const getMyTeam = (params) => vm.$u.get(`${getMyTeamUrl}`,params);
 
 	const imgSearch = (params = {}) => vm.$u.post(imgSearchUrl);
 	const getQuestion = () => vm.$u.get(getQuestionUrl);
@@ -64,6 +66,7 @@ const install = (Vue, vm) => {
 		deleteNoAnswer,
 		saveNoAnswerQuestion,
 		saveQuestion,
+		getMyTeam,
 		
 		withdraw,
 		getMemberPrice,
